@@ -2,10 +2,10 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 /**
- * num 小于0，左缩进num*2个空格； 大于0，右缩进num*2个空格。
- * @param {string} str 代码
- * @param {number} num 缩进次数
- * @param {number} len 【可選】缩进单位，空格数
+ * num 小于0，左缩進num*2个空格； 大于0，右缩進num*2个空格。
+ * @param {string} str 代碼
+ * @param {number} num 缩進次数
+ * @param {number} len 【可選】缩進單位，空格数
  */
 export function indent(str, num, len = 2) {
   if (num === 0) return str

@@ -14,7 +14,7 @@
           </el-form-item>
           <el-form-item label="狀態" prop="status"><el-select
             v-model="queryParams.status"
-            placeholder="系统登录日志狀態"
+            placeholder="系统Login日志狀態"
             clearable
             size="small"
           >
@@ -64,7 +64,7 @@
             :show-overflow-tooltip="true"
           />
           <el-table-column
-            label="类型"
+            label="類型"
             align="center"
             prop="msg"
             :show-overflow-tooltip="true"
@@ -100,7 +100,7 @@
           </el-table-column>
 
           <el-table-column
-            label="登录时间"
+            label="Login時间"
             align="center"
             prop="loginTime"
             width="180"
@@ -148,7 +148,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -161,11 +161,11 @@ export default {
       isEdit: false,
       fileOpen: false,
       fileIndex: undefined,
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       sysloginlogList: [],
       statusOptions: [],
-      // 关系表类型
+      // 关系表類型
 
       // 查询参数
       queryParams: {
@@ -177,10 +177,10 @@ export default {
         loginLocation: undefined,
         createdAtOrder: 'desc'
       },
-      // 表单参数
+      // 表單参数
       form: {
       },
-      // 表单校验
+      // 表單校验
       rules: {
       }
     }
@@ -207,7 +207,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         ID: undefined,
@@ -250,7 +250,7 @@ export default {
     handleAdd() {
       this.reset()
       this.open = true
-      this.title = '新增系统登录日志'
+      this.title = '新增系统Login日志'
       this.isEdit = false
     },
     // 多選框選中資料
@@ -267,7 +267,7 @@ export default {
       getSysLoginlog(ID).then(response => {
         this.form = response.data
         this.open = true
-        this.title = '修改系统登录日志'
+        this.title = '修改系统Login日志'
         this.isEdit = true
       })
     },

@@ -9,7 +9,7 @@
           <div class="setting-drawer-block-checbox-item" @click="handleTheme('light')">
             <img src="@/assets/light.svg" alt="light">
             <div v-if="themeStyle === 'light'" class="setting-drawer-block-checbox-selectIcon" style="display: block;">
-              <i aria-label="图标: check" class="anticon anticon-check">
+              <i aria-label="Icon: check" class="anticon anticon-check">
                 <svg viewBox="64 64 896 896" data-icon="check" width="1em" height="1em" :fill="theme" aria-hidden="true" focusable="false" class=""><path d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z" />
                 </svg>
               </i>
@@ -18,7 +18,7 @@
           <div class="setting-drawer-block-checbox-item" @click="handleTheme('dark')">
             <img src="@/assets/dark.svg" alt="dark">
             <div v-if="themeStyle === 'dark'" class="setting-drawer-block-checbox-selectIcon" style="display: block;">
-              <i aria-label="图标: check" class="anticon anticon-check">
+              <i aria-label="Icon: check" class="anticon anticon-check">
                 <svg viewBox="64 64 896 896" data-icon="check" width="1em" height="1em" :fill="theme" aria-hidden="true" focusable="false" class=""><path d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z" />
                 </svg>
               </i>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="drawer-item">
-          <span>开啟任务栏</span>
+          <span>开啟任務栏</span>
           <el-switch v-model="tagsView" :active-color="activeColor" class="drawer-switch" />
         </div>
 

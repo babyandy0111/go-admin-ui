@@ -29,7 +29,7 @@
       </div>
       <div class="login-border">
         <div class="login-main">
-          <div class="login-title">用户登录</div>
+          <div class="login-title">用户Login</div>
           <el-form
             ref="loginForm"
             :model="loginForm"
@@ -68,7 +68,7 @@
                   ref="password"
                   v-model="loginForm.password"
                   :type="passwordType"
-                  placeholder="密码"
+                  placeholder="密碼"
                   name="password"
                   tabindex="2"
                   autocomplete="on"
@@ -92,7 +92,7 @@
               <el-input
                 ref="username"
                 v-model="loginForm.code"
-                placeholder="验证码"
+                placeholder="验证碼"
                 name="username"
                 type="text"
                 tabindex="3"
@@ -205,10 +205,10 @@ export default {
           { required: true, trigger: 'blur', message: '用户名不能為空' }
         ],
         password: [
-          { required: true, trigger: 'blur', message: '密码不能為空' }
+          { required: true, trigger: 'blur', message: '密碼不能為空' }
         ],
         code: [
-          { required: true, trigger: 'change', message: '验证码不能為空' }
+          { required: true, trigger: 'change', message: '验证碼不能為空' }
         ]
       },
       passwordType: 'password',
@@ -264,7 +264,7 @@ export default {
     },
     getCurrentTime() {
       this.timer = setInterval((_) => {
-        this.currentTime = moment().format('YYYY-MM-DD HH时mm分ss秒')
+        this.currentTime = moment().format('YYYY-MM-DD HH時mm分ss秒')
       }, 1000)
     },
     getCode() {

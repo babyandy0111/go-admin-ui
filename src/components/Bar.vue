@@ -34,7 +34,7 @@ export default {
           min: 2
         }, {
           dataKey: 'y',
-          title: '时间',
+          title: '時间',
           min: 1,
           max: 22
         }]

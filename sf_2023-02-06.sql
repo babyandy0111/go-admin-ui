@@ -298,7 +298,7 @@ LOCK TABLES `sys_config` WRITE;
 INSERT INTO `sys_config` (`id`, `config_name`, `config_key`, `config_value`, `config_type`, `is_frontend`, `remark`, `create_by`, `update_by`, `created_at`, `updated_at`, `deleted_at`)
 VALUES
 	(1,'主題樣式','sys_index_skinName','skin-blue','Y','0','主框架頁-默認主題樣式名稱:藍色 skin-blue、綠色 skin-green、紫色 skin-purple、紅色 skin-red、黃色 skin-yellow',1,1,'2021-05-13 19:56:37.913','2023-02-06 16:13:41.447',NULL),
-	(2,'初始密碼','sys_user_initPassword','123456','Y','0','使用者管理-賬號初始密碼:123456',1,1,'2021-05-13 19:56:37.913','2021-05-13 19:56:37.913',NULL),
+	(2,'初始密碼','sys_user_initPassword','123456','Y','0','使用者管理-帳號初始密碼:123456',1,1,'2021-05-13 19:56:37.913','2021-05-13 19:56:37.913',NULL),
 	(3,'側欄主題','sys_index_sideTheme','theme-dark','Y','0','主框架頁-側邊欄主題:深色主題theme-dark，淺色主題theme-light',1,1,'2021-05-13 19:56:37.913','2021-05-13 19:56:37.913',NULL),
 	(4,'系統名稱','sys_app_name','業績管理系統','Y','1','',1,0,'2021-03-17 08:52:06.067','2023-02-06 15:54:29.844',NULL),
 	(5,'系統logo','sys_app_logo','http://localhost:8000/static/uploadfile/d9407063-2d3a-4fa4-a6c9-2182313b0773.png','Y','1','',1,0,'2021-03-17 08:53:19.462','2023-02-06 16:13:30.267',NULL);

@@ -13,7 +13,7 @@ export const formConf = {
 
 export const inputComponents = [
   {
-    label: '单行文本',
+    label: '單行文本',
     tag: 'el-input',
     tagIcon: 'input',
     placeholder: '請輸入',
@@ -59,7 +59,7 @@ export const inputComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/input'
   },
   {
-    label: '密码',
+    label: '密碼',
     tag: 'el-input',
     tagIcon: 'password',
     placeholder: '請輸入',
@@ -106,10 +106,10 @@ export const inputComponents = [
 
 export const selectComponents = [
   {
-    label: '下拉選择',
+    label: '下拉選擇',
     tag: 'el-select',
     tagIcon: 'select',
-    placeholder: '請選择',
+    placeholder: '請選擇',
     defaultValue: undefined,
     span: 24,
     labelWidth: null,
@@ -131,10 +131,10 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/select'
   },
   {
-    label: '级联選择',
+    label: '级联選擇',
     tag: 'el-cascader',
     tagIcon: 'cascader',
-    placeholder: '請選择',
+    placeholder: '請選擇',
     defaultValue: [],
     span: 24,
     labelWidth: null,
@@ -169,7 +169,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/cascader'
   },
   {
-    label: '单選框组',
+    label: '單選框组',
     tag: 'el-radio-group',
     tagIcon: 'radio',
     defaultValue: undefined,
@@ -255,10 +255,10 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/slider'
   },
   {
-    label: '时间選择',
+    label: '時间選擇',
     tag: 'el-time-picker',
     tagIcon: 'time',
-    placeholder: '請選择',
+    placeholder: '請選擇',
     defaultValue: null,
     span: 24,
     labelWidth: null,
@@ -276,7 +276,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
   },
   {
-    label: '时间範圍',
+    label: '時间範圍',
     tag: 'el-time-picker',
     tagIcon: 'time-range',
     defaultValue: null,
@@ -288,8 +288,8 @@ export const selectComponents = [
     required: true,
     'is-range': true,
     'range-separator': '至',
-    'start-placeholder': '開始时间',
-    'end-placeholder': '结束时间',
+    'start-placeholder': '開始時间',
+    'end-placeholder': '结束時间',
     format: 'HH:mm:ss',
     'value-format': 'HH:mm:ss',
     regList: [],
@@ -297,10 +297,10 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
   },
   {
-    label: '日期選择',
+    label: '日期選擇',
     tag: 'el-date-picker',
     tagIcon: 'date',
-    placeholder: '請選择',
+    placeholder: '請選擇',
     defaultValue: null,
     type: 'date',
     span: 24,
@@ -357,7 +357,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/rate'
   },
   {
-    label: '颜色選择',
+    label: '颜色選擇',
     tag: 'el-color-picker',
     tagIcon: 'color',
     defaultValue: null,

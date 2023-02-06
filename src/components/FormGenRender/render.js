@@ -108,13 +108,13 @@ export default {
     const confClone = deepClone(this.conf)
     const children = this.$slots.default || []
 
-    // 如果slots文件夹存在与当前tag同名的文件，则执行文件中的代码
+    // 如果slots文件夹存在与当前tag同名的文件，则执行文件中的代碼
     mountSlotFiles.call(this, h, confClone, children)
 
-    // 将字符串类型的事件，发送為消息
+    // 将字符串類型的事件，发送為消息
     emitEvents.call(this, confClone)
 
-    // 将json表单設定转化為vue render可以识别的 “資料对象（dataObject）”
+    // 将json表單設定转化為vue render可以识别的 “資料对象（dataObject）”
     buildDataObject.call(this, confClone, dataObject)
 
     return h(this.conf.__config__.tag, dataObject, children)

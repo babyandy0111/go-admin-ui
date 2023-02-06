@@ -1,12 +1,12 @@
 <template>
   <el-form ref="form" :model="user" :rules="rules" label-width="80px">
-    <el-form-item label="用户昵称" prop="nickName">
+    <el-form-item label="暱稱" prop="nickName">
       <el-input v-model="user.nickName" />
     </el-form-item>
-    <el-form-item label="手机号码" prop="phone">
+    <el-form-item label="手機號碼" prop="phone">
       <el-input v-model="user.phone" maxlength="11" />
     </el-form-item>
-    <el-form-item label="邮箱" prop="email">
+    <el-form-item label="E-mail" prop="email">
       <el-input v-model="user.email" maxlength="50" />
     </el-form-item>
     <el-form-item label="性别">
@@ -32,24 +32,24 @@ export default {
   },
   data() {
     return {
-      // 表单校验
+      // 表單校验
       rules: {
         nickName: [
-          { required: true, message: '用户昵称不能為空', trigger: 'blur' }
+          { required: true, message: '暱稱不能為空', trigger: 'blur' }
         ],
         email: [
-          { required: true, message: '邮箱地址不能為空', trigger: 'blur' },
+          { required: true, message: 'E-mail地址不能為空', trigger: 'blur' },
           {
             type: 'email',
-            message: "'請輸入正確的邮箱地址",
+            message: "'請輸入正確的E-mail地址",
             trigger: ['blur', 'change']
           }
         ],
         phone: [
-          { required: true, message: '手机号码不能為空', trigger: 'blur' },
+          { required: true, message: '手機號碼不能為空', trigger: 'blur' },
           {
             pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
-            message: '請輸入正確的手机号码',
+            message: '請輸入正確的手機號碼',
             trigger: 'blur'
           }
         ]

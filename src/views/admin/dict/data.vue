@@ -114,7 +114,7 @@
         <!-- 新增或修改参数設定对话框 -->
         <el-dialog :title="title" :visible.sync="open" width="500px" :close-on-click-modal="false">
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-            <el-form-item label="字典类型">
+            <el-form-item label="字典類型">
               <el-input v-model="form.dictType" :disabled="true" />
             </el-form-item>
             <el-form-item label="資料标签" prop="dictLabel">
@@ -161,7 +161,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -169,7 +169,7 @@ export default {
       total: 0,
       // 字典表格資料
       dataList: [],
-      // 默認字典类型
+      // 默認字典類型
       defaultDictType: '',
       // 弹出层标题
       title: '',
@@ -178,7 +178,7 @@ export default {
       open: false,
       // 狀態資料字典
       statusOptions: [],
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       // 查询参数
       queryParams: {
@@ -188,9 +188,9 @@ export default {
         dictType: undefined,
         status: undefined
       },
-      // 表单参数
+      // 表單参数
       form: {},
-      // 表单校验
+      // 表單校验
       rules: {
         dictLabel: [
           { required: true, message: '資料标签不能為空', trigger: 'blur' }
@@ -213,7 +213,7 @@ export default {
     })
   },
   methods: {
-    /** 查询字典类型详细 */
+    /** 查询字典類型详细 */
     getType(dictId) {
       getType(dictId).then(response => {
         this.queryParams.dictType = response.data.dictType
@@ -221,7 +221,7 @@ export default {
         this.getList()
       })
     },
-    /** 查询字典类型列表 */
+    /** 查询字典類型列表 */
     getTypeList() {
       listType({ pageSize: 1000 }).then(response => {
         this.typeOptions = response.data.list
@@ -245,7 +245,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         dictCode: undefined,

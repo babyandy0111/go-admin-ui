@@ -69,7 +69,7 @@ export function formatTime(time, option) {
     // less 1 hour
     return Math.ceil(diff / 60) + '分钟前'
   } else if (diff < 3600 * 24) {
-    return Math.ceil(diff / 3600) + '小时前'
+    return Math.ceil(diff / 3600) + '小時前'
   } else if (diff < 3600 * 24 * 2) {
     return '1天前'
   }
@@ -83,7 +83,7 @@ export function formatTime(time, option) {
       d.getDate() +
       '日' +
       d.getHours() +
-      '时' +
+      '時' +
       d.getMinutes() +
       '分'
     )
@@ -249,15 +249,15 @@ export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 
   const later = function() {
-    // 据上一次触发时间间隔
+    // 据上一次触发時间间隔
     const last = +new Date() - timestamp
 
-    // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
+    // 上次被包装函数被调用時间间隔 last 小于设定時间间隔 wait
     if (last < wait && last > 0) {
       timeout = setTimeout(later, wait - last)
     } else {
       timeout = null
-      // 如果设定為immediate===true，因為開始边界已经调用过了此处無需调用
+      // 如果设定為immediate===true，因為開始边界已经调用過了此处無需调用
       if (!immediate) {
         result = func.apply(context, args)
         if (!timeout) context = args = null
@@ -269,7 +269,7 @@ export function debounce(func, wait, immediate) {
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout
-    // 如果延时不存在，重新设定延时
+    // 如果延時不存在，重新设定延時
     if (!timeout) timeout = setTimeout(later, wait)
     if (callNow) {
       result = func.apply(context, args)

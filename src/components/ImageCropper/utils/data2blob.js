@@ -1,5 +1,5 @@
 /**
- * database64文件格式转换為2进制
+ * database64文件格式转换為2進制
  *
  * @param  {[String]} data dataURL 的格式為 “data:image/png;base64,****”,逗号之前都是一些说明性的文字，我们只需要逗号之後的就行了
  * @param  {[String]} mime [description]

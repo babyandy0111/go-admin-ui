@@ -25,12 +25,12 @@
             </template>
           </el-table-column>
           <el-table-column
-            label="物理类型"
+            label="物理類型"
             prop="columnType"
             width="120"
             :show-overflow-tooltip="true"
           />
-          <el-table-column label="go类型" width="120">
+          <el-table-column label="go類型" width="120">
             <template slot-scope="scope">
               <el-select v-model="scope.row.goType">
                 <el-option label="int64" value="int64" />
@@ -90,13 +90,13 @@
               <el-checkbox v-model="scope.row.isRequired" true-label="1" />
             </template>
           </el-table-column>
-          <el-table-column label="顯示类型" width="140">
+          <el-table-column label="顯示類型" width="140">
             <template slot-scope="scope">
               <el-select v-model="scope.row.htmlType">
                 <el-option label="文本框" value="input" />
                 <el-option label="下拉框" value="select" />
-                <el-option label="单選框" value="radio" />
-                <!-- <el-option label="文件選择" value="file" /> -->
+                <el-option label="單選框" value="radio" />
+                <!-- <el-option label="文件選擇" value="file" /> -->
                 <!-- <el-option label="复選框" value="checkbox" />
                 <el-option label="日期控件" value="datetime" />-->
                 <el-option label="文本域" value="textarea" />
@@ -104,9 +104,9 @@
               </el-select>
             </template>
           </el-table-column>
-          <el-table-column label="字典类型" width="160">
+          <el-table-column label="字典類型" width="160">
             <template slot-scope="scope">
-              <el-select v-model="scope.row.dictType" clearable filterable placeholder="請選择">
+              <el-select v-model="scope.row.dictType" clearable filterable placeholder="請選擇">
                 <el-option
                   v-for="dict in dictOptions"
                   :key="dict.dictType"
@@ -121,7 +121,7 @@
           </el-table-column>
           <el-table-column label="关系表" width="160">
             <template slot-scope="scope">
-              <el-select v-model="scope.row.fkTableName" clearable filterable placeholder="請選择" @change="handleChangeConfig(scope.row,scope.$index)">
+              <el-select v-model="scope.row.fkTableName" clearable filterable placeholder="請選擇" @change="handleChangeConfig(scope.row,scope.$index)">
                 <el-option
                   v-for="table in tableTree"
                   :key="table.tableName"
@@ -136,7 +136,7 @@
           </el-table-column>
           <el-table-column label="关系表key" width="150">
             <template slot-scope="scope">
-              <el-select v-model="scope.row.fkLabelId" clearable filterable placeholder="請選择">
+              <el-select v-model="scope.row.fkLabelId" clearable filterable placeholder="請選擇">
                 <el-option
                   v-for="column in scope.row.fkCol"
                   :key="column.columnName"
@@ -151,7 +151,7 @@
           </el-table-column>
           <el-table-column label="关系表value" width="150">
             <template slot-scope="scope">
-              <el-select v-model="scope.row.fkLabelName" clearable filterable placeholder="請選择">
+              <el-select v-model="scope.row.fkLabelName" clearable filterable placeholder="請選擇">
                 <el-option
                   v-for="column in scope.row.fkCol"
                   :key="column.columnName"
@@ -209,7 +209,7 @@ export default {
   beforeCreate() {
     getTableTree().then(response => {
       this.tableTree = response.data
-      this.tableTree.unshift({ tableId: 0, className: '請選择' })
+      this.tableTree.unshift({ tableId: 0, className: '請選擇' })
     })
     const { tableId } = this.$route.query
     if (tableId) {
@@ -225,8 +225,8 @@ export default {
         this.columns.forEach(item => {
           this.tableTree.filter(function(e) {
             if (e.tableId === item.fkTableNameClass) {
-              item.fkCol = e.columns || [{ columnId: 0, columnName: '請選择' }]
-              // item.fkCol.unshift({ columnId: 0, columnName: '請選择' })
+              item.fkCol = e.columns || [{ columnId: 0, columnName: '請選擇' }]
+              // item.fkCol.unshift({ columnId: 0, columnName: '請選擇' })
             }
           })
         })
@@ -247,7 +247,7 @@ export default {
           'el-popover',
           { props: { placement: 'top-start', width: '270', trigger: 'hover' }},
           [
-            h('p', '是否在表单编辑时能够编辑，打√表示需要', { class: 'text-align: center; margin: 0' }),
+            h('p', '是否在表單编辑時能够编辑，打√表示需要', { class: 'text-align: center; margin: 0' }),
             // 生成 i 标签 ，新增icon 设置 样式，slot 必填
             h('i', { class: 'el-icon-question', style: 'color:#ccc,padding-top:5px', slot: 'reference' })
           ]
@@ -285,7 +285,7 @@ export default {
       this.tableTree.filter(function(item) {
         if (item.tableName === row.fkTableName) {
           row.fkCol = item.columns
-          // row.fkCol.unshift({ columnId: 0, columnName: '請選择' })
+          // row.fkCol.unshift({ columnId: 0, columnName: '請選擇' })
         }
       })
     },
@@ -314,14 +314,14 @@ export default {
             }
           })
         } else {
-          this.msgError('表单校验未通过，請重新检查提交内容')
+          this.msgError('表單校验未通過，請重新检查提交内容')
         }
       })
     },
     getTables() {
       getTableTree().then(response => {
         this.tableTree = response.data
-        this.tableTree.unshift({ tableId: 0, className: '請選择' })
+        this.tableTree.unshift({ tableId: 0, className: '請選擇' })
       })
     },
     getTablesCol(tableName) {

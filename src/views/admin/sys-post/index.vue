@@ -172,7 +172,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -194,9 +194,9 @@ export default {
         postName: undefined,
         status: undefined
       },
-      // 表单参数
+      // 表單参数
       form: {},
-      // 表单校验
+      // 表單校验
       rules: {
         postName: [
           { required: true, message: '職位名稱不能為空', trigger: 'blur' }
@@ -235,7 +235,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         postId: undefined,

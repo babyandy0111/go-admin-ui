@@ -30,7 +30,7 @@ export function downLoadFile(str) {
 /**
  * 解析blob响应内容并下载
  * @param {*} res blob响应内容
- * @param {String} mimeType MIME类型
+ * @param {String} mimeType MIME類型
  */
 export function resolveBlob(res, mimeType) {
   const aLink = document.createElement('a')

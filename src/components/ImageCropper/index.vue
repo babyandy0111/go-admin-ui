@@ -198,12 +198,12 @@ export default {
       type: Boolean,
       default: false
     },
-    // 单文件大小限制
+    // 單文件大小限制
     maxSize: {
       type: Number,
       default: 10240
     },
-    // 语言类型
+    // 语言類型
     langType: {
       type: String,
       default: 'zh'
@@ -250,8 +250,8 @@ export default {
       // 浏览器是否支持触屏事件
       isSupportTouch: document.hasOwnProperty('ontouchstart'),
       // 步骤
-      step: 1, // 1選择文件 2剪裁 3上传
-      // 上传狀態及进度
+      step: 1, // 1選擇文件 2剪裁 3上传
+      // 上传狀態及進度
       loading: 0, // 0未開始 1正在 2成功 3错误
       progress: 0,
       // 是否有错误及错误訊息
@@ -304,7 +304,7 @@ export default {
     }
   },
   computed: {
-    // 进度条样式
+    // 進度条样式
     progressStyle() {
       const { progress } = this
       return {
@@ -321,7 +321,7 @@ export default {
         left,
         width: scale.width + 'px',
         height: scale.height + 'px',
-        transform: 'rotate(' + scale.degree + 'deg)', // 旋转时 左侧原始图旋转样式
+        transform: 'rotate(' + scale.degree + 'deg)', // 旋转時 左侧原始图旋转样式
         '-ms-transform': 'rotate(' + scale.degree + 'deg)', // 兼容IE9
         '-moz-transform': 'rotate(' + scale.degree + 'deg)', // 兼容FireFox
         '-webkit-transform': 'rotate(' + scale.degree + 'deg)', // 兼容Safari 和 chrome
@@ -419,12 +419,12 @@ export default {
     },
     // 设置步骤
     setStep(no) {
-      // 延时是為了顯示动画效果呢，哈哈哈
+      // 延時是為了顯示动画效果呢，哈哈哈
       setTimeout(() => {
         this.step = no
       }, 200)
     },
-    /* 图片選择区域函数绑定
+    /* 图片選擇区域函数绑定
      ---------------------------------------------------------------*/
     preventDefault(e) {
       e.preventDefault()
@@ -451,7 +451,7 @@ export default {
       }
     },
     /* ---------------------------------------------------------------*/
-    // 检测選择的文件是否合适
+    // 检测選擇的文件是否合适
     checkFile(file) {
       const { lang, maxSize } = this
       // 僅限图片
@@ -484,7 +484,7 @@ export default {
       }
       fr.readAsDataURL(file)
     },
-    // 剪裁前准备工作
+    // 剪裁前準備工作
     startCrop() {
       const {
         width,
@@ -537,7 +537,7 @@ export default {
         this.setStep(2)
       }
     },
-    // 鼠标按下图片准备移动
+    // 鼠标按下图片準備移动
     imgStartMove(e) {
       e.preventDefault()
       // 支持触摸事件，则鼠标事件無效
@@ -690,7 +690,7 @@ export default {
       // 新坐标（根据蒙版中心点缩放）
       let nX = sWidth / 2 - (nWidth / width) * (sWidth / 2 - x)
       let nY = sHeight / 2 - (nHeight / height) * (sHeight / 2 - y)
-      // 判断新坐标是否超过蒙版限制
+      // 判断新坐标是否超過蒙版限制
       if (nX > 0) {
         nX = 0
       }
@@ -780,7 +780,7 @@ export default {
           fmData.append(k, params[k])
         })
       }
-      // 监听进度回调
+      // 監聽進度回调
       // const uploadProgress = (event) => {
       //   if (event.lengthComputable) {
       //     this.progress = 100 * Math.round(event.loaded) / event.total

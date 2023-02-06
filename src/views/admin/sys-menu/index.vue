@@ -42,13 +42,13 @@
           :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
         >
           <el-table-column prop="title" label="選單名稱" :show-overflow-tooltip="true" width="180px" />
-          <el-table-column prop="icon" label="图标" align="center" width="100px">
+          <el-table-column prop="icon" label="Icon" align="center" width="100px">
             <template slot-scope="scope">
               <svg-icon :icon-class="scope.row.icon" />
             </template>
           </el-table-column>
           <el-table-column prop="sort" label="排序" width="60px" />
-          <el-table-column prop="permission" label="權限标识" :show-overflow-tooltip="true">
+          <el-table-column prop="permission" label="權限標示" :show-overflow-tooltip="true">
             <template slot-scope="scope">
               <el-popover v-if="scope.row.sysApi.length>0" trigger="hover" placement="top">
                 <el-table
@@ -166,7 +166,7 @@
                       :options="menuOptions"
                       :normalizer="normalizer"
                       :show-count="true"
-                      placeholder="選择上级選單"
+                      placeholder="選擇上级選單"
                     />
                   </el-form-item>
                 </el-col>
@@ -196,7 +196,7 @@
                 <el-col :span="24">
                   <el-form-item prop="menuType">
                     <span slot="label">
-                      選單类型
+                      選單類型
                       <el-tooltip content="包含目录：以及選單或者選單组，選單：具体对应某一个頁面，按钮：功能才做按钮；" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
@@ -209,7 +209,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="選單图标">
+                  <el-form-item label="選單Icon">
                     <el-popover
                       placement="bottom-start"
                       width="460"
@@ -217,7 +217,7 @@
                       @show="$refs['iconSelect'].reset()"
                     >
                       <IconSelect ref="iconSelect" @selected="selected" />
-                      <el-input slot="reference" v-model="form.icon" placeholder="点击選择图标" readonly>
+                      <el-input slot="reference" v-model="form.icon" placeholder="点击選擇Icon" readonly>
                         <svg-icon
                           v-if="form.icon"
                           slot="prefix"
@@ -234,7 +234,7 @@
                   <el-form-item v-if="form.menuType == 'M' || form.menuType == 'C'" prop="menuName">
                     <span slot="label">
                       路由名稱
-                      <el-tooltip content="需要和頁面name保持一致，对应頁面即可選择缓存" placement="top">
+                      <el-tooltip content="需要和頁面name保持一致，对应頁面即可選擇缓存" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -246,7 +246,7 @@
                   <el-form-item prop="component">
                     <span slot="label">
                       组件路径
-                      <el-tooltip content="選單对应的具体vue頁面文件路径views的下级路径/admin/sys-api/index；目录类型：填写Layout，如何有二级目录請参照日志目录填写；" placement="top">
+                      <el-tooltip content="選單对应的具体vue頁面文件路径views的下级路径/admin/sys-api/index；目录類型：填写Layout，如何有二级目录請参照日志目录填写；" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -258,7 +258,7 @@
                   <el-form-item v-if="form.menuType == 'M' || form.menuType == 'C'">
                     <span slot="label">
                       是否外链
-                      <el-tooltip content="可以通过iframe打开指定地址" placement="top">
+                      <el-tooltip content="可以通過iframe打开指定地址" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -284,12 +284,12 @@
                 <el-col :span="12">
                   <el-form-item v-if="form.menuType == 'F' || form.menuType == 'C'">
                     <span slot="label">
-                      權限标识
+                      權限標示
                       <el-tooltip content="前端權限控制按钮是否顯示" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
-                    <el-input v-model="form.permission" placeholder="請權限标识" maxlength="50" />
+                    <el-input v-model="form.permission" placeholder="請權限標示" maxlength="50" />
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
@@ -313,7 +313,7 @@
                   <el-form-item v-if="form.menuType == 'F' || form.menuType == 'C'">
                     <span slot="label">
                       api權限
-                      <el-tooltip content="設定在这个才做上需要使用到的接口，否则在设置用户角色时，接口将無权访问。" placement="top">
+                      <el-tooltip content="設定在这个才做上需要使用到的接口，否则在设置用户角色時，接口将無权访问。" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -384,12 +384,12 @@ export default {
         title: undefined,
         visible: undefined
       },
-      // 表单参数
+      // 表單参数
       form: {
         apis: [],
         sysApi: []
       },
-      // 表单校验
+      // 表單校验
       rules: {
         title: [{ required: true, message: '選單标题不能為空', trigger: 'blur' }],
         sort: [{ required: true, message: '選單顺序不能為空', trigger: 'blur' }]
@@ -449,12 +449,12 @@ export default {
       // if (this.loading) {
       //   return
       // }
-      // this.$confirm('需要提交表单吗？')
+      // this.$confirm('需要提交表單吗？')
       //   .then(_ => {
       //     this.loading = true
       //     this.timer = setTimeout(() => {
       //       done()
-      //       // 动画关闭需要一定的时间
+      //       // 动画关闭需要一定的時间
       //       setTimeout(() => {
       //         this.loading = false
       //       }, 400)
@@ -462,7 +462,7 @@ export default {
       //   })
       //   .catch(_ => {})
     },
-    // 選择图标
+    // 選擇Icon
     selected(name) {
       this.form.icon = name
     },
@@ -506,7 +506,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         menuId: undefined,

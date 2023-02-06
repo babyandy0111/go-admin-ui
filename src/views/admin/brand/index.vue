@@ -150,7 +150,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -161,11 +161,11 @@ export default {
       // 是否顯示弹出层
       open: false,
       isEdit: false,
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       brandList: [],
 
-      // 关系表类型
+      // 关系表類型
 
       // 查询参数
       queryParams: {
@@ -174,10 +174,10 @@ export default {
         name: undefined
 
       },
-      // 表单参数
+      // 表單参数
       form: {
       },
-      // 表单校验
+      // 表單校验
       rules: { name: [{ required: true, message: 'name不能為空', trigger: 'blur' }]
       }
     }
@@ -201,7 +201,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
 

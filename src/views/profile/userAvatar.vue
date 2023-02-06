@@ -102,7 +102,7 @@ export default {
     // 上传预处理
     beforeUpload(file) {
       if (file.type.indexOf('image/') === -1) {
-        this.msgError('文件格式错误，請上传图片类型,如：JPG，PNG後缀的文件。')
+        this.msgError('文件格式错误，請上传图片類型,如：JPG，PNG後缀的文件。')
       } else {
         const reader = new FileReader()
         reader.readAsDataURL(file)
@@ -128,7 +128,7 @@ export default {
         })
       })
     },
-    // 实时预览
+    // 实時预览
     realTime(data) {
       this.previews = data
     }

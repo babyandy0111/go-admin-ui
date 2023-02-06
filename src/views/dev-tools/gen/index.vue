@@ -115,7 +115,7 @@
                 size="small"
                 icon="el-icon-view"
                 @click="handleToProject(scope.row)"
-              >代码生成</el-button>
+              >代碼生成</el-button>
 
               <el-button
                 slot="reference"
@@ -215,13 +215,13 @@ export default {
       codestr: '',
       // 遮罩层
       loading: true,
-      // 唯一标识符
+      // 唯一標示符
       uniqueId: '',
       // 選中数组
       ids: [],
       // 選中表数组
       tableNames: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -241,7 +241,7 @@ export default {
       // 预览参数
       preview: {
         open: false,
-        title: '代码预览',
+        title: '代碼预览',
         data: {},
         activeName: 'api.go'
       }
@@ -285,11 +285,11 @@ export default {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 生成代码操作 */
+    /** 生成代碼操作 */
     handleGenTable(row) {
       const ids = row.tableId || this.ids
       if (ids === '') {
-        this.msgError('請選择要生成的資料')
+        this.msgError('請選擇要生成的資料')
         return
       }
       downLoadFile('/api/v1/gen/gencode/' + ids)

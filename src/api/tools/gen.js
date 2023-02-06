@@ -32,7 +32,7 @@ export function getGenTableInfo(tablename) {
   })
 }
 
-// 修改代码生成訊息
+// 修改代碼生成訊息
 export function updateGenTable(data) {
   return request({
     url: '/api/v1/sys/tables/info',
@@ -49,7 +49,7 @@ export function importTable(data) {
     params: data
   })
 }
-// 预览生成代码
+// 预览生成代碼
 export function previewTable(tableId) {
   return request({
     url: '/api/v1/gen/preview/' + tableId,
@@ -64,7 +64,7 @@ export function delTable(tableId) {
   })
 }
 
-// 生成代码到项目
+// 生成代碼到项目
 export function toProjectTable(tableId) {
   return request({
     url: '/api/v1/gen/toproject/' + tableId,

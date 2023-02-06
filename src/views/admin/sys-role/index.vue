@@ -265,7 +265,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -322,7 +322,7 @@ export default {
         roleKey: undefined,
         status: undefined
       },
-      // 表单参数
+      // 表單参数
       form: {
         sysMenu: []
       },
@@ -330,7 +330,7 @@ export default {
         children: 'children',
         label: 'label'
       },
-      // 表单校验
+      // 表單校验
       rules: {
         roleName: [
           { required: true, message: '角色名稱不能為空', trigger: 'blur' }
@@ -442,7 +442,7 @@ export default {
       this.openDataScope = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.menuOptions = this.menuList
       if (this.$refs.menuTree !== undefined) {

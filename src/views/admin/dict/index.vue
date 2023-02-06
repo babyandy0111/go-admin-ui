@@ -13,10 +13,10 @@
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="字典类型" prop="dictType">
+          <el-form-item label="字典類型" prop="dictType">
             <el-input
               v-model="queryParams.dictType"
-              placeholder="請輸入字典类型"
+              placeholder="請輸入字典類型"
               clearable
               size="small"
               style="width: 240px"
@@ -91,7 +91,7 @@
           <el-table-column type="selection" width="55" align="center" />
           <el-table-column label="字典編號" width="80" align="center" prop="id" />
           <el-table-column label="字典名稱" align="center" prop="dictName" :show-overflow-tooltip="true" />
-          <el-table-column label="字典类型" align="center" :show-overflow-tooltip="true">
+          <el-table-column label="字典類型" align="center" :show-overflow-tooltip="true">
             <template slot-scope="scope">
               <router-link :to="{name:'SysDictDataManage', params: {dictId:scope.row.id}}" class="link-type">
                 <span>{{ scope.row.dictType }}</span>
@@ -139,8 +139,8 @@
             <el-form-item label="字典名稱" prop="dictName">
               <el-input v-model="form.dictName" placeholder="請輸入字典名稱" :disabled="isEdit" />
             </el-form-item>
-            <el-form-item label="字典类型" prop="dictType">
-              <el-input v-model="form.dictType" placeholder="請輸入字典类型" :disabled="isEdit" />
+            <el-form-item label="字典類型" prop="dictType">
+              <el-input v-model="form.dictType" placeholder="請輸入字典類型" :disabled="isEdit" />
             </el-form-item>
             <el-form-item label="狀態" prop="status">
               <el-radio-group v-model="form.status">
@@ -177,7 +177,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -202,15 +202,15 @@ export default {
         dictType: undefined,
         status: undefined
       },
-      // 表单参数
+      // 表單参数
       form: {},
-      // 表单校验
+      // 表單校验
       rules: {
         dictName: [
           { required: true, message: '字典名稱不能為空', trigger: 'blur' }
         ],
         dictType: [
-          { required: true, message: '字典类型不能為空', trigger: 'blur' }
+          { required: true, message: '字典類型不能為空', trigger: 'blur' }
         ]
       }
     }
@@ -222,7 +222,7 @@ export default {
     })
   },
   methods: {
-    /** 查询字典类型列表 */
+    /** 查询字典類型列表 */
     getList() {
       this.loading = true
       listType(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
@@ -240,7 +240,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         id: undefined,
@@ -266,7 +266,7 @@ export default {
     handleAdd() {
       this.reset()
       this.open = true
-      this.title = '新增字典类型'
+      this.title = '新增字典類型'
       this.isEdit = false
     },
     // 多選框選中資料
@@ -283,7 +283,7 @@ export default {
         this.form = response.data
         this.form.status = String(this.form.status)
         this.open = true
-        this.title = '修改字典类型'
+        this.title = '修改字典類型'
         this.isEdit = true
       })
     },
@@ -333,14 +333,14 @@ export default {
     /** 匯出按钮操作 */
     handleExport() {
       // const queryParams = this.queryParams
-      this.$confirm('是否確認匯出所有类型資料项?', '警告', {
+      this.$confirm('是否確認匯出所有類型資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         this.downloadLoading = true
         import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['字典編號', '字典名稱', '字典类型', '狀態', '備註']
+          const tHeader = ['字典編號', '字典名稱', '字典類型', '狀態', '備註']
           const filterVal = ['id', 'dictName', 'dictType', 'status', 'remark']
           const list = this.typeList
           const data = formatJson(filterVal, list)

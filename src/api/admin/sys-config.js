@@ -17,7 +17,7 @@ export function getConfig(configId) {
   })
 }
 
-// 根据参数键名查询参数值
+// 根据参数鍵值查询参数值
 export function getConfigKey(configKey) {
   return request({
     url: '/api/v1/configKey/' + configKey,

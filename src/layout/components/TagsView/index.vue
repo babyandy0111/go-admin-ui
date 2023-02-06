@@ -79,7 +79,7 @@ export default {
   methods: {
     // 刷新前缓存tab
     beforeUnload() {
-      // 监听頁面刷新
+      // 監聽頁面刷新
       window.addEventListener('beforeunload', () => {
         const tabViews = this.visitedViews.map(item => {
           return {

@@ -68,7 +68,7 @@
                 <bar :list="barData" title="销售额排行" />
               </el-col>
               <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList" />
+                <rank-list title="門店销售排行榜" :list="rankList" />
               </el-col>
             </el-row>
           </el-tab-pane>
@@ -78,7 +78,7 @@
                 <bar :list="barData2" title="销售额趋势" />
               </el-col>
               <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList" />
+                <rank-list title="門店销售排行榜" :list="rankList" />
               </el-col>
             </el-row>
           </el-tab-pane>

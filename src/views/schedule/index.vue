@@ -14,10 +14,10 @@
                 @keyup.enter.native="handleQuery"
               />
             </el-form-item>
-            <el-form-item label="任务分组" prop="jobGroup">
+            <el-form-item label="任務分组" prop="jobGroup">
               <el-select
                 v-model="queryParams.jobGroup"
-                placeholder="定时任务任务分组"
+                placeholder="定時任務任務分组"
                 clearable
                 size="small"
               >
@@ -32,7 +32,7 @@
             <el-form-item label="狀態" prop="status">
               <el-select
                 v-model="queryParams.status"
-                placeholder="定时任务狀態"
+                placeholder="定時任務狀態"
                 clearable
                 size="small"
               >
@@ -112,7 +112,7 @@
               :show-overflow-tooltip="true"
             />
             <el-table-column
-              label="任务分组"
+              label="任務分组"
               align="center"
               prop="jobGroup"
               :formatter="jobGroupFormat"
@@ -206,10 +206,10 @@
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="任务分组" prop="jobGroup">
+                  <el-form-item label="任務分组" prop="jobGroup">
                     <el-select
                       v-model="form.jobGroup"
-                      placeholder="請選择"
+                      placeholder="請選擇"
                     >
                       <el-option
                         v-for="dict in jobGroupOptions"
@@ -273,7 +273,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="调用类型" prop="jobType">
+                  <el-form-item label="调用類型" prop="jobType">
                     <el-radio-group v-model="form.jobType" size="small">
                       <el-radio-button label="1">接口</el-radio-button>
                       <el-radio-button label="2">函数</el-radio-button>
@@ -294,7 +294,7 @@
                   <el-form-item label="狀態" prop="status">
                     <el-select
                       v-model="form.status"
-                      placeholder="請選择"
+                      placeholder="請選擇"
                     >
                       <el-option
                         v-for="dict in statusOptions"
@@ -334,7 +334,7 @@ export default {
       id: 0,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -345,7 +345,7 @@ export default {
       // 是否顯示弹出层
       open: false,
       isEdit: false,
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       sysjobList: [],
       jobGroupOptions: [],
@@ -359,14 +359,14 @@ export default {
         status: undefined
 
       },
-      // 表单参数
+      // 表單参数
       form: {
       },
-      // 表单校验
+      // 表單校验
       rules: {
         jobId: [{ required: true, message: '編碼不能為空', trigger: 'blur' }],
         jobName: [{ required: true, message: '名稱不能為空', trigger: 'blur' }],
-        jobGroup: [{ required: true, message: '任务分组不能為空', trigger: 'blur' }],
+        jobGroup: [{ required: true, message: '任務分组不能為空', trigger: 'blur' }],
         cronExpression: [{ required: true, message: 'cron表达式不能為空', trigger: 'blur' }],
         invokeTarget: [{ required: true, message: '调用目标不能為空', trigger: 'blur' }],
         status: [{ required: true, message: '狀態不能為空', trigger: 'blur' }]
@@ -398,7 +398,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         jobId: undefined,
@@ -435,7 +435,7 @@ export default {
     handleAdd() {
       this.reset()
       this.open = true
-      this.title = '新增定时任务'
+      this.title = '新增定時任務'
       this.isEdit = false
     },
     // 多選框選中資料
@@ -455,7 +455,7 @@ export default {
         this.form.concurrent = String(this.form.concurrent)
         this.form.jobType = String(this.form.jobType)
         this.open = true
-        this.title = '修改定时任务'
+        this.title = '修改定時任務'
         this.isEdit = true
       })
     },

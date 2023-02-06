@@ -16,7 +16,7 @@
         <el-form-item prop="tableComment">
           <span slot="label">
             選單名稱
-            <el-tooltip content="同步的資料库表名稱，生成設定資料时，用作選單名稱" placement="top">
+            <el-tooltip content="同步的資料库表名稱，生成設定資料時，用作選單名稱" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
@@ -27,7 +27,7 @@
         <el-form-item prop="className">
           <span slot="label">
             结构体模型名稱
-            <el-tooltip content="结构体模型名稱，代码中的struct名稱定义使用" placement="top">
+            <el-tooltip content="结构体模型名稱，代碼中的struct名稱定义使用" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
           </span>

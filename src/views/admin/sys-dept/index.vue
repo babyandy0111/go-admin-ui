@@ -103,7 +103,7 @@
                     :options="deptOptions"
                     :normalizer="normalizer"
                     :show-count="true"
-                    placeholder="選择上级部門"
+                    placeholder="選擇上级部門"
                     :is-disabled="isEdit"
                   />
                 </el-form-item>
@@ -129,8 +129,8 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="邮箱" prop="email">
-                  <el-input v-model="form.email" placeholder="請輸入邮箱" maxlength="50" />
+                <el-form-item label="E-mail" prop="email">
+                  <el-input v-model="form.email" placeholder="請輸入E-mail" maxlength="50" />
                 </el-form-item>
               </el-col>
               <el-col :span="12">
@@ -184,10 +184,10 @@ export default {
         deptName: undefined,
         status: undefined
       },
-      // 表单参数
+      // 表單参数
       form: {
       },
-      // 表单校验
+      // 表單校验
       rules: {
         parentId: [
           { required: true, message: '上级部門不能為空', trigger: 'blur' }
@@ -204,14 +204,14 @@ export default {
         email: [
           {
             type: 'email',
-            message: "'請輸入正確的邮箱地址",
+            message: "'請輸入正確的E-mail地址",
             trigger: ['blur', 'change']
           }
         ],
         phone: [
           {
             pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
-            message: '請輸入正確的手机号码',
+            message: '請輸入正確的手機號碼',
             trigger: 'blur'
           }
         ]
@@ -269,7 +269,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         deptId: undefined,

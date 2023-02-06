@@ -31,7 +31,7 @@
         <el-table-column prop="tableName" label="表名稱" />
         <el-table-column prop="tableComment" label="表描述" />
         <el-table-column prop="createdAt" label="創建時間" />
-        <el-table-column prop="updatedAt" label="更新时间" />
+        <el-table-column prop="updatedAt" label="更新時间" />
       </el-table>
       <pagination
         v-show="total>0"

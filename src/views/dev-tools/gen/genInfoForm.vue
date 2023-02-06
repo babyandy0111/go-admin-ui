@@ -39,7 +39,7 @@
       <el-col :span="12">
         <el-form-item prop="businessName">
           <span slot="label">
-            业务名
+            业務名
             <el-tooltip content="可理解為功能英文名，例如 user" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
@@ -132,7 +132,7 @@
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
-          <el-select v-model="info.treeCode" placeholder="請選择">
+          <el-select v-model="info.treeCode" placeholder="請選擇">
             <el-option
               v-for="column in info.columns"
               :key="column.columnName"
@@ -150,7 +150,7 @@
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
-          <el-select v-model="info.treeParentCode" placeholder="請選择">
+          <el-select v-model="info.treeParentCode" placeholder="請選擇">
             <el-option
               v-for="column in info.columns"
               :key="column.columnName"
@@ -168,7 +168,7 @@
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
-          <el-select v-model="info.treeName" placeholder="請選择">
+          <el-select v-model="info.treeName" placeholder="請選擇">
             <el-option
               v-for="column in info.columns"
               :key="column.columnName"
@@ -194,7 +194,7 @@ export default {
     return {
       rules: {
         tplCategory: [
-          { required: true, message: '請選择生成模板', trigger: 'blur' }
+          { required: true, message: '請選擇生成模板', trigger: 'blur' }
         ],
         packageName: [
           { required: true, message: '請輸入生成包路径', trigger: 'blur' },
@@ -205,7 +205,7 @@ export default {
           { pattern: /^[a-z\-]*[a-z]$/g, trigger: 'blur', message: '只允许小写字母,例如 sys-demo 格式' }
         ],
         businessName: [
-          { required: true, message: '請輸入生成业务名', trigger: 'blur' },
+          { required: true, message: '請輸入生成业務名', trigger: 'blur' },
           { pattern: /^[a-z][A-Za-z]+$/, trigger: 'blur', message: '校验规则:  只允许输入字母 a-z 或大写 A-Z ，并且小写字母开头' }
         ],
         functionName: [

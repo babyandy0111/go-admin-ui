@@ -22,10 +22,10 @@
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="类型" prop="action">
+          <el-form-item label="類型" prop="action">
             <el-select
               v-model="queryParams.action"
-              placeholder="請選择类型"
+              placeholder="請選擇類型"
               clearable
               size="small"
               @keyup.enter.native="handleQuery"
@@ -92,7 +92,7 @@
                   <el-tag v-if="scope.row.action=='PUT'" type="warning">{{ scope.row.action }}</el-tag>
                   <el-tag v-if="scope.row.action=='DELETE'" type="danger">{{ scope.row.action }}</el-tag>
                 </p>
-                <p>接口类型: {{ scope.row.type }}</p>
+                <p>接口類型: {{ scope.row.type }}</p>
                 <div slot="reference" class="name-wrapper">
                   <el-tag v-if="scope.row.action=='GET'">{{ scope.row.action }}</el-tag>
                   <el-tag v-if="scope.row.action=='POST'" type="success">{{ scope.row.action }}</el-tag>
@@ -165,10 +165,10 @@
                   placeholder="标题"
                 />
               </el-form-item>
-              <el-form-item label="类型" prop="type">
+              <el-form-item label="類型" prop="type">
                 <el-select
                   v-model="form.type"
-                  placeholder="請選择类型"
+                  placeholder="請選擇類型"
                   clearable
                   size="small"
                   @keyup.enter.native="handleQuery"
@@ -180,7 +180,7 @@
               <el-form-item label="Method" prop="action">
                 <el-select
                   v-model="form.action"
-                  placeholder="請選择方式"
+                  placeholder="請選擇方式"
                   clearable
                   size="small"
                   @keyup.enter.native="handleQuery"
@@ -228,7 +228,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -239,7 +239,7 @@ export default {
       // 是否顯示弹出层
       open: false,
       isEdit: false,
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       sysapiList: [],
       dateRange: [],
@@ -255,14 +255,14 @@ export default {
         parentId: undefined
 
       },
-      // 表单参数
+      // 表單参数
       form: {
       },
-      // 表单校验
+      // 表單校验
       rules: {
         title: [{ required: true, message: '标题不能為空', trigger: 'blur' }],
         path: [{ required: true, message: '地址不能為空', trigger: 'blur' }],
-        action: [{ required: true, message: '类型不能為空', trigger: 'blur' }],
+        action: [{ required: true, message: '類型不能為空', trigger: 'blur' }],
         parentId: [{ required: true, message: '按钮id不能為空', trigger: 'blur' }]
       }
     }
@@ -292,7 +292,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         id: undefined,

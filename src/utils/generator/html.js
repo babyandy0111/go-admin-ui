@@ -370,28 +370,28 @@ function buildElUploadChild(scheme) {
   const config = scheme.__config__
   if (scheme['list-type'] === 'picture-card') list.push('<i class="el-icon-plus"></i>')
   else list.push(`<el-button size="small" type="primary" icon="el-icon-upload">${config.buttonText}</el-button>`)
-  if (config.showTip) list.push(`<div slot="tip" class="el-upload__tip">只能上传不超过 ${config.fileSize}${config.sizeUnit} 的${scheme.accept}文件</div>`)
+  if (config.showTip) list.push(`<div slot="tip" class="el-upload__tip">只能上传不超過 ${config.fileSize}${config.sizeUnit} 的${scheme.accept}文件</div>`)
   return list.join('\n')
 }
 
 /**
- * 组装html代码。【入口函数】
- * @param {Object} formConfig 整个表单設定
- * @param {String} type 生成类型，文件或弹窗等
+ * 组装html代碼。【入口函数】
+ * @param {Object} formConfig 整个表單設定
+ * @param {String} type 生成類型，文件或弹窗等
  */
 export function makeUpHtml(formConfig, type) {
   const htmlList = []
   confGlobal = formConfig
-  // 判断布局是否都沾满了24个栅格，以备後续简化代码结构
+  // 判断布局是否都沾满了24个栅格，以备後续简化代碼结构
   someSpanIsNot24 = formConfig.fields.some(item => item.__config__.span !== 24)
   // 遍历渲染每个组件成html
   formConfig.fields.forEach(el => {
     htmlList.push(layouts[el.__config__.layout](el))
   })
   const htmlStr = htmlList.join('\n')
-  // 将组件代码放进form标签
+  // 将组件代碼放進form标签
   let temp = buildFormTemplate(formConfig, htmlStr, type)
-  // dialog标签包裹代码
+  // dialog标签包裹代碼
   if (type === 'dialog') {
     temp = dialogWrapper(temp)
   }

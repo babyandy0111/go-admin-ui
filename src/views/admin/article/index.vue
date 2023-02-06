@@ -36,9 +36,9 @@
             @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="发布时间" prop="publishAt"><el-input
+          <el-form-item label="发布時间" prop="publishAt"><el-input
             v-model="queryParams.publishAt"
-            placeholder="請輸入发布时间"
+            placeholder="請輸入发布時间"
             clearable
             size="small"
             @keyup.enter.native="handleQuery"
@@ -108,7 +108,7 @@
             prop="status"
             :show-overflow-tooltip="true"
           /><el-table-column
-            label="发布时间"
+            label="发布時间"
             align="center"
             prop="publishAt"
             :show-overflow-tooltip="true"
@@ -189,11 +189,11 @@
                 placeholder="狀態"
               />
             </el-form-item>
-            <el-form-item label="发布时间" prop="publishAt">
+            <el-form-item label="发布時间" prop="publishAt">
               <el-date-picker
                 v-model="form.publishAt"
                 type="datetime"
-                placeholder="選择日期"
+                placeholder="選擇日期"
               />
             </el-form-item>
           </el-form>
@@ -220,7 +220,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -231,11 +231,11 @@ export default {
       // 是否顯示弹出层
       open: false,
       isEdit: false,
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       articleList: [],
 
-      // 关系表类型
+      // 关系表類型
 
       // 查询参数
       queryParams: {
@@ -248,15 +248,15 @@ export default {
         publishAt: undefined
 
       },
-      // 表单参数
+      // 表單参数
       form: {
       },
-      // 表单校验
+      // 表單校验
       rules: { title: [{ required: true, message: '标题不能為空', trigger: 'blur' }],
         author: [{ required: true, message: '作者不能為空', trigger: 'blur' }],
         content: [{ required: true, message: '内容不能為空', trigger: 'blur' }],
         status: [{ required: true, message: '狀態不能為空', trigger: 'blur' }],
-        publishAt: [{ required: true, message: '发布时间不能為空', trigger: 'blur' }]
+        publishAt: [{ required: true, message: '发布時间不能為空', trigger: 'blur' }]
       }
     }
   },
@@ -279,7 +279,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
 

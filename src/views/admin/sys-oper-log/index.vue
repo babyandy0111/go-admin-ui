@@ -79,7 +79,7 @@
                 </p>
                 <p>Host: {{ scope.row.operIp }}</p>
                 <p>Location: {{ scope.row.operLocation }}</p>
-                <p>耗时: {{ scope.row.latencyTime }}</p>
+                <p>耗時: {{ scope.row.latencyTime }}</p>
                 <div slot="reference" class="name-wrapper">
                   <el-tag v-if="scope.row.requestMethod=='GET'">{{ scope.row.requestMethod }}</el-tag>
                   <el-tag v-if="scope.row.requestMethod=='POST'" type="success">{{ scope.row.requestMethod }}</el-tag>
@@ -146,7 +146,7 @@
               </el-col>
               <el-col :span="12">
                 <el-form-item
-                  label="登录訊息："
+                  label="Login訊息："
                 >{{ form.operName }} / {{ form.operIp }} / {{ form.operLocation }}</el-form-item>
               </el-col>
 
@@ -154,7 +154,7 @@
                 <el-form-item label="請求方式：">{{ form.requestMethod }}</el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="耗时：">{{ form.latencyTime }}</el-form-item>
+                <el-form-item label="耗時：">{{ form.latencyTime }}</el-form-item>
               </el-col>
               <el-col :span="24">
                 <el-form-item label="請求参数：">{{ form.operParam }}</el-form-item>
@@ -169,7 +169,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="操作时间：">{{ parseTime(form.operTime) }}</el-form-item>
+                <el-form-item label="操作時间：">{{ parseTime(form.operTime) }}</el-form-item>
               </el-col>
               <el-col :span="24">
                 <el-form-item v-if="form.status === 1" label="异常訊息：">{{ form.errorMsg }}</el-form-item>
@@ -205,11 +205,11 @@ export default {
       list: [],
       // 是否顯示弹出层
       open: false,
-      // 类型資料字典
+      // 類型資料字典
       statusOptions: [],
       // 日期範圍
       dateRange: [],
-      // 表单参数
+      // 表單参数
       form: {},
       // 查询参数
       queryParams: {
@@ -231,7 +231,7 @@ export default {
     })
   },
   methods: {
-    /** 查询登录日志 */
+    /** 查询Login日志 */
     getList() {
       this.loading = true
       listSysOperlog(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
@@ -313,7 +313,7 @@ export default {
       }).then(() => {
         this.downloadLoading = true
         import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['日志編號', '系统模块', '操作类型', '請求方式', '操作人員', '主机', '操作地点', '操作狀態', '操作url', '操作日期']
+          const tHeader = ['日志編號', '系统模块', '操作類型', '請求方式', '操作人員', '主机', '操作地点', '操作狀態', '操作url', '操作日期']
           const filterVal = ['ID', 'title', 'businessType', 'method', 'operName', 'operIp', 'operLocation', 'status', 'operUrl', 'operTime']
           const list = this.list
           const data = formatJson(filterVal, list)

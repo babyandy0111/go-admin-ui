@@ -100,7 +100,7 @@ export default {
         parseInt(width - elWidth) / parseInt(menuWidth)
       ).toFixed(0)
     },
-    // 選單選择事件
+    // 選單選擇事件
     handleSelect(key, keyPath) {
       if (key.indexOf('http://') !== -1 || key.indexOf('https://') !== -1) {
         // http(s):// 路径新窗口打开

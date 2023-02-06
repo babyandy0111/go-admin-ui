@@ -82,7 +82,7 @@ function mixinMethod(type) {
         submitForm: `submitForm() {
         this.$refs['${confGlobal.formRef}'].validate(valid => {
           if(!valid) return
-          // TODO 提交表单
+          // TODO 提交表單
         })
       },`,
         resetForm: `resetForm() {
@@ -133,7 +133,7 @@ function buildRules(conf, ruleList) {
   if (trigger[conf.tag]) {
     if (conf.required) {
       const type = isArray(conf.defaultValue) ? 'type: \'array\',' : ''
-      let message = isArray(conf.defaultValue) ? `請至少選择一个${conf.vModel}` : conf.placeholder
+      let message = isArray(conf.defaultValue) ? `請至少選擇一个${conf.vModel}` : conf.placeholder
       if (message === undefined) message = `${conf.label}不能為空`
       rules.push(`{ required: true, ${type} message: '${message}', trigger: '${trigger[conf.tag]}' }`)
     }
@@ -172,14 +172,14 @@ function buildBeforeUpload(conf) {
   if (conf.fileSize) {
     rightSizeCode = `let isRightSize = file.size / ${unitNum} < ${conf.fileSize}
     if(!isRightSize){
-      this.$message.error('文件大小超过 ${conf.fileSize}${conf.sizeUnit}')
+      this.$message.error('文件大小超過 ${conf.fileSize}${conf.sizeUnit}')
     }`
     returnList.push('isRightSize')
   }
   if (conf.accept) {
     acceptCode = `let isAccept = new RegExp('${conf.accept}').test(file.type)
     if(!isAccept){
-      this.$message.error('应该選择${conf.accept}类型的文件')
+      this.$message.error('应该選擇${conf.accept}類型的文件')
     }`
     returnList.push('isAccept')
   }

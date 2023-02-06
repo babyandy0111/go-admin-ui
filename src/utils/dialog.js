@@ -45,7 +45,7 @@ Vue.directive('dialogDrag', {
       }
 
       document.onmousemove = function(e) {
-        // 通过事件委托，计算移动的距离
+        // 通過事件委托，计算移动的距离
         let left = e.clientX - disX
         let top = e.clientY - disY
 

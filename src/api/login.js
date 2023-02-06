@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 獲取验证码
+// 獲取验证碼
 export function getCodeImg() {
   return request({
     url: '/api/v1/captcha',

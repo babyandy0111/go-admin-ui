@@ -51,10 +51,10 @@ service.interceptors.response.use(
         location.reload() // 為了重新实例化vue-router对象 避免bug
       } else {
         MessageBox.confirm(
-          '登录狀態已过期，您可以继续留在该頁面，或者重新登录',
+          'Login狀態已過期，您可以继续留在该頁面，或者重新Login',
           '系统提示',
           {
-            confirmButtonText: '重新登录',
+            confirmButtonText: '重新Login',
             cancelButtonText: '取消',
             type: 'warning'
           }
@@ -65,10 +65,10 @@ service.interceptors.response.use(
     } else if (code === 6401) {
       store.dispatch('user/resetToken')
       MessageBox.confirm(
-        '登录狀態已过期，您可以继续留在该頁面，或者重新登录',
+        'Login狀態已過期，您可以继续留在该頁面，或者重新Login',
         '系统提示',
         {
-          confirmButtonText: '重新登录',
+          confirmButtonText: '重新Login',
           cancelButtonText: '取消',
           type: 'warning'
         }
@@ -98,7 +98,7 @@ service.interceptors.response.use(
   error => {
     if (error.message === 'Network Error') {
       Message({
-        message: '服务器连接异常，請检查服务器！',
+        message: '服務器连接异常，請检查服務器！',
         type: 'error',
         duration: 5 * 1000
       })

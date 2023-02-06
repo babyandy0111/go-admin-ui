@@ -5,7 +5,7 @@
         <el-col :span="6" :xs="24">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>个人訊息</span>
+              <span>基本資料</span>
             </div>
             <div>
               <div class="text-center">
@@ -13,15 +13,15 @@
               </div>
               <ul class="list-group list-group-striped">
                 <li class="list-group-item">
-                  <svg-icon icon-class="user" />用户名稱
+                  <svg-icon icon-class="user" />帳號
                   <div class="pull-right">{{ user.username }}</div>
                 </li>
                 <li class="list-group-item">
-                  <svg-icon icon-class="phone" />手机号码
+                  <svg-icon icon-class="phone" />手機號碼
                   <div class="pull-right">{{ user.phone }}</div>
                 </li>
                 <li class="list-group-item">
-                  <svg-icon icon-class="email" />用户邮箱
+                  <svg-icon icon-class="email" />E-mail
                   <div class="pull-right">{{ user.email }}</div>
                 </li>
                 <li class="list-group-item">
@@ -43,13 +43,13 @@
         <el-col :span="18" :xs="24">
           <el-card>
             <div slot="header" class="clearfix">
-              <span>基本资料</span>
+              <span>基本資料</span>
             </div>
             <el-tabs v-model="activeTab">
-              <el-tab-pane label="基本资料" name="userinfo">
+              <el-tab-pane label="基本資料" name="userinfo">
                 <userInfo :user="user" />
               </el-tab-pane>
-              <el-tab-pane label="修改密码" name="resetPwd">
+              <el-tab-pane label="修改密碼" name="resetPwd">
                 <resetPwd :user="user" />
               </el-tab-pane>
             </el-tabs>

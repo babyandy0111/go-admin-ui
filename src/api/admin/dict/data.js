@@ -17,7 +17,7 @@ export function getData(dictCode) {
   })
 }
 
-// 根据字典类型查询字典資料訊息
+// 根据字典類型查询字典資料訊息
 export function getDicts(dictType) {
   return request({
     url: '/api/v1/dict-data/option-select?dictType=' + dictType,

@@ -1,6 +1,6 @@
 <template>
   <div class="icon-body">
-    <el-input v-model="name" style="position: relative;" clearable placeholder="請輸入图标名稱" @clear="filterIcons" @input.native="filterIcons">
+    <el-input v-model="name" style="position: relative;" clearable placeholder="請輸入Icon名稱" @clear="filterIcons" @input.native="filterIcons">
       <i slot="suffix" class="el-icon-search el-input__icon" />
     </el-input>
     <div class="icon-list">

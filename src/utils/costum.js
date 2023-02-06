@@ -41,7 +41,7 @@ export function parseTime(time, pattern) {
   return time_str
 }
 
-// 表单重置
+// 表單重置
 export function resetForm(refName) {
   if (this.$refs[refName]) {
     this.$refs[refName].resetFields()

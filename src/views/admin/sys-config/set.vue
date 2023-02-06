@@ -16,16 +16,16 @@
                       <i class="el-icon-plus" />
                     </el-upload>
                   </el-form-item>
-                  <el-form-item label="初始密码" prop="sys_user_initPassword">
-                    <el-input v-model="form.sys_user_initPassword" placeholder="請輸入初始密码" clearable :style="{width: '100%'}" />
+                  <el-form-item label="初始密碼" prop="sys_user_initPassword">
+                    <el-input v-model="form.sys_user_initPassword" placeholder="請輸入初始密碼" clearable :style="{width: '100%'}" />
                   </el-form-item>
-                  <el-form-item label="皮肤样式" prop="sys_index_skinName">
-                    <el-select v-model="form.sys_index_skinName" placeholder="請選择皮肤样式" clearable :style="{width: '100%'}">
+                  <el-form-item label="主題樣式" prop="sys_index_skinName">
+                    <el-select v-model="form.sys_index_skinName" placeholder="請選擇主題樣式" clearable :style="{width: '100%'}">
                       <el-option v-for="(item, index) in sys_index_skinNameOptions" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled" />
                     </el-select>
                   </el-form-item>
-                  <el-form-item label="侧栏主题" prop="sys_index_sideTheme">
-                    <el-select v-model="form.sys_index_sideTheme" placeholder="請選择侧栏主题" clearable :style="{width: '100%'}">
+                  <el-form-item label="側欄主題" prop="sys_index_sideTheme">
+                    <el-select v-model="form.sys_index_sideTheme" placeholder="請選擇側欄主題" clearable :style="{width: '100%'}">
                       <el-option v-for="(item, index) in sys_index_sideThemeOptions" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled" />
                     </el-select>
                   </el-form-item>
@@ -80,17 +80,17 @@ export default {
         }],
         sys_user_initPassword: [{
           required: true,
-          message: '請輸入初始密码',
+          message: '請輸入初始密碼',
           trigger: 'blur'
         }],
         sys_index_skinName: [{
           required: true,
-          message: '請選择皮肤样式',
+          message: '請選擇主題樣式',
           trigger: 'change'
         }],
         sys_index_sideTheme: [{
           required: true,
-          message: '請選择侧栏主题',
+          message: '請選擇側欄主題',
           trigger: 'change'
         }]
       },
@@ -146,7 +146,7 @@ export default {
     sys_app_logoBeforeUpload(file) {
       const isRightSize = file.size / 1024 / 1024 < 2
       if (!isRightSize) {
-        this.$message.error('文件大小超过 2MB')
+        this.$message.error('文件大小超過 2MB')
       }
       return isRightSize
     },
@@ -164,7 +164,7 @@ export default {
         this.form = this.configList
         // this.sys_app_logofileList = [this.configList.sys_app_logo]
         // this.fillFormData(this.elForm, this.configList)
-        // 更新表单
+        // 更新表單
         // this.key2 = +new Date()
       })
     },
@@ -175,7 +175,7 @@ export default {
       data.sys_app_logo = url
       // 回填資料
       this.fillFormData(this.formConf, data)
-      // 更新表单
+      // 更新表單
       this.key2 = +new Date()
     },
     // 参数系统内置字典翻译

@@ -60,7 +60,7 @@ export function exportUser(query) {
   })
 }
 
-// 用户密码重置
+// 用户密碼重置
 export function resetUserPwd(userId, password) {
   const data = {
     userId,
@@ -86,7 +86,7 @@ export function changeUserStatus(e) {
   })
 }
 
-// 修改用户个人訊息
+// 修改用户基本資料
 export function updateUserProfile(data) {
   return request({
     url: '/api/v1/sys-user/profile',
@@ -103,7 +103,7 @@ export function importTemplate() {
   })
 }
 
-// 用户密码重置
+// 用户密碼重置
 export function updateUserPwd(oldPassword, newPassword) {
   const data = {
     oldPassword,
@@ -125,7 +125,7 @@ export function uploadAvatar(data) {
   })
 }
 
-// 查询用户个人訊息
+// 查询用户基本資料
 export function getUserProfile() {
   return request({
     url: '/api/v1/user/profile',

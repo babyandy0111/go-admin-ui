@@ -158,7 +158,7 @@ export default {
             const required = { required: config.required, message: cur.placeholder }
             if (Array.isArray(config.defaultValue)) {
               required.type = 'array'
-              required.message = `請至少選择一个${config.label}`
+              required.message = `請至少選擇一个${config.label}`
             }
             required.message === undefined && (required.message = `${config.label}不能為空`)
             config.regList.push(required)

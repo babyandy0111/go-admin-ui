@@ -14,7 +14,7 @@ export default {
     },
     error: {
       onlyImg: '僅限图片格式',
-      outOfSize: '单文件大小不能超过 ',
+      outOfSize: '單文件大小不能超過 ',
       lowestPx: '图片最低像素為（宽*高）：'
     }
   },

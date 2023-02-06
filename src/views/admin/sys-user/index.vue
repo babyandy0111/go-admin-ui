@@ -30,20 +30,20 @@
           <!--用户資料-->
           <el-col :span="20" :xs="24">
             <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
-              <el-form-item label="用户名稱" prop="username">
+              <el-form-item label="帳號" prop="username">
                 <el-input
                   v-model="queryParams.username"
-                  placeholder="請輸入用户名稱"
+                  placeholder="請輸入帳號"
                   clearable
                   size="small"
                   style="width: 160px"
                   @keyup.enter.native="handleQuery"
                 />
               </el-form-item>
-              <el-form-item label="手机号码" prop="phone">
+              <el-form-item label="手機號碼" prop="phone">
                 <el-input
                   v-model="queryParams.phone"
-                  placeholder="請輸入手机号码"
+                  placeholder="請輸入手機號碼"
                   clearable
                   size="small"
                   style="width: 160px"
@@ -113,7 +113,7 @@
             >
               <el-table-column type="selection" width="45" align="center" />
               <el-table-column label="編號" width="75" prop="userId" sortable="custom" />
-              <el-table-column label="登录名" width="105" prop="username" sortable="custom" :show-overflow-tooltip="true" />
+              <el-table-column label="Login名" width="105" prop="username" sortable="custom" :show-overflow-tooltip="true" />
               <el-table-column label="昵称" prop="nickName" :show-overflow-tooltip="true" />
               <el-table-column label="部門" prop="dept.deptName" :show-overflow-tooltip="true" />
               <el-table-column label="手机号" prop="phone" width="108" />
@@ -186,8 +186,8 @@
         <el-form ref="form" :model="form" :rules="rules" label-width="80px">
           <el-row>
             <el-col :span="12">
-              <el-form-item label="用户昵称" prop="nickName">
-                <el-input v-model="form.nickName" placeholder="請輸入用户昵称" />
+              <el-form-item label="暱稱" prop="nickName">
+                <el-input v-model="form.nickName" placeholder="請輸入暱稱" />
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -195,33 +195,33 @@
                 <treeselect
                   v-model="form.deptId"
                   :options="deptOptions"
-                  placeholder="請選择归属部門"
+                  placeholder="請選擇归属部門"
                 />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="手机号码" prop="phone">
-                <el-input v-model="form.phone" placeholder="請輸入手机号码" maxlength="11" />
+              <el-form-item label="手機號碼" prop="phone">
+                <el-input v-model="form.phone" placeholder="請輸入手機號碼" maxlength="11" />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="邮箱" prop="email">
-                <el-input v-model="form.email" placeholder="請輸入邮箱" maxlength="50" />
+              <el-form-item label="E-mail" prop="email">
+                <el-input v-model="form.email" placeholder="請輸入E-mail" maxlength="50" />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="用户名稱" prop="username">
-                <el-input v-model="form.username" placeholder="請輸入用户名稱" />
+              <el-form-item label="帳號" prop="username">
+                <el-input v-model="form.username" placeholder="請輸入帳號" />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item v-if="form.userId == undefined" label="用户密码" prop="password">
-                <el-input v-model="form.password" placeholder="請輸入用户密码" type="password" />
+              <el-form-item v-if="form.userId == undefined" label="用户密碼" prop="password">
+                <el-input v-model="form.password" placeholder="請輸入用户密碼" type="password" />
               </el-form-item>
             </el-col>
             <el-col :span="12">
               <el-form-item label="用户性别">
-                <el-select v-model="form.sex" placeholder="請選择">
+                <el-select v-model="form.sex" placeholder="請選擇">
                   <el-option
                     v-for="dict in sexOptions"
                     :key="dict.value"
@@ -245,7 +245,7 @@
 
             <el-col :span="12">
               <el-form-item label="職位">
-                <el-select v-model="form.postId" placeholder="請選择" @change="$forceUpdate()">
+                <el-select v-model="form.postId" placeholder="請選擇" @change="$forceUpdate()">
                   <el-option
                     v-for="item in postOptions"
                     :key="item.postId"
@@ -258,7 +258,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="角色">
-                <el-select v-model="form.roleId" placeholder="請選择" @change="$forceUpdate()">
+                <el-select v-model="form.roleId" placeholder="請選擇" @change="$forceUpdate()">
                   <el-option
                     v-for="item in roleOptions"
                     :key="item.roleId"
@@ -335,7 +335,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -351,7 +351,7 @@ export default {
       open: false,
       // 部門名稱
       deptName: undefined,
-      // 默認密码
+      // 默認密碼
       initPassword: undefined,
       // 日期範圍
       dateRange: [],
@@ -363,7 +363,7 @@ export default {
       postOptions: [],
       // 角色選项
       roleOptions: [],
-      // 表单参数
+      // 表單参数
       form: {},
       defaultProps: {
         children: 'children',
@@ -393,19 +393,19 @@ export default {
         status: undefined,
         deptId: undefined
       },
-      // 表单校验
+      // 表單校验
       rules: {
-        username: [{ required: true, message: '用户名稱不能為空', trigger: 'blur' }],
-        nickName: [{ required: true, message: '用户昵称不能為空', trigger: 'blur' }],
+        username: [{ required: true, message: '帳號不能為空', trigger: 'blur' }],
+        nickName: [{ required: true, message: '暱稱不能為空', trigger: 'blur' }],
         deptId: [{ required: true, message: '归属部門不能為空', trigger: 'blur' }],
-        password: [{ required: true, message: '用户密码不能為空', trigger: 'blur' }],
+        password: [{ required: true, message: '用户密碼不能為空', trigger: 'blur' }],
         email: [
-          { required: true, message: '邮箱地址不能為空', trigger: 'blur' },
-          { type: 'email', message: "'請輸入正確的邮箱地址", trigger: ['blur', 'change'] }
+          { required: true, message: 'E-mail地址不能為空', trigger: 'blur' },
+          { type: 'email', message: "'請輸入正確的E-mail地址", trigger: ['blur', 'change'] }
         ],
         phone: [
-          { required: true, message: '手机号码不能為空', trigger: 'blur' },
-          { pattern: /^09[0-9]{8}$/, message: '請輸入正確的手机号码', trigger: 'blur' }
+          { required: true, message: '手機號碼不能為空', trigger: 'blur' },
+          { pattern: /^09[0-9]{8}$/, message: '請輸入正確的手機號碼', trigger: 'blur' }
         ]
       }
     }
@@ -451,7 +451,7 @@ export default {
       if (!value) return true
       return data.label.indexOf(value) !== -1
     },
-    // 节点单击事件
+    // 节点單击事件
     handleNodeClick(data) {
       this.queryParams.deptId = '/' + data.id + '/'
       this.getList()
@@ -505,7 +505,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         userId: undefined,
@@ -574,9 +574,9 @@ export default {
         this.roleOptions = response.data.list
       })
     },
-    /** 重置密码按钮操作 */
+    /** 重置密碼按钮操作 */
     handleResetPwd(row) {
-      this.$prompt('請輸入"' + row.username + '"的新密码', '提示', {
+      this.$prompt('請輸入"' + row.username + '"的新密碼', '提示', {
         confirmButtonText: '確定',
         cancelButtonText: '取消'
       }).then(({ value }) => {

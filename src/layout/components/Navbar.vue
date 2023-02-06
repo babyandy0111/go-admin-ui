@@ -20,10 +20,10 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/profile/index">
-            <el-dropdown-item>个人中心</el-dropdown-item>
+            <el-dropdown-item>帳號設定</el-dropdown-item>
           </router-link>
           <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">退出登录</span>
+            <span style="display:block;" @click="logout">Logout</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -76,7 +76,7 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      this.$confirm('確定注销并退出系统吗？', '提示', {
+      this.$confirm('確定登出嗎？', '提示', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

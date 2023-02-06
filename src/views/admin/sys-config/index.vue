@@ -13,10 +13,10 @@
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="键名" prop="configKey">
+          <el-form-item label="鍵值" prop="configKey">
             <el-input
               v-model="queryParams.configKey"
-              placeholder="請輸入参数键名"
+              placeholder="請輸入参数鍵值"
               clearable
               size="small"
               style="width: 160px"
@@ -101,7 +101,7 @@
             :show-overflow-tooltip="true"
           />
           <el-table-column
-            label="键名"
+            label="鍵值"
             sortable="custom"
             prop="configKey"
           >
@@ -177,8 +177,8 @@
             <el-form-item label="参数名稱" prop="configName">
               <el-input v-model="form.configName" placeholder="請輸入参数名稱" :disabled="isEdit" />
             </el-form-item>
-            <el-form-item label="参数键名" prop="configKey">
-              <el-input v-model="form.configKey" placeholder="請輸入参数键名" :disabled="isEdit" />
+            <el-form-item label="参数鍵值" prop="configKey">
+              <el-input v-model="form.configKey" placeholder="請輸入参数鍵值" :disabled="isEdit" />
             </el-form-item>
             <el-form-item label="参数键值" prop="configValue">
               <el-input v-model="form.configValue" placeholder="請輸入参数键值" />
@@ -224,7 +224,7 @@ export default {
       loading: true,
       // 選中数组
       ids: [],
-      // 非单个禁用
+      // 非單个禁用
       single: true,
       // 非多个禁用
       multiple: true,
@@ -239,7 +239,7 @@ export default {
       isEdit: false,
       // 是否顯示弹出层
       open: false,
-      // 类型資料字典
+      // 類型資料字典
       typeOptions: [],
       // 日期範圍
       dateRange: [],
@@ -252,12 +252,12 @@ export default {
         configType: undefined,
         createdAtOrder: 'desc'
       },
-      // 表单参数
+      // 表單参数
       form: {},
-      // 表单校验
+      // 表單校验
       rules: {
         configName: [{ required: true, message: '参数名稱不能為空', trigger: 'blur' }],
-        configKey: [{ required: true, message: '参数键名不能為空', trigger: 'blur' }],
+        configKey: [{ required: true, message: '参数鍵值不能為空', trigger: 'blur' }],
         configValue: [{ required: true, message: '参数键值不能為空', trigger: 'blur' }],
         isFrontend: [{ required: true, message: '是否前台顯示不能為空', trigger: 'blur' }]
       }
@@ -289,7 +289,7 @@ export default {
       this.open = false
       this.reset()
     },
-    // 表单重置
+    // 表單重置
     reset() {
       this.form = {
         id: undefined,
@@ -412,7 +412,7 @@ export default {
       }).then(() => {
         this.downloadLoading = true
         import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['参数主键', '参数名稱', '参数键名', '参数键值', '備註', '創建時間']
+          const tHeader = ['参数主键', '参数名稱', '参数鍵值', '参数键值', '備註', '創建時間']
           const filterVal = ['configId', 'configName', 'configKey', 'configValue', 'remark', 'createdAt']
           const list = this.configList
           const data = formatJson(filterVal, list)
