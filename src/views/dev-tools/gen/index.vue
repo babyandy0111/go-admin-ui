@@ -158,7 +158,7 @@
         <div class="el-dialog-container">
           <div class="tag-group">
             <!-- eslint-disable-next-line vue/valid-v-for -->
-            <el-tag v-for="(key) in preview.data" @click="codeChange(key)">
+            <el-tag v-for="(key,index) in preview.data" :key="index" @click="codeChange(key)">
               <template>
                 {{ key.substring(key.lastIndexOf('/')+1,key.indexOf('.go.template')) }}
               </template>
