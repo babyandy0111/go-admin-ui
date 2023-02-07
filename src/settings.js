@@ -8,7 +8,7 @@ module.exports = {
   showSettings: true,
 
   /**
-   * 是否顯示顶部导航
+   * 是否顯示顶部導航
    */
   topNav: true,
 

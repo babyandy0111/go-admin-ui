@@ -1,6 +1,6 @@
 <template>
-  <!-- 导入表 -->
-  <el-dialog title="导入表" :visible.sync="visible" width="800px" top="5vh">
+  <!-- 導入表 -->
+  <el-dialog title="導入表" :visible.sync="visible" width="800px" top="5vh">
     <el-form ref="queryForm" :model="queryParams" :inline="true">
       <el-form-item label="表名稱" prop="tableName">
         <el-input
@@ -103,7 +103,7 @@ export default {
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 导入按钮操作 */
+    /** 導入按钮操作 */
     handleImportTable() {
       this.loading = true
       this.visible = true

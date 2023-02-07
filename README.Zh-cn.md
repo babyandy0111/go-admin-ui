@@ -10,7 +10,7 @@
 [English](https://github.com/go-admin-team/go-admin/blob/master/README.md) | 简体中文
 
 
-基于Gin + Vue + Element UI的前後端分离權限管理系统,系统初始化极度简單，只需要設定文件中，修改資料库连接，系统支持多指令操作，迁移指令可以让初始化資料库訊息变得更简單，服務指令可以很简單的啟动api服務
+基于Gin + Vue + Element UI的前後端分离權限管理系统,系统初始化极度简單，只需要設定文件中，修改資料库连接，系统支持多指令操作，遷移指令可以让初始化資料库訊息变得更简單，服務指令可以很简單的啟动api服務
 
 [在线文档](https://doc.go-admin.dev)
 

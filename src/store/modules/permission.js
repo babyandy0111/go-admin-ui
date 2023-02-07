@@ -117,7 +117,7 @@ const mutations = {
     state.defaultRoutes = constantRoutes.concat(routes)
   },
   SET_TOPBAR_ROUTES: (state, routes) => {
-    // 顶部导航選單默認新增统计报表栏指向首頁
+    // 顶部導航選單默認新增统计报表栏指向首頁
     // const index = [{
     //   path: 'dashboard',
     //   meta: { title: '统计报表', icon: 'dashboard' }

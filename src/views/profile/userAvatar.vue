@@ -128,7 +128,7 @@ export default {
         })
       })
     },
-    // 实時预览
+    // 实時預覽
     realTime(data) {
       this.previews = data
     }

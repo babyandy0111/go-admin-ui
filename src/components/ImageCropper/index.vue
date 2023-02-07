@@ -188,12 +188,12 @@ export default {
       type: Boolean,
       default: true
     },
-    // 不预览圆形图片
+    // 不預覽圆形图片
     noCircle: {
       type: Boolean,
       default: false
     },
-    // 不预览方形图片
+    // 不預覽方形图片
     noSquare: {
       type: Boolean,
       default: false
@@ -271,7 +271,7 @@ export default {
         x: 0, // scale原图坐标
         y: 0
       },
-      // 生成图片预览的容器大小
+      // 生成图片預覽的容器大小
       previewContainer: {
         width: 100,
         height: 100

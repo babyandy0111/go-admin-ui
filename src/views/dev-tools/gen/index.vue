@@ -42,7 +42,7 @@
               icon="el-icon-upload"
               size="mini"
               @click="openImportTable"
-            >导入</el-button>
+            >導入</el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -108,7 +108,7 @@
                 size="small"
                 icon="el-icon-view"
                 @click="handlePreview(scope.row)"
-              >预览</el-button>
+              >預覽</el-button>
               <el-button
                 slot="reference"
                 type="text"
@@ -131,7 +131,7 @@
                 size="small"
                 icon="el-icon-view"
                 @click="handleToApiFile(scope.row)"
-              >生成迁移脚本</el-button>
+              >生成遷移脚本</el-button>
 
               <el-button
                 slot="reference"
@@ -152,13 +152,13 @@
         />
       </el-card>
 
-      <!-- 预览界面 -->
+      <!-- 預覽界面 -->
 
       <el-dialog class="preview" :title="preview.title" :visible.sync="preview.open" :close-on-click-modal="false" fullscreen>
         <div class="el-dialog-container">
           <div class="tag-group">
             <!-- eslint-disable-next-line vue/valid-v-for -->
-            <el-tag v-for="(value, key) in preview.data" @click="codeChange(key)">
+            <el-tag v-for="(key) in preview.data" @click="codeChange(key)">
               <template>
                 {{ key.substring(key.lastIndexOf('/')+1,key.indexOf('.go.template')) }}
               </template>
@@ -238,10 +238,10 @@ export default {
         tableName: undefined,
         tableComment: undefined
       },
-      // 预览参数
+      // 預覽参数
       preview: {
         open: false,
-        title: '代碼预览',
+        title: '代碼預覽',
         data: {},
         activeName: 'api.go'
       }
@@ -294,7 +294,7 @@ export default {
       }
       downLoadFile('/api/v1/gen/gencode/' + ids)
     },
-    /** 打开导入表弹窗 */
+    /** 打开導入表弹窗 */
     openImportTable() {
       this.$refs.importTB.show()
     },
@@ -304,7 +304,7 @@ export default {
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 预览按钮 */
+    /** 預覽按钮 */
     handlePreview(row) {
       previewTable(row.tableId).then(response => {
         this.preview.data = response.data

@@ -41,7 +41,7 @@ export function updateGenTable(data) {
   })
 }
 
-// 导入表
+// 導入表
 export function importTable(data) {
   return request({
     url: '/api/v1/sys/tables/info',
@@ -49,7 +49,7 @@ export function importTable(data) {
     params: data
   })
 }
-// 预览生成代碼
+// 預覽生成代碼
 export function previewTable(tableId) {
   return request({
     url: '/api/v1/gen/preview/' + tableId,
@@ -72,7 +72,7 @@ export function toProjectTable(tableId) {
   })
 }
 
-// 生成接口資料到迁移脚本
+// 生成接口資料到遷移脚本
 export function apiToFile(tableId) {
   return request({
     url: '/api/v1/gen/apitofile/' + tableId,

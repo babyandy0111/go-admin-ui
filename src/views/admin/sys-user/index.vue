@@ -281,7 +281,7 @@
           <el-button @click="cancel">取 消</el-button>
         </div>
       </el-dialog>
-      <!-- 用户导入对话框 -->
+      <!-- 用户導入对话框 -->
       <el-dialog :title="upload.title" :visible.sync="upload.open" width="400px" :close-on-click-modal="false">
         <el-upload
           ref="upload"
@@ -304,7 +304,7 @@
             <el-checkbox v-model="upload.updateSupport" />是否更新已经存在的用户資料
             <el-link type="info" style="font-size:12px" @click="importTemplate">下载模板</el-link>
           </div>
-          <div slot="tip" class="el-upload__tip" style="color:red">提示：僅允许导入“xls”或“xlsx”格式文件！</div>
+          <div slot="tip" class="el-upload__tip" style="color:red">提示：僅允许導入“xls”或“xlsx”格式文件！</div>
         </el-upload>
         <div slot="footer" class="dialog-footer">
           <el-button type="primary" @click="submitFileForm">確 定</el-button>
@@ -369,11 +369,11 @@ export default {
         children: 'children',
         label: 'label'
       },
-      // 用户导入参数
+      // 用户導入参数
       upload: {
-        // 是否顯示弹出层（用户导入）
+        // 是否顯示弹出层（用户導入）
         open: false,
-        // 弹出层标题（用户导入）
+        // 弹出层标题（用户導入）
         title: '',
         // 是否禁用上传
         isUploading: false,
@@ -649,9 +649,9 @@ export default {
         this.download(response.msg)
       }).catch(function() {})
     },
-    /** 导入按钮操作 */
+    /** 導入按钮操作 */
     handleImport() {
-      this.upload.title = '用户导入'
+      this.upload.title = '用户導入'
       this.upload.open = true
     },
     /** 下载模板操作 */
@@ -669,7 +669,7 @@ export default {
       this.upload.open = false
       this.upload.isUploading = false
       this.$refs.upload.clearFiles()
-      this.$alert(response.msg, '导入结果', { dangerouslyUseHTMLString: true })
+      this.$alert(response.msg, '導入结果', { dangerouslyUseHTMLString: true })
       this.getList()
     },
     // 提交上传文件
