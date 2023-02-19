@@ -41,7 +41,7 @@ Vue.use(VueParticles)
 
 import '@/utils/dialog'
 
-// 全局方法挂载
+// global方法
 Vue.prototype.getDicts = getDicts
 Vue.prototype.getItems = getItems
 Vue.prototype.setItems = setItems
@@ -53,7 +53,7 @@ Vue.prototype.selectDictLabel = selectDictLabel
 Vue.prototype.selectItemsLabel = selectItemsLabel
 // Vue.prototype.download = download
 
-// 全局组件挂载
+// global component
 Vue.component('Pagination', Pagination)
 Vue.component('BasicLayout', BasicLayout)
 

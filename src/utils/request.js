@@ -51,7 +51,7 @@ service.interceptors.response.use(
         location.reload() // 為了重新实例化vue-router对象 避免bug
       } else {
         MessageBox.confirm(
-          'Login狀態已過期，您可以继续留在该頁面，或者重新Login',
+          'Login狀態已過期，您可以继续留在該頁面，或者重新Login',
           '系统提示',
           {
             confirmButtonText: '重新Login',
@@ -65,7 +65,7 @@ service.interceptors.response.use(
     } else if (code === 6401) {
       store.dispatch('user/resetToken')
       MessageBox.confirm(
-        'Login狀態已過期，您可以继续留在该頁面，或者重新Login',
+        'Login狀態已過期，您可以继续留在該頁面，或者重新Login',
         '系统提示',
         {
           confirmButtonText: '重新Login',

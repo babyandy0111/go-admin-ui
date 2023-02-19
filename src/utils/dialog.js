@@ -19,10 +19,10 @@ Vue.directive('dialogDrag', {
       const disX = e.clientX - dialogHeaderEl.offsetLeft
       const disY = e.clientY - dialogHeaderEl.offsetTop
 
-      const screenWidth = document.body.clientWidth // body当前宽度
+      const screenWidth = document.body.clientWidth // body当前寬度
       const screenHeight = document.documentElement.clientHeight // 可见区域高度(应為body高度，可某些环境下無法獲取)
 
-      const dragDomWidth = dragDom.offsetWidth // 对话框宽度
+      const dragDomWidth = dragDom.offsetWidth // 对话框寬度
       const dragDomheight = dragDom.offsetHeight // 对话框高度
 
       const minDragDomLeft = dragDom.offsetLeft

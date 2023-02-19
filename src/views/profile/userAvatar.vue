@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="options.img" title="点击上传头像" class="img-circle img-lg" @click="editCropper()">
+    <img :src="options.img" title="点击上傳頭像" class="img-circle img-lg" @click="editCropper()">
     <el-dialog :title="title" :visible.sync="open" width="800px" :close-on-click-modal="false">
       <el-row>
         <el-col :xs="24" :md="12" :style="{height: '350px'}">
@@ -26,7 +26,7 @@
         <el-col :lg="2" :md="2">
           <el-upload action="#" :http-request="requestUpload" :show-file-list="false" :before-upload="beforeUpload">
             <el-button size="small">
-              上传
+              上傳
               <i class="el-icon-upload el-icon--right" />
             </el-button>
           </el-upload>
@@ -67,11 +67,11 @@ export default {
       // 是否顯示弹出层
       open: false,
       // 弹出层标题
-      title: '修改头像',
+      title: '修改頭像',
       options: {
-        img: store.getters.avatar, // 裁剪图片的地址
+        img: store.getters.avatar, // 裁剪圖片的地址
         autoCrop: true, // 是否默認生成截图框
-        autoCropWidth: 200, // 默認生成截图框宽度
+        autoCropWidth: 200, // 默認生成截图框寬度
         autoCropHeight: 200, // 默認生成截图框高度
         fixedBox: true // 固定截图框大小 不允许改变
       },
@@ -79,11 +79,11 @@ export default {
     }
   },
   methods: {
-    // 编辑头像
+    // 编辑頭像
     editCropper() {
       this.open = true
     },
-    // 覆盖默認的上传行為
+    // 覆盖默認的上傳行為
     requestUpload() {
     },
     // 向左旋转
@@ -94,15 +94,15 @@ export default {
     rotateRight() {
       this.$refs.cropper.rotateRight()
     },
-    // 图片缩放
+    // 圖片缩放
     changeScale(num) {
       num = num || 1
       this.$refs.cropper.changeScale(num)
     },
-    // 上传预处理
+    // 上傳预处理
     beforeUpload(file) {
       if (file.type.indexOf('image/') === -1) {
-        this.msgError('文件格式错误，請上传图片類型,如：JPG，PNG後缀的文件。')
+        this.msgError('文件格式错误，請上傳圖片類型,如：JPG，PNG後缀的文件。')
       } else {
         const reader = new FileReader()
         reader.readAsDataURL(file)
@@ -111,7 +111,7 @@ export default {
         }
       }
     },
-    // 上传图片
+    // 上傳圖片
     uploadImg() {
       this.$refs.cropper.getCropBlob(data => {
         const formData = new FormData()

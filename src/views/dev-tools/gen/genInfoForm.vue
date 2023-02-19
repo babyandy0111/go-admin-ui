@@ -16,7 +16,7 @@
         <el-form-item prop="packageName">
           <span slot="label">
             应用名
-            <el-tooltip content="应用名，例如：在app文件夹下将该功能发到那个应用中，默認：admin" placement="top">
+            <el-tooltip content="应用名，例如：在app文件夹下将該功能发到那个应用中，默認：admin" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
           </span>

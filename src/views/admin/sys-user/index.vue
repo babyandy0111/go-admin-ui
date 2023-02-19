@@ -298,7 +298,7 @@
           <i class="el-icon-upload" />
           <div class="el-upload__text">
             将文件拖到此处，或
-            <em>点击上传</em>
+            <em>点击上傳</em>
           </div>
           <div slot="tip" class="el-upload__tip">
             <el-checkbox v-model="upload.updateSupport" />是否更新已经存在的用户資料
@@ -375,13 +375,13 @@ export default {
         open: false,
         // 弹出层标题（用户導入）
         title: '',
-        // 是否禁用上传
+        // 是否禁用上傳
         isUploading: false,
         // 是否更新已经存在的用户資料
         updateSupport: 0,
-        // 设置上传的請求头部
+        // 设置上傳的請求头部
         headers: { Authorization: 'Bearer ' + getToken() },
-        // 上传的地址
+        // 上傳的地址
         url: process.env.VUE_APP_BASE_API + '/system/user/importData'
       },
       // 查询参数
@@ -660,11 +660,11 @@ export default {
         this.download(response.msg)
       })
     },
-    // 文件上传中处理
+    // 文件上傳中处理
     handleFileUploadProgress(event, file, fileList) {
       this.upload.isUploading = true
     },
-    // 文件上传成功处理
+    // 文件上傳成功处理
     handleFileSuccess(response, file, fileList) {
       this.upload.open = false
       this.upload.isUploading = false
@@ -672,7 +672,7 @@ export default {
       this.$alert(response.msg, '導入结果', { dangerouslyUseHTMLString: true })
       this.getList()
     },
-    // 提交上传文件
+    // 提交上傳文件
     submitFileForm() {
       this.$refs.upload.submit()
     }

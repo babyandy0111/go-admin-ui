@@ -143,27 +143,27 @@ import data2blob from './utils/data2blob.js'
 import effectRipple from './utils/effectRipple.js'
 export default {
   props: {
-    // 域，上传文件name，触发事件会带上（如果一个頁面多个图片上传控件，可以做区分
+    // 域，上傳文件name，触发事件会带上（如果一个頁面多个圖片上傳控件，可以做区分
     field: {
       type: String,
       default: 'avatar'
     },
-    // 原名key，类似于id，触发事件会带上（如果一个頁面多个图片上传控件，可以做区分
+    // 原名key，类似于id，触发事件会带上（如果一个頁面多个圖片上傳控件，可以做区分
     ki: {
       type: Number,
       default: 0
     },
-    // 顯示该控件与否
+    // 顯示該控件与否
     value: {
       type: Boolean,
       default: true
     },
-    // 上传地址
+    // 上傳地址
     url: {
       type: String,
       default: ''
     },
-    // 其他要上传文件附带的資料，对象格式
+    // 其他要上傳文件附带的資料，对象格式
     params: {
       type: Object,
       default: null
@@ -173,12 +173,12 @@ export default {
       type: Object,
       default: null
     },
-    // 剪裁图片的宽
+    // 剪裁圖片的寬
     width: {
       type: Number,
       default: 200
     },
-    // 剪裁图片的高
+    // 剪裁圖片的高
     height: {
       type: Number,
       default: 200
@@ -188,12 +188,12 @@ export default {
       type: Boolean,
       default: true
     },
-    // 不預覽圆形图片
+    // 不預覽圆形圖片
     noCircle: {
       type: Boolean,
       default: false
     },
-    // 不預覽方形图片
+    // 不預覽方形圖片
     noSquare: {
       type: Boolean,
       default: false
@@ -213,7 +213,7 @@ export default {
       type: Object,
       default: null
     },
-    // 图片上传格式
+    // 圖片上傳格式
     imgFormat: {
       type: String,
       default: 'png'
@@ -232,7 +232,7 @@ export default {
       allowImgFormat.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat
     const lang = language[langType] ? language[langType] : language['en']
     const mime = mimes[tempImgFormat]
-    // 规范图片格式
+    // 规范圖片格式
     this.imgFormat = tempImgFormat
     if (langExt) {
       Object.assign(lang, langExt)
@@ -241,29 +241,29 @@ export default {
       isSupported = false
     }
     return {
-      // 图片的mime
+      // 圖片的mime
       mime,
       // 语言包
       lang,
-      // 浏览器是否支持该控件
+      // 瀏覽器是否支持該控件
       isSupported,
-      // 浏览器是否支持触屏事件
+      // 瀏覽器是否支持触屏事件
       isSupportTouch: document.hasOwnProperty('ontouchstart'),
       // 步骤
-      step: 1, // 1選擇文件 2剪裁 3上传
-      // 上传狀態及進度
+      step: 1, // 1選擇文件 2剪裁 3上傳
+      // 上傳狀態及進度
       loading: 0, // 0未開始 1正在 2成功 3错误
       progress: 0,
       // 是否有错误及错误訊息
       hasError: false,
       errorMsg: '',
-      // 需求图宽高比
+      // 需求图寬高比
       ratio: width / height,
-      // 原图地址、生成图片地址
+      // 原图地址、生成圖片地址
       sourceImg: null,
       sourceImgUrl: '',
       createImgUrl: '',
-      // 原图片拖动事件初始值
+      // 原圖片拖动事件初始值
       sourceImgMouseDown: {
         on: false,
         mX: 0, // 鼠标按下的坐标
@@ -271,12 +271,12 @@ export default {
         x: 0, // scale原图坐标
         y: 0
       },
-      // 生成图片預覽的容器大小
+      // 生成圖片預覽的容器大小
       previewContainer: {
         width: 100,
         height: 100
       },
-      // 原图容器宽高
+      // 原图容器寬高
       sourceImgContainer: {
         // sic
         width: 240,
@@ -296,9 +296,9 @@ export default {
         height: 0,
         maxWidth: 0,
         maxHeight: 0,
-        minWidth: 0, // 最宽
+        minWidth: 0, // 最寬
         minHeight: 0,
-        naturalWidth: 0, // 原宽
+        naturalWidth: 0, // 原寬
         naturalHeight: 0
       }
     }
@@ -332,7 +332,7 @@ export default {
     sourceImgMasking() {
       const { width, height, ratio, sourceImgContainer } = this
       const sic = sourceImgContainer
-      const sicRatio = sic.width / sic.height // 原图容器宽高比
+      const sicRatio = sic.width / sic.height // 原图容器寬高比
       let x = 0
       let y = 0
       let w = sic.width
@@ -349,7 +349,7 @@ export default {
         y = (sic.height - h) / 2
       }
       return {
-        scale, // 蒙版相对需求宽高的缩放
+        scale, // 蒙版相对需求寬高的缩放
         x,
         y,
         width: w,
@@ -424,7 +424,7 @@ export default {
         this.step = no
       }, 200)
     },
-    /* 图片選擇区域函数绑定
+    /* 圖片選擇区域函数绑定
      ---------------------------------------------------------------*/
     preventDefault(e) {
       e.preventDefault()
@@ -454,7 +454,7 @@ export default {
     // 检测選擇的文件是否合适
     checkFile(file) {
       const { lang, maxSize } = this
-      // 僅限图片
+      // 僅限圖片
       if (file.type.indexOf('image') === -1) {
         this.hasError = true
         this.errorMsg = lang.error.onlyImg
@@ -475,7 +475,7 @@ export default {
       this.errorMsg = ''
       this.progress = 0
     },
-    // 设置图片源
+    // 设置圖片源
     setSourceImg(file) {
       const fr = new FileReader()
       fr.onload = e => {
@@ -506,7 +506,7 @@ export default {
         let h = sim.height
         let x = 0
         let y = 0
-        // 图片像素不达标
+        // 圖片像素不达标
         if (nWidth < width || nHeight < height) {
           this.hasError = true
           this.errorMsg = lang.error.lowestPx + width + '*' + height
@@ -537,7 +537,7 @@ export default {
         this.setStep(2)
       }
     },
-    // 鼠标按下图片準備移动
+    // 鼠标按下圖片準備移动
     imgStartMove(e) {
       e.preventDefault()
       // 支持触摸事件，则鼠标事件無效
@@ -553,7 +553,7 @@ export default {
       simd.y = scale.y
       simd.on = true
     },
-    // 鼠标按下狀態下移动，图片移动
+    // 鼠标按下狀態下移动，圖片移动
     imgMove(e) {
       e.preventDefault()
       // 支持触摸事件，则鼠标事件無效
@@ -681,10 +681,10 @@ export default {
         y
       } = scale
       const sim = sourceImgMasking
-      // 蒙版宽高
+      // 蒙版寬高
       const sWidth = sim.width
       const sHeight = sim.height
-      // 新宽高
+      // 新寬高
       const nWidth = minWidth + ((maxWidth - minWidth) * newRange) / 100
       const nHeight = minHeight + ((maxHeight - minHeight) * newRange) / 100
       // 新坐标（根据蒙版中心点缩放）
@@ -715,7 +715,7 @@ export default {
         }
       }, 300)
     },
-    // 生成需求图片
+    // 生成需求圖片
     createImg(e) {
       const {
         mime,
@@ -756,7 +756,7 @@ export default {
         this.off()
       }
     },
-    // 上传图片
+    // 上傳圖片
     upload() {
       const {
         lang,
@@ -786,7 +786,7 @@ export default {
       //     this.progress = 100 * Math.round(event.loaded) / event.total
       //   }
       // }
-      // 上传文件
+      // 上傳文件
       this.reset()
       this.loading = 1
       this.setStep(3)

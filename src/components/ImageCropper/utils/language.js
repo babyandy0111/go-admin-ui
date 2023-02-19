@@ -1,11 +1,11 @@
 export default {
   zh: {
-    hint: '点击，或拖动图片至此处',
-    loading: '正在上传……',
-    noSupported: '浏览器不支持该功能，請使用IE10以上或其他现在浏览器！',
-    success: '上传成功',
-    fail: '图片上传失败',
-    preview: '头像預覽',
+    hint: '点击，或拖动圖片至此处',
+    loading: '正在上傳……',
+    noSupported: '瀏覽器不支持該功能，請使用IE10以上或其他現在瀏覽器！',
+    success: '上傳成功',
+    fail: '圖片上傳失敗',
+    preview: '頭像預覽',
     btn: {
       off: '取消',
       close: '关闭',
@@ -13,15 +13,15 @@ export default {
       save: '保存'
     },
     error: {
-      onlyImg: '僅限图片格式',
+      onlyImg: '僅限圖片格式',
       outOfSize: '單文件大小不能超過 ',
-      lowestPx: '图片最低像素為（宽*高）：'
+      lowestPx: '圖片最低像素為（寬*高）：'
     }
   },
   'zh-tw': {
     hint: '點擊，或拖動圖片至此處',
     loading: '正在上傳……',
-    noSupported: '瀏覽器不支持該功能，請使用IE10以上或其他現代瀏覽器！',
+    noSupported: '瀏覽器不支持該功能，請使用IE10以上或其他瀏覽器！',
     success: '上傳成功',
     fail: '圖片上傳失敗',
     preview: '頭像預覽',

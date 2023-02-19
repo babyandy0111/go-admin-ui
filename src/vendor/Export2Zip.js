@@ -19,6 +19,6 @@ export function export_txt_to_zip(th, jsonData, txtName, zipName) {
   }).then((blob) => {
     saveAs(blob, `${zip_name}.zip`)
   }, (err) => {
-    alert('匯出失败')
+    alert('匯出失敗')
   })
 }

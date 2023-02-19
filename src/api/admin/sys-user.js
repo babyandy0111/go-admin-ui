@@ -116,7 +116,7 @@ export function updateUserPwd(oldPassword, newPassword) {
   })
 }
 
-// 用户头像上传
+// 用户頭像上傳
 export function uploadAvatar(data) {
   return request({
     url: '/api/v1/user/avatar',

@@ -88,7 +88,7 @@ export default {
     this.setVisibleNumber()
   },
   methods: {
-    // 根据宽度计算设置顯示栏数
+    // 根据寬度计算设置顯示栏数
     setVisibleNumber() {
       const width = document.body.getBoundingClientRect().width - 200
       const elWidth = this.$el.getBoundingClientRect().width

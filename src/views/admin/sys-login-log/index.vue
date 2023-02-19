@@ -89,7 +89,7 @@
               <el-popover trigger="hover" placement="top">
                 <p>IP: {{ scope.row.ipaddr }}</p>
                 <p>归属地: {{ scope.row.loginLocation }}</p>
-                <p>浏览器: {{ scope.row.browser }}</p>
+                <p>瀏覽器: {{ scope.row.browser }}</p>
                 <p>系统: {{ scope.row.os }}</p>
                 <p>平台: {{ scope.row.platform }}</p>
                 <div slot="reference" class="name-wrapper">

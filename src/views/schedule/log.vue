@@ -68,7 +68,7 @@ export default {
     //   const actions = { 'test': '12345' }
     //   this.websocketsend(JSON.stringify(actions))
     },
-    websocketonerror() { // 连接建立失败重连
+    websocketonerror() { // 连接建立失敗重连
       this.initWebSocket()
     },
     websocketonmessage(e) { // 資料接收

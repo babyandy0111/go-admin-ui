@@ -370,7 +370,7 @@ function buildElUploadChild(scheme) {
   const config = scheme.__config__
   if (scheme['list-type'] === 'picture-card') list.push('<i class="el-icon-plus"></i>')
   else list.push(`<el-button size="small" type="primary" icon="el-icon-upload">${config.buttonText}</el-button>`)
-  if (config.showTip) list.push(`<div slot="tip" class="el-upload__tip">只能上传不超過 ${config.fileSize}${config.sizeUnit} 的${scheme.accept}文件</div>`)
+  if (config.showTip) list.push(`<div slot="tip" class="el-upload__tip">只能上傳不超過 ${config.fileSize}${config.sizeUnit} 的${scheme.accept}文件</div>`)
   return list.join('\n')
 }
 

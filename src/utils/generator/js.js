@@ -179,7 +179,7 @@ function buildBeforeUpload(conf) {
   if (conf.accept) {
     acceptCode = `let isAccept = new RegExp('${conf.accept}').test(file.type)
     if(!isAccept){
-      this.$message.error('应该選擇${conf.accept}類型的文件')
+      this.$message.error('应該選擇${conf.accept}類型的文件')
     }`
     returnList.push('isAccept')
   }
