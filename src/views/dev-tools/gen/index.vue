@@ -62,7 +62,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除</el-button>
+            >刪除</el-button>
           </el-col>
         </el-row>
 
@@ -139,7 +139,7 @@
                 size="small"
                 icon="el-icon-delete"
                 @click="handleSingleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -280,7 +280,7 @@ export default {
       }
       this.codestr = this.preview.data[e]
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
@@ -298,13 +298,13 @@ export default {
     openImportTable() {
       this.$refs.importTB.show()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 預覽按钮 */
+    /** 預覽按鈕 */
     handlePreview(row) {
       previewTable(row.tableId).then(response => {
         this.preview.data = response.data
@@ -334,15 +334,15 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleEditTable(row) {
       const tableId = row.tableId || this.ids[0]
       this.$router.push({ path: '/dev-tools/editTable', query: { tableId: tableId }})
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const tableIds = row.tableId || this.ids
-      this.$confirm('是否確認删除表編號為"' + tableIds + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除表編號為"' + tableIds + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

@@ -174,7 +174,7 @@ export function export_json_to_excel({
   }
 
   if (autoWidth) {
-    /*设置worksheet每列的最大寬度*/
+    /*設定worksheet每列的最大寬度*/
     const colWidth = data.map(row => row.map(val => {
       /*先判断是否為null/undefined*/
       if (val == null) {

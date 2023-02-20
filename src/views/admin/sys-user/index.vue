@@ -100,7 +100,7 @@
                   size="mini"
                   :disabled="multiple"
                   @click="handleDelete"
-                >删除</el-button>
+                >刪除</el-button>
               </el-col>
             </el-row>
 
@@ -343,7 +343,7 @@ export default {
       total: 0,
       // 用户表格資料
       userList: null,
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 部門树選项
       deptOptions: undefined,
@@ -373,13 +373,13 @@ export default {
       upload: {
         // 是否顯示弹出层（用户導入）
         open: false,
-        // 弹出层标题（用户導入）
+        // 弹出层標题（用户導入）
         title: '',
         // 是否禁用上傳
         isUploading: false,
         // 是否更新已经存在的用户資料
         updateSupport: 0,
-        // 设置上傳的請求头部
+        // 設定上傳的請求头部
         headers: { Authorization: 'Bearer ' + getToken() },
         // 上傳的地址
         url: process.env.VUE_APP_BASE_API + '/system/user/importData'
@@ -411,7 +411,7 @@ export default {
     }
   },
   watch: {
-    // 根据名稱筛選部門树
+    // 根據名稱筛選部門树
     deptName(val) {
       this.$refs.tree.filter(val)
     }
@@ -446,12 +446,12 @@ export default {
         this.deptOptions = response.data
       })
     },
-    // 筛選节点
+    // 筛選节點
     filterNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
     },
-    // 节点單击事件
+    // 节點單击事件
     handleNodeClick(data) {
       this.queryParams.deptId = '/' + data.id + '/'
       this.getList()
@@ -500,7 +500,7 @@ export default {
         row.status = row.status === '2' ? '1' : '2'
       })
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -523,12 +523,12 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.page = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
@@ -541,7 +541,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.getTreeselect()
@@ -556,7 +556,7 @@ export default {
       this.title = '新增用户'
       this.form.password = this.initPassword
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
 
@@ -574,7 +574,7 @@ export default {
         this.roleOptions = response.data.list
       })
     },
-    /** 重置密碼按钮操作 */
+    /** 重置密碼按鈕操作 */
     handleResetPwd(row) {
       this.$prompt('請輸入"' + row.username + '"的新密碼', '提示', {
         confirmButtonText: '確定',
@@ -589,7 +589,7 @@ export default {
         })
       }).catch(() => {})
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -617,10 +617,10 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const Ids = (row.userId && [row.userId]) || this.ids
-      this.$confirm('是否確認删除用户編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除用户編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -636,7 +636,7 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 匯出按钮操作 */
+    /** 匯出按鈕操作 */
     handleExport() {
       const queryParams = this.queryParams
       this.$confirm('是否確認匯出所有用户資料项?', '警告', {
@@ -649,7 +649,7 @@ export default {
         this.download(response.msg)
       }).catch(function() {})
     },
-    /** 導入按钮操作 */
+    /** 導入按鈕操作 */
     handleImport() {
       this.upload.title = '用户導入'
       this.upload.open = true

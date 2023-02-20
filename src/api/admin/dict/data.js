@@ -9,7 +9,7 @@ export function listData(query) {
   })
 }
 
-// 查询字典資料详细
+// 查询字典資料詳细
 export function getData(dictCode) {
   return request({
     url: '/api/v1/dict/data/' + dictCode,
@@ -17,7 +17,7 @@ export function getData(dictCode) {
   })
 }
 
-// 根据字典類型查询字典資料訊息
+// 根據字典類型查询字典資料訊息
 export function getDicts(dictType) {
   return request({
     url: '/api/v1/dict-data/option-select?dictType=' + dictType,
@@ -43,7 +43,7 @@ export function updateData(data) {
   })
 }
 
-// 删除字典資料
+// 刪除字典資料
 export function delData(dictCode) {
   return request({
     url: '/api/v1/dict/data',

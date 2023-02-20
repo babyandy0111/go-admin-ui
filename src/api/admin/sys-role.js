@@ -9,7 +9,7 @@ export function listRole(query) {
   })
 }
 
-// 查询角色详细
+// 查询角色詳细
 export function getRole(roleId) {
   return request({
     url: '/api/v1/role/' + roleId,
@@ -57,7 +57,7 @@ export function changeRoleStatus(roleId, status) {
   })
 }
 
-// 删除角色
+// 刪除角色
 export function delRole(roleId) {
   return request({
     url: '/api/v1/role',

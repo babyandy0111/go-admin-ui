@@ -8,7 +8,7 @@ export function getDeptList(query) {
   })
 }
 
-// 查询部門详细
+// 查询部門詳细
 export function getDept(deptId) {
   return request({
     url: '/api/v1/dept/' + deptId,
@@ -24,7 +24,7 @@ export function treeselect() {
   })
 }
 
-// 根据角色ID查询部門树结构
+// 根據角色ID查询部門树结构
 export function roleDeptTreeselect(roleId) {
   return request({
     url: '/api/v1/roleDeptTreeselect/' + roleId,
@@ -50,7 +50,7 @@ export function updateDept(data, id) {
   })
 }
 
-// 删除部門
+// 刪除部門
 export function delDept(data) {
   return request({
     url: '/api/v1/dept',

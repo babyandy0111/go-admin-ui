@@ -249,10 +249,10 @@ export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 
   const later = function() {
-    // 据上一次触发時间间隔
+    // 据上一次触发時間間隔
     const last = +new Date() - timestamp
 
-    // 上次被包装函数被调用時间间隔 last 小于设定時间间隔 wait
+    // 上次被包装函数被调用時間間隔 last 小于设定時間間隔 wait
     if (last < wait && last > 0) {
       timeout = setTimeout(later, wait - last)
     } else {

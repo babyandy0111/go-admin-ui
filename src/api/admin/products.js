@@ -9,7 +9,7 @@ export function listProducts(query) {
   })
 }
 
-// 查询Products详细
+// 查询Products詳细
 export function getProducts(id) {
   return request({
     url: '/api/v1/products/' + id,
@@ -35,7 +35,7 @@ export function updateProducts(data) {
   })
 }
 
-// 删除Products
+// 刪除Products
 export function delProducts(data) {
   return request({
     url: '/api/v1/products',

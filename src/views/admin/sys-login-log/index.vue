@@ -4,9 +4,9 @@
     <template #wrapper>
       <el-card class="box-card">
         <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
-          <el-form-item label="用户名" prop="username"><el-input
+          <el-form-item label="user名稱" prop="username"><el-input
             v-model="queryParams.username"
-            placeholder="請輸入用户名"
+            placeholder="請輸入user名稱"
             clearable
             size="small"
             @keyup.enter.native="handleQuery"
@@ -14,7 +14,7 @@
           </el-form-item>
           <el-form-item label="狀態" prop="status"><el-select
             v-model="queryParams.status"
-            placeholder="系统Login日志狀態"
+            placeholder="系统Login log 狀態"
             clearable
             size="small"
           >
@@ -50,7 +50,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除
+            >刪除
             </el-button>
           </el-col>
         </el-row>
@@ -58,7 +58,7 @@
         <el-table v-loading="loading" :data="sysloginlogList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="55" align="center" />
           <el-table-column
-            label="用户名"
+            label="user名稱"
             align="center"
             prop="username"
             :show-overflow-tooltip="true"
@@ -88,9 +88,9 @@
             <template slot-scope="scope">
               <el-popover trigger="hover" placement="top">
                 <p>IP: {{ scope.row.ipaddr }}</p>
-                <p>归属地: {{ scope.row.loginLocation }}</p>
+                <p>位置: {{ scope.row.loginLocation }}</p>
                 <p>瀏覽器: {{ scope.row.browser }}</p>
-                <p>系统: {{ scope.row.os }}</p>
+                <p>系統: {{ scope.row.os }}</p>
                 <p>平台: {{ scope.row.platform }}</p>
                 <div slot="reference" class="name-wrapper">
                   {{ scope.row.ipaddr }}
@@ -100,7 +100,7 @@
           </el-table-column>
 
           <el-table-column
-            label="Login時间"
+            label="登入時間"
             align="center"
             prop="loginTime"
             width="180"
@@ -117,7 +117,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除
+              >刪除
               </el-button>
             </template>
           </el-table-column>
@@ -154,7 +154,7 @@ export default {
       multiple: true,
       // 总条数
       total: 0,
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -165,7 +165,7 @@ export default {
       typeOptions: [],
       sysloginlogList: [],
       statusOptions: [],
-      // 关系表類型
+      // 關系表類型
 
       // 查询参数
       queryParams: {
@@ -202,7 +202,7 @@ export default {
       }
       )
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -233,24 +233,24 @@ export default {
     statusFormat(row) {
       return this.selectDictLabel(this.statusOptions, row.status)
     },
-    // 关系
+    // 關系
     // 文件
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
-      this.title = '新增系统Login日志'
+      this.title = '新增系统Loginlog'
       this.isEdit = false
     },
     // 多選框選中資料
@@ -259,7 +259,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const ID =
@@ -267,15 +267,15 @@ export default {
       getSysLoginlog(ID).then(response => {
         this.form = response.data
         this.open = true
-        this.title = '修改系统Login日志'
+        this.title = '修改系统Loginlog'
         this.isEdit = true
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       var Ids = (row.id && [row.id]) || this.ids
 
-      this.$confirm('是否確認删除編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

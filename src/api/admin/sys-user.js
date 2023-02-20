@@ -9,7 +9,7 @@ export function listUser(query) {
   })
 }
 
-// 查询用户详细
+// 查询用户詳细
 export function getUser(userId) {
   return request({
     url: '/api/v1/sys-user/' + userId,
@@ -42,7 +42,7 @@ export function updateUser(data) {
   })
 }
 
-// 删除用户
+// 刪除用户
 export function delUser(data) {
   return request({
     url: '/api/v1/sys-user',

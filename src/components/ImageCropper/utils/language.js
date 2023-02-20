@@ -1,6 +1,6 @@
 export default {
   zh: {
-    hint: '点击，或拖动圖片至此处',
+    hint: '點擊，或拖动圖片至此处',
     loading: '正在上傳……',
     noSupported: '瀏覽器不支持該功能，請使用IE10以上或其他現在瀏覽器！',
     success: '上傳成功',
@@ -8,7 +8,7 @@ export default {
     preview: '頭像預覽',
     btn: {
       off: '取消',
-      close: '关闭',
+      close: '關閉',
       back: '上一步',
       save: '保存'
     },

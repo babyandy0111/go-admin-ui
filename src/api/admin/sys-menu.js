@@ -9,7 +9,7 @@ export function listMenu(query) {
   })
 }
 
-// 查询選單详细
+// 查询選單詳细
 export function getMenu(menuId) {
   return request({
     url: '/api/v1/menu/' + menuId,
@@ -25,7 +25,7 @@ export function getMenu(menuId) {
 //   })
 // }
 
-// 根据角色ID查询選單下拉树结构
+// 根據角色ID查询選單下拉树结构
 export function roleMenuTreeselect(roleId) {
   return request({
     url: '/api/v1/roleMenuTreeselect/' + roleId,
@@ -51,7 +51,7 @@ export function updateMenu(data, id) {
   })
 }
 
-// 删除選單
+// 刪除選單
 export function delMenu(data) {
   return request({
     url: '/api/v1/menu',

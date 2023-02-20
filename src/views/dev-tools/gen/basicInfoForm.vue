@@ -5,7 +5,7 @@
         <el-form-item prop="tableName">
           <span slot="label">
             資料表名稱
-            <el-tooltip content="資料库表名稱，针对gorm对应的table()使用，⚠️这里必须是蛇形结构" placement="top">
+            <el-tooltip content="資料库表名稱，针对gorm對應的table()使用，⚠️这里必须是蛇形结构" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
@@ -27,7 +27,7 @@
         <el-form-item prop="className">
           <span slot="label">
             结构体模型名稱
-            <el-tooltip content="结构体模型名稱，代碼中的struct名稱定义使用" placement="top">
+            <el-tooltip content="结构体模型名稱，代碼中的struct名稱定義使用" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
@@ -42,8 +42,8 @@
       <!-- <el-col :span="12">
         <el-form-item prop="isLogicalDelete">
           <span slot="label">
-            是否逻辑删除
-            <el-tooltip content="目前只支持逻辑删除" placement="top">
+            是否逻辑刪除
+            <el-tooltip content="目前只支持逻辑刪除" placement="top">
               <i class="el-icon-question" />
             </el-tooltip>
           </span>
@@ -55,7 +55,7 @@
         </el-form-item>
       </el-col>
       <el-col :span="12">
-        <el-form-item v-if="info.isLogicalDelete == '1'" label="逻辑删除字段" prop="logicalDeleteColumn">
+        <el-form-item v-if="info.isLogicalDelete == '1'" label="逻辑刪除字段" prop="logicalDeleteColumn">
           <el-input v-model="info.logicalDeleteColumn" placeholder="請輸入" />
         </el-form-item>
       </el-col> -->
@@ -81,18 +81,18 @@ export default {
       rules: {
         tableName: [
           { required: true, message: '請輸入表名稱', trigger: 'blur' },
-          { pattern: /^[a-z\._]*$/g, trigger: 'blur', message: '只允许小写字母,例如 sys_demo 格式' }
+          { pattern: /^[a-z\._]*$/g, trigger: 'blur', message: '只允许小寫字母,例如 sys_demo 格式' }
         ],
         tableComment: [
           { required: true, message: '請輸入選單名稱', trigger: 'blur' }
         ],
         className: [
           { required: true, message: '請輸入模型名稱', trigger: 'blur' },
-          { pattern: /^[A-Z][A-z0-9]*$/g, trigger: 'blur', message: '必须以大写字母开头,例如 SysDemo 格式' }
+          { pattern: /^[A-Z][A-z0-9]*$/g, trigger: 'blur', message: '必须以大寫字母開頭,例如 SysDemo 格式' }
         ],
         functionAuthor: [
           { required: true, message: '請輸入作者', trigger: 'blur' },
-          { pattern: /^[A-Za-z]+$/, trigger: 'blur', message: '校验规则:  只允许输入字母 a-z 或大写 A-Z' }
+          { pattern: /^[A-Za-z]+$/, trigger: 'blur', message: '校验规则:  只允许输入字母 a-z 或大寫 A-Z' }
         ]
       }
     }

@@ -8,7 +8,7 @@ export function getCodeImg() {
   })
 }
 
-// 查询 此接口不在验证資料權限
+// 查询 此API不在验证資料權限
 export function getSetting() {
   return request({
     url: '/api/v1/app-config',

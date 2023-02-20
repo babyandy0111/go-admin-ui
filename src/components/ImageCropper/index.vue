@@ -266,9 +266,9 @@ export default {
       // 原圖片拖动事件初始值
       sourceImgMouseDown: {
         on: false,
-        mX: 0, // 鼠标按下的坐标
+        mX: 0, // 鼠標按下的坐標
         mY: 0,
-        x: 0, // scale原图坐标
+        x: 0, // scale原图坐標
         y: 0
       },
       // 生成圖片預覽的容器大小
@@ -284,11 +284,11 @@ export default {
       },
       // 原图展示属性
       scale: {
-        zoomAddOn: false, // 按钮缩放事件开啟
-        zoomSubOn: false, // 按钮缩放事件开啟
+        zoomAddOn: false, // 按鈕缩放事件开啟
+        zoomSubOn: false, // 按鈕缩放事件开啟
         range: 1, // 最大100
-        rotateLeft: false, // 按钮向左旋转事件开啟
-        rotateRight: false, // 按钮向右旋转事件开啟
+        rotateLeft: false, // 按鈕向左旋转事件开啟
+        rotateRight: false, // 按鈕向右旋转事件开啟
         degree: 0, // 旋转度数
         x: 0,
         y: 0,
@@ -396,18 +396,18 @@ export default {
     }
   },
   created() {
-    // 绑定按键esc隐藏此插件事件
+    // 绑定按键esc隱藏此插件事件
     document.addEventListener('keyup', this.closeHandler)
   },
   destroyed() {
     document.removeEventListener('keyup', this.closeHandler)
   },
   methods: {
-    // 点击波纹效果
+    // 點擊波纹效果
     ripple(e) {
       effectRipple(e)
     },
-    // 关闭控件
+    // 關閉控件
     off() {
       setTimeout(() => {
         this.$emit('input', false)
@@ -417,7 +417,7 @@ export default {
         }
       }, 200)
     },
-    // 设置步骤
+    // 設定步骤
     setStep(no) {
       // 延時是為了顯示动画效果呢，哈哈哈
       setTimeout(() => {
@@ -475,7 +475,7 @@ export default {
       this.errorMsg = ''
       this.progress = 0
     },
-    // 设置圖片源
+    // 設定圖片源
     setSourceImg(file) {
       const fr = new FileReader()
       fr.onload = e => {
@@ -506,7 +506,7 @@ export default {
         let h = sim.height
         let x = 0
         let y = 0
-        // 圖片像素不达标
+        // 圖片像素不达標
         if (nWidth < width || nHeight < height) {
           this.hasError = true
           this.errorMsg = lang.error.lowestPx + width + '*' + height
@@ -537,10 +537,10 @@ export default {
         this.setStep(2)
       }
     },
-    // 鼠标按下圖片準備移动
+    // 鼠標按下圖片準備移动
     imgStartMove(e) {
       e.preventDefault()
-      // 支持触摸事件，则鼠标事件無效
+      // 支持触摸事件，则鼠標事件無效
       if (this.isSupportTouch && !e.targetTouches) {
         return false
       }
@@ -553,10 +553,10 @@ export default {
       simd.y = scale.y
       simd.on = true
     },
-    // 鼠标按下狀態下移动，圖片移动
+    // 鼠標按下狀態下移动，圖片移动
     imgMove(e) {
       e.preventDefault()
-      // 支持触摸事件，则鼠标事件無效
+      // 支持触摸事件，则鼠標事件無效
       if (this.isSupportTouch && !e.targetTouches) {
         return false
       }
@@ -589,7 +589,7 @@ export default {
       scale.x = rX
       scale.y = rY
     },
-    // 按钮按下開始向右旋转
+    // 按鈕按下開始向右旋转
     startRotateRight(e) {
       const { scale } = this
       scale.rotateRight = true
@@ -604,7 +604,7 @@ export default {
       }
       rotate()
     },
-    // 按钮按下開始向左旋转
+    // 按鈕按下開始向左旋转
     startRotateLeft(e) {
       const { scale } = this
       scale.rotateLeft = true
@@ -625,7 +625,7 @@ export default {
       scale.rotateLeft = false
       scale.rotateRight = false
     },
-    // 按钮按下開始放大
+    // 按鈕按下開始放大
     startZoomAdd(e) {
       const { scale } = this
       scale.zoomAddOn = true
@@ -640,11 +640,11 @@ export default {
       }
       zoom()
     },
-    // 按钮松开或移开取消放大
+    // 按鈕松开或移开取消放大
     endZoomAdd(e) {
       this.scale.zoomAddOn = false
     },
-    // 按钮按下開始缩小
+    // 按鈕按下開始缩小
     startZoomSub(e) {
       const { scale } = this
       scale.zoomSubOn = true
@@ -659,7 +659,7 @@ export default {
       }
       zoom()
     },
-    // 按钮松开或移开取消缩小
+    // 按鈕松开或移开取消缩小
     endZoomSub(e) {
       const { scale } = this
       scale.zoomSubOn = false
@@ -687,10 +687,10 @@ export default {
       // 新寬高
       const nWidth = minWidth + ((maxWidth - minWidth) * newRange) / 100
       const nHeight = minHeight + ((maxHeight - minHeight) * newRange) / 100
-      // 新坐标（根据蒙版中心点缩放）
+      // 新坐標（根據蒙版中心點缩放）
       let nX = sWidth / 2 - (nWidth / width) * (sWidth / 2 - x)
       let nY = sHeight / 2 - (nHeight / height) * (sHeight / 2 - y)
-      // 判断新坐标是否超過蒙版限制
+      // 判断新坐標是否超過蒙版限制
       if (nX > 0) {
         nX = 0
       }
@@ -726,13 +726,13 @@ export default {
       const canvas = this.$refs.canvas
       const ctx = canvas.getContext('2d')
       if (e) {
-        // 取消鼠标按下移动狀態
+        // 取消鼠標按下移动狀態
         this.sourceImgMouseDown.on = false
       }
       canvas.width = this.width
       canvas.height = this.height
       ctx.clearRect(0, 0, this.width, this.height)
-      // 将透明区域设置為白色底边
+      // 將透明区域設定為白色底边
       ctx.fillStyle = '#fff'
       ctx.fillRect(0, 0, this.width, this.height)
       ctx.translate(this.width * 0.5, this.height * 0.5)

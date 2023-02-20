@@ -65,7 +65,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除</el-button>
+            >刪除</el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -112,7 +112,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -180,7 +180,7 @@ export default {
       total: 0,
       // 職位表格資料
       postList: [],
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -230,7 +230,7 @@ export default {
     statusFormat(row) {
       return this.selectDictLabel(this.statusOptions, row.status)
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -247,12 +247,12 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.resetForm('queryForm')
       this.handleQuery()
@@ -263,13 +263,13 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
       this.title = '新增職位'
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
 
@@ -281,7 +281,7 @@ export default {
         this.title = '修改職位'
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -310,11 +310,11 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       // const postIds = row.postId || this.ids
       const Ids = (row.postId && [row.postId]) || this.ids
-      this.$confirm('是否確認删除職位編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除職位編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -330,7 +330,7 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 匯出按钮操作 */
+    /** 匯出按鈕操作 */
     handleExport() {
       // const queryParams = this.queryParams
       this.$confirm('是否確認匯出所有職位資料项?', '警告', {

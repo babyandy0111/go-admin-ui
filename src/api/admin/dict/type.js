@@ -9,7 +9,7 @@ export function listType(query) {
   })
 }
 
-// 查询字典類型详细
+// 查询字典類型詳细
 export function getType(dictId) {
   return request({
     url: '/api/v1/dict/type/' + dictId,
@@ -35,7 +35,7 @@ export function updateType(data) {
   })
 }
 
-// 删除字典類型
+// 刪除字典類型
 export function delType(dictId) {
   return request({
     url: '/api/v1/dict/type',

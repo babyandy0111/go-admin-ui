@@ -9,7 +9,7 @@ export function listPost(query) {
   })
 }
 
-// 查询職位详细
+// 查询職位詳细
 export function getPost(postId) {
   return request({
     url: '/api/v1/post/' + postId,
@@ -35,7 +35,7 @@ export function updatePost(data, id) {
   })
 }
 
-// 删除職位
+// 刪除職位
 export function delPost(postId) {
   return request({
     url: '/api/v1/post',

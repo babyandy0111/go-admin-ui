@@ -81,7 +81,7 @@
                 size="mini"
                 :disabled="multiple"
                 @click="handleDelete"
-              >删除
+              >刪除
               </el-button>
             </el-col>
             <el-col :span="1.5">
@@ -91,7 +91,7 @@
                 icon="el-icon-delete"
                 size="mini"
                 @click="handleLog"
-              >日志
+              >log
               </el-button>
 
             </el-col>
@@ -129,7 +129,7 @@
               :show-overflow-tooltip="true"
             />
             <el-table-column
-              label="调用目标"
+              label="调用目標"
               align="center"
               prop="invokeTarget"
               :show-overflow-tooltip="true"
@@ -179,7 +179,7 @@
                   type="text"
                   icon="el-icon-delete"
                   @click="handleDelete(scope.row)"
-                >删除
+                >刪除
                 </el-button>
               </template>
             </el-table-column>
@@ -221,12 +221,12 @@
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="调用目标" prop="invokeTarget">
+                  <el-form-item label="调用目標" prop="invokeTarget">
                     <span slot="label">
-                      调用目标
+                      调用目標
                       <el-tooltip placement="top">
                         <div slot="content">
-                          调用示例：func (t *EXEC) ExamplesNoParam(){..} 填写 ExamplesNoParam 即可；
+                          调用示例：func (t *EXEC) ExamplesNoParam(){..} 填寫 ExamplesNoParam 即可；
                           <br>参数说明：目前不支持带参调用
                         </div>
                         <i class="el-icon-question" />
@@ -234,17 +234,17 @@
                     </span>
                     <el-input
                       v-model="form.invokeTarget"
-                      placeholder="调用目标"
+                      placeholder="调用目標"
                     />
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="目标参数" prop="args">
+                  <el-form-item label="目標参数" prop="args">
                     <span slot="label">
-                      目标参数
+                      目標参数
                       <el-tooltip placement="top">
                         <div slot="content">
-                          参数示例：有参：請以string格式填写；無参：為空；
+                          参数示例：有参：請以string格式填寫；無参：為空；
                           <br>参数说明：目前僅支持函数调用
                         </div>
                         <i class="el-icon-question" />
@@ -252,7 +252,7 @@
                     </span>
                     <el-input
                       v-model="form.args"
-                      placeholder="目标参数"
+                      placeholder="目標参数"
                     />
                   </el-form-item>
                 </el-col>
@@ -275,7 +275,7 @@
                 <el-col :span="24">
                   <el-form-item label="调用類型" prop="jobType">
                     <el-radio-group v-model="form.jobType" size="small">
-                      <el-radio-button label="1">接口</el-radio-button>
+                      <el-radio-button label="1">API</el-radio-button>
                       <el-radio-button label="2">函数</el-radio-button>
                     </el-radio-group>
                   </el-form-item>
@@ -340,7 +340,7 @@ export default {
       multiple: true,
       // 总条数
       total: 0,
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -368,7 +368,7 @@ export default {
         jobName: [{ required: true, message: '名稱不能為空', trigger: 'blur' }],
         jobGroup: [{ required: true, message: '任務分组不能為空', trigger: 'blur' }],
         cronExpression: [{ required: true, message: 'cron表达式不能為空', trigger: 'blur' }],
-        invokeTarget: [{ required: true, message: '调用目标不能為空', trigger: 'blur' }],
+        invokeTarget: [{ required: true, message: '调用目標不能為空', trigger: 'blur' }],
         status: [{ required: true, message: '狀態不能為空', trigger: 'blur' }]
       }
     }
@@ -393,7 +393,7 @@ export default {
         this.loading = false
       })
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -420,18 +420,18 @@ export default {
     statusFormat(row) {
       return this.selectDictLabel(this.statusOptions, row.status)
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
@@ -444,7 +444,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const jobId = row.jobId || this.ids
@@ -459,7 +459,7 @@ export default {
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -495,10 +495,10 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const Ids = (row.jobId && [row.jobId]) || this.ids
-      this.$confirm('是否確認删除編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -514,7 +514,7 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 開始按钮操作 */
+    /** 開始按鈕操作 */
     handleStart(row) {
       this.$confirm('是否確認啟动編號為"' + row.jobId + '"的資料项?', '警告', {
         confirmButtonText: '確定',
@@ -532,9 +532,9 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 停止按钮操作 */
+    /** 停止按鈕操作 */
     handleRemove(row) {
-      this.$confirm('是否確認关闭編號為"' + row.jobId + '"的資料项?', '警告', {
+      this.$confirm('是否確認關閉編號為"' + row.jobId + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

@@ -6,7 +6,7 @@
       </el-tab-pane>
       <el-tab-pane label="字段訊息" name="cloum">
         <el-alert
-          title="⚠️表字段中的id、create_by、update_by、created_at、updated_at、deleted_at的字段在此列表中已经隐藏"
+          title="⚠️表字段中的id、create_by、update_by、created_at、updated_at、deleted_at的字段在此列表中已经隱藏"
           type="warning"
           show-icon
         />
@@ -119,7 +119,7 @@
               </el-select>
             </template>
           </el-table-column>
-          <el-table-column label="关系表" width="160">
+          <el-table-column label="關系表" width="160">
             <template slot-scope="scope">
               <el-select v-model="scope.row.fkTableName" clearable filterable placeholder="請選擇" @change="handleChangeConfig(scope.row,scope.$index)">
                 <el-option
@@ -134,7 +134,7 @@
               </el-select>
             </template>
           </el-table-column>
-          <el-table-column label="关系表key" width="150">
+          <el-table-column label="關系表key" width="150">
             <template slot-scope="scope">
               <el-select v-model="scope.row.fkLabelId" clearable filterable placeholder="請選擇">
                 <el-option
@@ -149,7 +149,7 @@
               </el-select>
             </template>
           </el-table-column>
-          <el-table-column label="关系表value" width="150">
+          <el-table-column label="關系表value" width="150">
             <template slot-scope="scope">
               <el-select v-model="scope.row.fkLabelName" clearable filterable placeholder="請選擇">
                 <el-option
@@ -201,7 +201,7 @@ export default {
       tableTree: [],
       // 字典訊息
       dictOptions: [],
-      // 表详细訊息
+      // 表詳细訊息
       info: {}
     }
   },
@@ -213,7 +213,7 @@ export default {
     })
     const { tableId } = this.$route.query
     if (tableId) {
-      // 獲取表详细訊息
+      // 獲取表詳细訊息
       getGenTable(tableId).then(res => {
         this.columns = res.data.list
         this.info = res.data.info
@@ -248,7 +248,7 @@ export default {
           { props: { placement: 'top-start', width: '270', trigger: 'hover' }},
           [
             h('p', '是否在表單编辑時能够编辑，打√表示需要', { class: 'text-align: center; margin: 0' }),
-            // 生成 i 标签 ，新增icon 设置 样式，slot 必填
+            // 生成 i 標签 ，新增icon 設定 样式，slot 必填
             h('i', { class: 'el-icon-question', style: 'color:#ccc,padding-top:5px', slot: 'reference' })
           ]
         )
@@ -289,7 +289,7 @@ export default {
         }
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm() {
       const basicForm = this.$refs.basicInfo.$refs.basicInfoForm
       const genForm = this.$refs.genInfo.$refs.genInfoForm
@@ -338,7 +338,7 @@ export default {
         })
       })
     },
-    /** 关闭按钮 */
+    /** 關閉按鈕 */
     close() {
       this.$store.dispatch('tagsView/delView', this.$route)
       this.$router.push({ path: '/dev-tools/gen', query: { t: Date.now() }})

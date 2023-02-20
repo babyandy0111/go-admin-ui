@@ -87,7 +87,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -172,7 +172,7 @@ export default {
       deptList: [],
       // 部門树選项
       deptOptions: [],
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       isEdit: false,
       // 是否顯示弹出层
@@ -264,7 +264,7 @@ export default {
     statusFormat(row) {
       return this.selectDictLabel(this.statusOptions, parseInt(row.status))
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -282,11 +282,11 @@ export default {
         status: '2'
       }
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.getList()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd(row) {
       this.reset()
       this.getTreeselect('add')
@@ -297,7 +297,7 @@ export default {
       this.title = '新增部門'
       this.isEdit = false
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       this.getTreeselect('update')
@@ -311,7 +311,7 @@ export default {
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -341,11 +341,11 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const Ids = (row.deptId && [row.deptId]) || this.ids
       this.$confirm(
-        '是否確認删除名稱為"' + row.deptName + '"的資料项?',
+        '是否確認刪除名稱為"' + row.deptName + '"的資料项?',
         '警告',
         {
           confirmButtonText: '確定',

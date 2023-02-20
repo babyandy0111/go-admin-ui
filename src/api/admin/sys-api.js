@@ -9,7 +9,7 @@ export function listSysApi(query) {
   })
 }
 
-// 查询SysApi详细
+// 查询SysApi詳细
 export function getSysApi(id) {
   return request({
     url: '/api/v1/sys-api/' + id,
@@ -35,7 +35,7 @@ export function updateSysApi(data) {
   })
 }
 
-// 删除SysApi
+// 刪除SysApi
 export function delSysApi(data) {
   return request({
     url: '/api/v1/sys-api',

@@ -52,7 +52,7 @@ export default {
     routers() {
       return this.$store.state.permission.topbarRouters
     },
-    // 设置子路由
+    // 設定子路由
     childrenMenus() {
       var childrenMenus = []
       this.routers.map((router) => {
@@ -88,7 +88,7 @@ export default {
     this.setVisibleNumber()
   },
   methods: {
-    // 根据寬度计算设置顯示栏数
+    // 根據寬度计算設定顯示栏数
     setVisibleNumber() {
       const width = document.body.getBoundingClientRect().width - 200
       const elWidth = this.$el.getBoundingClientRect().width
@@ -103,7 +103,7 @@ export default {
     // 選單選擇事件
     handleSelect(key, keyPath) {
       if (key.indexOf('http://') !== -1 || key.indexOf('https://') !== -1) {
-        // http(s):// 路径新窗口打开
+        // http(s):// 路徑新窗口打开
         window.open(key, '_blank')
       } else {
         this.activeRoutes(key)

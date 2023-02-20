@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="options.img" title="点击上傳頭像" class="img-circle img-lg" @click="editCropper()">
+    <img :src="options.img" title="點擊上傳頭像" class="img-circle img-lg" @click="editCropper()">
     <el-dialog :title="title" :visible.sync="open" width="800px" :close-on-click-modal="false">
       <el-row>
         <el-col :xs="24" :md="12" :style="{height: '350px'}">
@@ -66,7 +66,7 @@ export default {
     return {
       // 是否顯示弹出层
       open: false,
-      // 弹出层标题
+      // 弹出层標题
       title: '修改頭像',
       options: {
         img: store.getters.avatar, // 裁剪圖片的地址

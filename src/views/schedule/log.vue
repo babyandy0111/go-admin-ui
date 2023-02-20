@@ -82,7 +82,7 @@ export default {
     websocketsend(Data) { // 資料发送
     //   this.websock.send(Data)
     },
-    websocketclose(e) { // 关闭
+    websocketclose(e) { // 關閉
       unWsLogout(this.id, this.group).then(response => {
         console.log(response.data)
       }

@@ -9,7 +9,7 @@ export function listConfig(query) {
   })
 }
 
-// 查询参数详细
+// 查询参数詳细
 export function getConfig(configId) {
   return request({
     url: '/api/v1/config/' + configId,
@@ -17,7 +17,7 @@ export function getConfig(configId) {
   })
 }
 
-// 根据参数鍵值查询参数值
+// 根據参数鍵值查询参数值
 export function getConfigKey(configKey) {
   return request({
     url: '/api/v1/configKey/' + configKey,
@@ -43,7 +43,7 @@ export function updateConfig(data) {
   })
 }
 
-// 删除参数設定
+// 刪除参数設定
 export function delConfig(data) {
   return request({
     url: '/api/v1/config',

@@ -4,10 +4,10 @@
     <template #wrapper>
       <el-card class="box-card">
         <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="48px">
-          <el-form-item label="标题" prop="title">
+          <el-form-item label="標题" prop="title">
             <el-input
               v-model="queryParams.title"
-              placeholder="請輸入标题"
+              placeholder="請輸入標题"
               clearable
               size="small"
               @keyup.enter.native="handleQuery"
@@ -51,7 +51,7 @@
           @sort-change="handleSortChang"
         >
           <el-table-column
-            label="标题"
+            label="標题"
             header-align="center"
             align="left"
             prop="title"
@@ -92,7 +92,7 @@
                   <el-tag v-if="scope.row.action=='PUT'" type="warning">{{ scope.row.action }}</el-tag>
                   <el-tag v-if="scope.row.action=='DELETE'" type="danger">{{ scope.row.action }}</el-tag>
                 </p>
-                <p>接口類型: {{ scope.row.type }}</p>
+                <p>API類型: {{ scope.row.type }}</p>
                 <div slot="reference" class="name-wrapper">
                   <el-tag v-if="scope.row.action=='GET'">{{ scope.row.action }}</el-tag>
                   <el-tag v-if="scope.row.action=='POST'" type="success">{{ scope.row.action }}</el-tag>
@@ -159,10 +159,10 @@
                   placeholder="handle"
                 />
               </el-form-item>
-              <el-form-item label="标题" prop="title">
+              <el-form-item label="標题" prop="title">
                 <el-input
                   v-model="form.title"
-                  placeholder="标题"
+                  placeholder="標题"
                 />
               </el-form-item>
               <el-form-item label="類型" prop="type">
@@ -234,7 +234,7 @@ export default {
       multiple: true,
       // 总条数
       total: 0,
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -260,10 +260,10 @@ export default {
       },
       // 表單校验
       rules: {
-        title: [{ required: true, message: '标题不能為空', trigger: 'blur' }],
+        title: [{ required: true, message: '標题不能為空', trigger: 'blur' }],
         path: [{ required: true, message: '地址不能為空', trigger: 'blur' }],
         action: [{ required: true, message: '類型不能為空', trigger: 'blur' }],
-        parentId: [{ required: true, message: '按钮id不能為空', trigger: 'blur' }]
+        parentId: [{ required: true, message: '按鈕id不能為空', trigger: 'blur' }]
       }
     }
   },
@@ -287,7 +287,7 @@ export default {
       }
       )
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -310,22 +310,22 @@ export default {
       return this.selectItemsLabel(this.parentIdOptions, row.parentId)
     },
     // 文件
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
-      this.title = '新增接口管理'
+      this.title = '新增API管理'
       this.isEdit = false
     },
     /** 排序回调函数 */
@@ -352,7 +352,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const id =
@@ -360,11 +360,11 @@ export default {
       getSysApi(id).then(response => {
         this.form = response.data
         this.open = true
-        this.title = '修改接口管理'
+        this.title = '修改API管理'
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -392,11 +392,11 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       var Ids = (row.id && [row.id]) || this.ids
 
-      this.$confirm('是否確認删除編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

@@ -182,7 +182,7 @@ export default {
     typeFormat(row, column) {
       return this.selectDictLabel(this.typeOptions, row.configType)
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()

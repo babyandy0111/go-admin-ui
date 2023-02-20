@@ -389,9 +389,9 @@ export function makeUpHtml(formConfig, type) {
     htmlList.push(layouts[el.__config__.layout](el))
   })
   const htmlStr = htmlList.join('\n')
-  // 将组件代碼放進form标签
+  // 將组件代碼放進form標签
   let temp = buildFormTemplate(formConfig, htmlStr, type)
-  // dialog标签包裹代碼
+  // dialog標签包裹代碼
   if (type === 'dialog') {
     temp = dialogWrapper(temp)
   }

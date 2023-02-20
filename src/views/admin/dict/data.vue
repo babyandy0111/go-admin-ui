@@ -13,10 +13,10 @@
               />
             </el-select>
           </el-form-item>
-          <el-form-item label="字典标签" prop="dictLabel">
+          <el-form-item label="字典標签" prop="dictLabel">
             <el-input
               v-model="queryParams.dictLabel"
-              placeholder="請輸入字典标签"
+              placeholder="請輸入字典標签"
               clearable
               size="small"
               @keyup.enter.native="handleQuery"
@@ -66,14 +66,14 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除</el-button>
+            >刪除</el-button>
           </el-col>
         </el-row>
 
         <el-table v-loading="loading" :data="dataList" border @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="55" align="center" />
           <el-table-column label="字典編碼" width="80" align="center" prop="dictCode" />
-          <el-table-column label="字典标签" align="center" prop="dictLabel" />
+          <el-table-column label="字典標签" align="center" prop="dictLabel" />
           <el-table-column label="字典键值" align="center" prop="dictValue" />
           <el-table-column label="字典排序" align="center" prop="dictSort" />
           <el-table-column label="狀態" align="center" prop="status" :formatter="statusFormat" />
@@ -98,7 +98,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -117,8 +117,8 @@
             <el-form-item label="字典類型">
               <el-input v-model="form.dictType" :disabled="true" />
             </el-form-item>
-            <el-form-item label="資料标签" prop="dictLabel">
-              <el-input v-model="form.dictLabel" placeholder="請輸入資料标签" :disabled="isEdit" />
+            <el-form-item label="資料標签" prop="dictLabel">
+              <el-input v-model="form.dictLabel" placeholder="請輸入資料標签" :disabled="isEdit" />
             </el-form-item>
             <el-form-item label="資料键值" prop="dictValue">
               <el-input v-model="form.dictValue" placeholder="請輸入資料键值" :disabled="isEdit" />
@@ -171,7 +171,7 @@ export default {
       dataList: [],
       // 默認字典類型
       defaultDictType: '',
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       isEdit: false,
       // 是否顯示弹出层
@@ -193,7 +193,7 @@ export default {
       // 表單校验
       rules: {
         dictLabel: [
-          { required: true, message: '資料标签不能為空', trigger: 'blur' }
+          { required: true, message: '資料標签不能為空', trigger: 'blur' }
         ],
         dictValue: [
           { required: true, message: '資料键值不能為空', trigger: 'blur' }
@@ -213,7 +213,7 @@ export default {
     })
   },
   methods: {
-    /** 查询字典類型详细 */
+    /** 查询字典類型詳细 */
     getType(dictId) {
       getType(dictId).then(response => {
         this.queryParams.dictType = response.data.dictType
@@ -240,7 +240,7 @@ export default {
     statusFormat(row, column) {
       return this.selectDictLabel(this.statusOptions, row.status)
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -257,18 +257,18 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.resetForm('queryForm')
       this.queryParams.dictType = this.defaultDictType
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
@@ -282,7 +282,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const dictCode = row.dictCode || this.ids
@@ -294,7 +294,7 @@ export default {
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -323,10 +323,10 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const dictCodes = (row.dictCode && [row.dictCode]) || this.ids
-      this.$confirm('是否確認删除字典編碼為"' + dictCodes + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除字典編碼為"' + dictCodes + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -342,7 +342,7 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 匯出按钮操作 */
+    /** 匯出按鈕操作 */
     handleExport() {
       const queryParams = this.queryParams
       this.$confirm('是否確認匯出所有資料项?', '警告', {

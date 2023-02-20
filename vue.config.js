@@ -47,7 +47,7 @@ module.exports = {
         algorithm: 'gzip',
         test: /\.js$|\.html$|\.css/, // 匹配文件名
         threshold: 10240, // 对超過10kb的資料進行压缩
-        deleteOriginalAssets: false, // 是否删除原文件
+        deleteOriginalAssets: false, // 是否刪除原文件
         minRatio: 0.8
       })
       // new MonacoWebpackPlugin()

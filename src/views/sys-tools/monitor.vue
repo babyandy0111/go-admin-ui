@@ -29,7 +29,7 @@
                       <Cell label="交换" :value="`${info.swap.used}/${info.swap.total}`" border />
                     </el-col>
                     <el-col :sm="24" :md="12">
-                      <Cell label="時间" :value="info.os.time" border />
+                      <Cell label="時間" :value="info.os.time" border />
                       <Cell label="在线" :value="`${info.bootTime}小時`" border />
                       <Cell label="硬盘" :value="`${info.disk.used}GB/${info.disk.total}GB`" border />
                     </el-col>
@@ -107,12 +107,12 @@
               <span>服務器訊息</span>
             </div>
             <div class="monitor">
-              <Cell label="主机名稱" :value="info.os.hostName" border />
+              <Cell label="主機名稱" :value="info.os.hostName" border />
               <Cell label="操作系统" :value="info.os.goOs" border />
               <Cell label="服務器IP" :value="info.os.ip" border />
               <Cell label="系统架构" :value="info.os.arch" border />
               <Cell label="CPU" :value="info.cpu.cpuInfo[0].modelName" border />
-              <Cell label="当前時间" :value="info.os.time" />
+              <Cell label="当前時間" :value="info.os.time" />
             </div>
           </el-card>
 

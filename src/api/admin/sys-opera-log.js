@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 清空操作日志
+// 清空操作log
 export function cleanOperlog() {
   return request({
     url: '/api/v1/operlog/clean',
@@ -17,7 +17,7 @@ export function listSysOperlog(query) {
   })
 }
 
-// 删除SysOperlog
+// 刪除SysOperlog
 export function delSysOperlog(data) {
   return request({
     url: '/api/v1/sys-opera-log',

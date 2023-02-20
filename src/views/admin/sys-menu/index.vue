@@ -94,13 +94,13 @@
               </span>
             </template>
           </el-table-column>
-          <el-table-column prop="path" label="组件路径" :show-overflow-tooltip="true">
+          <el-table-column prop="path" label="组件路徑" :show-overflow-tooltip="true">
             <template slot-scope="scope">
               <span v-if="scope.row.menuType=='A'">{{ scope.row.path }}</span>
               <span v-else>{{ scope.row.component }}</span>
             </template>
           </el-table-column>
-          <el-table-column prop="visible" label="可见" :formatter="visibleFormat" width="80">
+          <el-table-column prop="visible" label="顯示" :formatter="visibleFormat" width="80">
             <template slot-scope="scope">
               <el-tag
                 :type="scope.row.visible === '1' ? 'danger' : 'success'"
@@ -135,7 +135,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -173,19 +173,19 @@
                 <el-col :span="12">
                   <el-form-item prop="title">
                     <span slot="label">
-                      選單标题
+                      選單標题
                       <el-tooltip content="選單位置顯示的说明訊息" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
-                    <el-input v-model="form.title" placeholder="請輸入選單标题" />
+                    <el-input v-model="form.title" placeholder="請輸入選單標题" />
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item prop="sort">
                     <span slot="label">
                       顯示排序
-                      <el-tooltip content="根据序号升序排列" placement="top">
+                      <el-tooltip content="根據序号升序排列" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -197,14 +197,14 @@
                   <el-form-item prop="menuType">
                     <span slot="label">
                       選單類型
-                      <el-tooltip content="包含目录：以及選單或者選單组，選單：具体对应某一个頁面，按钮：功能才做按钮；" placement="top">
+                      <el-tooltip content="包含目錄：以及選單或者選單组，選單：具体對應某一个頁面，按鈕：功能才做按鈕；" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
                     <el-radio-group v-model="form.menuType">
-                      <el-radio label="M">目录</el-radio>
+                      <el-radio label="M">目錄</el-radio>
                       <el-radio label="C">選單</el-radio>
-                      <el-radio label="F">按钮</el-radio>
+                      <el-radio label="F">按鈕</el-radio>
                     </el-radio-group>
                   </el-form-item>
                 </el-col>
@@ -217,7 +217,7 @@
                       @show="$refs['iconSelect'].reset()"
                     >
                       <IconSelect ref="iconSelect" @selected="selected" />
-                      <el-input slot="reference" v-model="form.icon" placeholder="点击選擇Icon" readonly>
+                      <el-input slot="reference" v-model="form.icon" placeholder="點擊選擇Icon" readonly>
                         <svg-icon
                           v-if="form.icon"
                           slot="prefix"
@@ -234,7 +234,7 @@
                   <el-form-item v-if="form.menuType == 'M' || form.menuType == 'C'" prop="menuName">
                     <span slot="label">
                       路由名稱
-                      <el-tooltip content="需要和頁面name保持一致，对应頁面即可選擇缓存" placement="top">
+                      <el-tooltip content="需要和頁面name保持一致，對應頁面即可選擇缓存" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -245,19 +245,19 @@
                 <el-col v-if="form.menuType == 'M' || form.menuType == 'C'" :span="12">
                   <el-form-item prop="component">
                     <span slot="label">
-                      组件路径
-                      <el-tooltip content="選單对应的具体vue頁面文件路径views的下級路径/admin/sys-api/index；目录類型：填写Layout，如何有二級目录請参照日志目录填写；" placement="top">
+                      组件路徑
+                      <el-tooltip content="選單對應的具体vue頁面文件路徑views的下級路徑/admin/sys-api/index；目錄類型：填寫Layout，如何有二級目錄請参照log目錄填寫；" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
-                    <el-input v-model="form.component" placeholder="請輸入组件路径" />
+                    <el-input v-model="form.component" placeholder="請輸入组件路徑" />
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="12">
                   <el-form-item v-if="form.menuType == 'M' || form.menuType == 'C'">
                     <span slot="label">
-                      是否外链
+                      是否外連
                       <el-tooltip content="可以通過iframe打开指定地址" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
@@ -273,7 +273,7 @@
                   <el-form-item v-if="form.menuType != 'F'" prop="path">
                     <span slot="label">
                       路由地址
-                      <el-tooltip content="访问此頁面自定义的url地址，建议/开头书写，例如 /app-name/menu-name" placement="top">
+                      <el-tooltip content="訪問此頁面自定義的url地址，建議/開頭書寫，例如 /app-name/menu-name" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -285,7 +285,7 @@
                   <el-form-item v-if="form.menuType == 'F' || form.menuType == 'C'">
                     <span slot="label">
                       權限標示
-                      <el-tooltip content="前端權限控制按钮是否顯示" placement="top">
+                      <el-tooltip content="前端權限控制按鈕是否顯示" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -296,7 +296,7 @@
                   <el-form-item v-if="form.menuType != 'F'">
                     <span slot="label">
                       選單狀態
-                      <el-tooltip content="需要顯示在選單列表的選單设置為顯示，否则设置為隐藏" placement="top">
+                      <el-tooltip content="需要顯示在選單列表的選單設定為顯示，否则設定為隱藏" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -313,7 +313,7 @@
                   <el-form-item v-if="form.menuType == 'F' || form.menuType == 'C'">
                     <span slot="label">
                       api權限
-                      <el-tooltip content="設定在这个才做上需要使用到的接口，否则在设置用户角色時，接口将無权访问。" placement="top">
+                      <el-tooltip content="設定在這個才做上需要使用到的API，否则在設定用户角色時，API將無權訪問。" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -325,8 +325,8 @@
                         key: 'id',
                         label: 'title'
                       }"
-                      :titles="['未授权', '已授权']"
-                      :button-texts="['收回', '授权 ']"
+                      :titles="['未授權', '已授權']"
+                      :button-texts="['收回', '授權 ']"
                       :format="{
                         noChecked: '${total}',
                         hasChecked: '${checked}/${total}'
@@ -373,7 +373,7 @@ export default {
       sysapiList: [],
       // 選單树選项
       menuOptions: [],
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -391,7 +391,7 @@ export default {
       },
       // 表單校验
       rules: {
-        title: [{ required: true, message: '選單标题不能為空', trigger: 'blur' }],
+        title: [{ required: true, message: '選單標题不能為空', trigger: 'blur' }],
         sort: [{ required: true, message: '選單顺序不能為空', trigger: 'blur' }]
       }
     }
@@ -454,7 +454,7 @@ export default {
       //     this.loading = true
       //     this.timer = setTimeout(() => {
       //       done()
-      //       // 动画关闭需要一定的時间
+      //       // 动画關閉需要一定的時間
       //       setTimeout(() => {
       //         this.loading = false
       //       }, 400)
@@ -501,7 +501,7 @@ export default {
       }
       return this.selectDictLabel(this.visibleOptions, row.visible)
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -522,11 +522,11 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.getList()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd(row) {
       this.reset()
       this.getTreeselect()
@@ -536,7 +536,7 @@ export default {
       this.open = true
       this.title = '新增選單'
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       this.getTreeselect()
@@ -554,7 +554,7 @@ export default {
       }
       this.form.apis = l
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -582,9 +582,9 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
-      this.$confirm('是否確認删除名稱為"' + row.title + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除名稱為"' + row.title + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

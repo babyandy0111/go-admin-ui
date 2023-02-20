@@ -47,7 +47,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除</el-button>
+            >刪除</el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -124,7 +124,7 @@
                 type="text"
                 icon="el-icon-view"
                 @click="handleView(scope.row,scope.index)"
-              >详细</el-button>
+              >詳细</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -137,12 +137,12 @@
           @pagination="getList"
         />
 
-        <!-- 操作日志详细 -->
-        <el-dialog title="操作日志详细" :visible.sync="open" width="700px" :close-on-click-modal="false">
+        <!-- 操作log詳细 -->
+        <el-dialog title="操作log詳细" :visible.sync="open" width="700px" :close-on-click-modal="false">
           <el-form ref="form" :model="form" label-width="100px" size="mini">
             <el-row>
               <el-col :span="24">
-                <el-form-item label="請求地址：">{{ form.operUrl }}</el-form-item>
+                <el-form-item label="請求位置：">{{ form.operUrl }}</el-form-item>
               </el-col>
               <el-col :span="12">
                 <el-form-item
@@ -165,11 +165,11 @@
               <el-col :span="12">
                 <el-form-item label="操作狀態：">
                   <div v-if="form.status === '2'">正常</div>
-                  <div v-else-if="form.status === '1'">关闭</div>
+                  <div v-else-if="form.status === '1'">關閉</div>
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="操作時间：">{{ parseTime(form.operTime) }}</el-form-item>
+                <el-form-item label="操作時間：">{{ parseTime(form.operTime) }}</el-form-item>
               </el-col>
               <el-col :span="24">
                 <el-form-item v-if="form.status === 1" label="异常訊息：">{{ form.errorMsg }}</el-form-item>
@@ -177,7 +177,7 @@
             </el-row>
           </el-form>
           <div slot="footer" class="dialog-footer">
-            <el-button @click="open = false">关 闭</el-button>
+            <el-button @click="open = false">關 閉</el-button>
           </div>
         </el-dialog>
       </el-card>
@@ -233,7 +233,7 @@ export default {
     })
   },
   methods: {
-    /** 查询Login日志 */
+    /** 查询Loginlog */
     getList() {
       this.loading = true
       listSysOperlog(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
@@ -243,16 +243,16 @@ export default {
       }
       )
     },
-    // 操作日志狀態字典翻译
+    // 操作log狀態字典翻译
     statusFormat(row, column) {
       return this.selectDictLabel(this.statusOptions, row.status)
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
@@ -263,15 +263,15 @@ export default {
       this.ids = selection.map(item => item.id)
       this.multiple = !selection.length
     },
-    /** 详细按钮操作 */
+    /** 詳细按鈕操作 */
     handleView(row) {
       this.open = true
       this.form = row
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const operIds = (row.id && [row.id]) || this.ids
-      this.$confirm('是否確認删除日志編號為"' + operIds + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除log編號為"' + operIds + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -287,9 +287,9 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 清空按钮操作 */
+    /** 清空按鈕操作 */
     handleClean() {
-      this.$confirm('是否確認清空所有操作日志資料项?', '警告', {
+      this.$confirm('是否確認清空所有操作log資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -305,24 +305,24 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 匯出按钮操作 */
+    /** 匯出按鈕操作 */
     handleExport() {
       // const queryParams = this.queryParams
-      this.$confirm('是否確認匯出所有操作日志資料项?', '警告', {
+      this.$confirm('是否確認匯出所有操作log資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         this.downloadLoading = true
         import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['日志編號', '系统模块', '操作類型', '請求方式', '操作人員', '主机', '操作地点', '操作狀態', '操作url', '操作日期']
+          const tHeader = ['log編號', '系统模块', '操作類型', '請求方式', '操作人員', '主機', '操作地點', '操作狀態', '操作url', '操作日期']
           const filterVal = ['ID', 'title', 'businessType', 'method', 'operName', 'operIp', 'operLocation', 'status', 'operUrl', 'operTime']
           const list = this.list
           const data = formatJson(filterVal, list)
           excel.export_json_to_excel({
             header: tHeader,
             data,
-            filename: '操作日志',
+            filename: '操作log',
             autoWidth: true, // Optional
             bookType: 'xlsx' // Optional
           })

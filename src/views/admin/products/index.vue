@@ -57,7 +57,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除
+            >刪除
             </el-button>
           </el-col>
         </el-row>
@@ -102,8 +102,8 @@
               </el-popconfirm>
               <el-popconfirm
                 class="delete-popconfirm"
-                title="確認要删除吗?"
-                confirm-button-text="删除"
+                title="確認要刪除吗?"
+                confirm-button-text="刪除"
                 @onConfirm="handleDelete(scope.row)"
               >
                 <el-button
@@ -112,7 +112,7 @@
                   size="mini"
                   type="text"
                   icon="el-icon-delete"
-                >删除
+                >刪除
                 </el-button>
               </el-popconfirm>
             </template>
@@ -250,7 +250,7 @@ export default {
       multiple: true,
       // 总条数
       total: 0,
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -259,7 +259,7 @@ export default {
       typeOptions: [],
       productsList: [],
 
-      // 关系表類型
+      // 關系表類型
       brandIdOptions: [],
 
       // 查询参数
@@ -301,7 +301,7 @@ export default {
       }
       )
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -336,25 +336,25 @@ export default {
     brandIdFormat(row) {
       return this.selectItemsLabel(this.brandIdOptions, row.brandId)
     },
-    // 关系
+    // 關系
     getBrandItems() {
       this.getItems(listBrand, undefined).then(res => {
         this.brandIdOptions = this.setItems(res, 'id', 'name')
       })
     },
     // 文件
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
@@ -367,7 +367,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const id =
@@ -379,7 +379,7 @@ export default {
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -407,11 +407,11 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       var Ids = (row.id && [row.id]) || this.ids
 
-      this.$confirm('是否確認删除編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

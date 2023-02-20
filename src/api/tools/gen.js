@@ -17,7 +17,7 @@ export function listDbTable(query) {
   })
 }
 
-// 查询表详细訊息
+// 查询表詳细訊息
 export function getGenTable(tableId) {
   return request({
     url: '/api/v1/sys/tables/info/' + tableId,
@@ -56,7 +56,7 @@ export function previewTable(tableId) {
     method: 'get'
   })
 }
-// 删除表資料
+// 刪除表資料
 export function delTable(tableId) {
   return request({
     url: '/api/v1/sys/tables/info/' + tableId,
@@ -72,7 +72,7 @@ export function toProjectTable(tableId) {
   })
 }
 
-// 生成接口資料到遷移脚本
+// 生成API資料到遷移脚本
 export function apiToFile(tableId) {
   return request({
     url: '/api/v1/gen/apitofile/' + tableId,

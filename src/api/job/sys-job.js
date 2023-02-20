@@ -9,7 +9,7 @@ export function listSysJob(query) {
   })
 }
 
-// 查询SysJob详细
+// 查询SysJob詳细
 export function getSysJob(jobId) {
   return request({
     url: '/api/v1/sysjob/' + jobId,
@@ -35,7 +35,7 @@ export function updateSysJob(data) {
   })
 }
 
-// 删除SysJob
+// 刪除SysJob
 export function delSysJob(data) {
   return request({
     url: '/api/v1/sysjob',

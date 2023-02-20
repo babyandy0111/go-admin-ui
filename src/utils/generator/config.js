@@ -217,7 +217,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/checkbox'
   },
   {
-    label: '开关',
+    label: '开關',
     tag: 'el-switch',
     tagIcon: 'switch',
     defaultValue: false,
@@ -255,7 +255,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/slider'
   },
   {
-    label: '時间選擇',
+    label: '時間選擇',
     tag: 'el-time-picker',
     tagIcon: 'time',
     placeholder: '請選擇',
@@ -276,7 +276,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
   },
   {
-    label: '時间範圍',
+    label: '時間範圍',
     tag: 'el-time-picker',
     tagIcon: 'time-range',
     defaultValue: null,
@@ -288,8 +288,8 @@ export const selectComponents = [
     required: true,
     'is-range': true,
     'range-separator': '至',
-    'start-placeholder': '開始時间',
-    'end-placeholder': '结束時间',
+    'start-placeholder': '開始時間',
+    'end-placeholder': '结束時間',
     format: 'HH:mm:ss',
     'value-format': 'HH:mm:ss',
     regList: [],
@@ -384,7 +384,7 @@ export const selectComponents = [
     name: 'file',
     'auto-upload': true,
     showTip: false,
-    buttonText: '点击上傳',
+    buttonText: '點擊上傳',
     fileSize: 2,
     sizeUnit: 'MB',
     'list-type': 'text',

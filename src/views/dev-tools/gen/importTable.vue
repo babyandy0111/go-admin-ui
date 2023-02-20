@@ -31,7 +31,7 @@
         <el-table-column prop="tableName" label="表名稱" />
         <el-table-column prop="tableComment" label="表描述" />
         <el-table-column prop="createdAt" label="創建時間" />
-        <el-table-column prop="updatedAt" label="更新時间" />
+        <el-table-column prop="updatedAt" label="更新時間" />
       </el-table>
       <pagination
         v-show="total>0"
@@ -93,17 +93,17 @@ export default {
         }
       })
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 導入按钮操作 */
+    /** 導入按鈕操作 */
     handleImportTable() {
       this.loading = true
       this.visible = true

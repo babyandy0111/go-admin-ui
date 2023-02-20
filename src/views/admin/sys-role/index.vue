@@ -85,7 +85,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除</el-button>
+            >刪除</el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -153,7 +153,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -274,7 +274,7 @@ export default {
       // 角色表格資料
       roleList: [],
       menuIdsChecked: [],
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       // 是否顯示弹出层
       open: false,
@@ -376,27 +376,27 @@ export default {
         this.deptOptions = response.data.list
       })
     },
-    // 所有選單节点資料
+    // 所有選單节點資料
     getMenuAllCheckedKeys() {
-      // 目前被選中的選單节点
+      // 目前被選中的選單节點
       const checkedKeys = this.$refs.menuTree.getHalfCheckedKeys()
-      console.log('目前被選中的選單节点', checkedKeys)
-      // 半選中的選單节点
+      console.log('目前被選中的選單节點', checkedKeys)
+      // 半選中的選單节點
       const halfCheckedKeys = this.$refs.menuTree.getCheckedKeys()
-      console.log('半選中的選單节点', halfCheckedKeys)
+      console.log('半選中的選單节點', halfCheckedKeys)
       // checkedKeys.unshift.apply(checkedKeys, halfCheckedKeys)
       return halfCheckedKeys
     },
-    // 所有部門节点資料
+    // 所有部門节點資料
     getDeptAllCheckedKeys() {
-      // 目前被選中的部門节点
+      // 目前被選中的部門节點
       const checkedKeys = this.$refs.dept.getCheckedKeys()
-      // 半選中的部門节点
+      // 半選中的部門节點
       // const halfCheckedKeys = this.$refs.dept.getCheckedKeys()
       // checkedKeys.unshift.apply(checkedKeys, halfCheckedKeys)
       return checkedKeys
     },
-    /** 根据角色ID查询選單树结构 */
+    /** 根據角色ID查询選單树结构 */
     getRoleMenuTreeselect(row, checkedKeys) {
       if (row.roleKey === 'admin') {
         this.menuOptionsAlert = '系统超級管理員無需此操作'
@@ -407,7 +407,7 @@ export default {
         })
       }
     },
-    /** 根据角色ID查询部門树结构 */
+    /** 根據角色ID查询部門树结构 */
     getRoleDeptTreeselect(roleId) {
       roleDeptTreeselect(roleId).then(response => {
         this.deptOptions = response.data.depts
@@ -432,12 +432,12 @@ export default {
         row.status = row.status === '2' ? '1' : '2'
       })
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
     },
-    // 取消按钮（資料權限）
+    // 取消按鈕（資料權限）
     cancelDataScope() {
       this.openDataScope = false
       this.reset()
@@ -461,12 +461,12 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
@@ -478,7 +478,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       // this.getMenuTreeselect(0)
@@ -498,7 +498,7 @@ export default {
       }
       this.getList()
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.menuIdsChecked = []
       this.reset()
@@ -522,7 +522,7 @@ export default {
         this.getRoleDeptTreeselect(row.roleId)
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -552,7 +552,7 @@ export default {
         }
       })
     },
-    /** 提交按钮（資料權限） */
+    /** 提交按鈕（資料權限） */
     submitDataScope: function() {
       if (this.form.roleId !== undefined) {
         this.form.deptIds = this.getDeptAllCheckedKeys()
@@ -568,10 +568,10 @@ export default {
         })
       }
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const roleIds = (row.roleId && [row.roleId]) || this.ids
-      this.$confirm('是否確認删除角色編號為"' + roleIds + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除角色編號為"' + roleIds + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -582,7 +582,7 @@ export default {
         this.msgSuccess(response.msg)
       }).catch(function() {})
     },
-    /** 匯出按钮操作 */
+    /** 匯出按鈕操作 */
     handleExport() {
       this.$confirm('是否確認匯出所有角色資料项?', '警告', {
         confirmButtonText: '確定',

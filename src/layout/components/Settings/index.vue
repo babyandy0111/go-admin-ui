@@ -3,7 +3,7 @@
     <div>
       <div class="setting-drawer-content">
         <div class="setting-drawer-title">
-          頁面设置
+          頁面設定
         </div>
         <div class="setting-drawer-block-checbox">
           <div class="setting-drawer-block-checbox-item" @click="handleTheme('light')">
@@ -29,7 +29,7 @@
       <el-divider />
       <div class="setting-drawer-content">
         <div class="setting-drawer-title">
-          主题设置
+          主题設定
         </div>
         <div class="drawer-item">
           <span>主题颜色</span>
@@ -39,7 +39,7 @@
       <el-divider />
       <div class="setting-drawer-content">
         <div class="setting-drawer-title">
-          布局设置
+          布局設定
         </div>
 
         <div class="drawer-item">

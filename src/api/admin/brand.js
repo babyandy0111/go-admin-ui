@@ -9,7 +9,7 @@ export function listBrand(query) {
   })
 }
 
-// 查询Brand详细
+// 查询Brand詳细
 export function getBrand(id) {
   return request({
     url: '/api/v1/brand/' + id,
@@ -35,7 +35,7 @@ export function updateBrand(data) {
   })
 }
 
-// 删除Brand
+// 刪除Brand
 export function delBrand(data) {
   return request({
     url: '/api/v1/brand',

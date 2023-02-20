@@ -67,7 +67,7 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除</el-button>
+            >刪除</el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -158,7 +158,7 @@
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
-              >删除</el-button>
+              >刪除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -234,7 +234,7 @@ export default {
       configList: [],
       // 排序字段
       order: 'createdAtOrder',
-      // 弹出层标题
+      // 弹出层標题
       title: '',
       isEdit: false,
       // 是否顯示弹出层
@@ -284,7 +284,7 @@ export default {
     typeFormat(row, column) {
       return this.selectDictLabel(this.typeOptions, row.configType)
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -302,19 +302,19 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 查詢按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.queryParams['createdAtOrderOrder'] = 'desc'
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
@@ -344,7 +344,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 修改按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const ID = row.id || this.ids
@@ -355,7 +355,7 @@ export default {
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 提交按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -383,10 +383,10 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       const Ids = (row.id && [row.id]) || this.ids
-      this.$confirm('是否確認删除参数編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除参数編號為"' + Ids + '"的資料项?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -402,7 +402,7 @@ export default {
         }
       }).catch(function() {})
     },
-    /** 匯出按钮操作 */
+    /** 匯出按鈕操作 */
     handleExport() {
       // const queryParams = this.queryParams
       this.$confirm('是否確認匯出所有参数資料项?', '警告', {
@@ -419,7 +419,7 @@ export default {
           excel.export_json_to_excel({
             header: tHeader,
             data,
-            filename: '参数设置',
+            filename: '参数設定',
             autoWidth: true, // Optional
             bookType: 'xlsx' // Optional
           })
