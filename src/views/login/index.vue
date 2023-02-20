@@ -29,7 +29,7 @@
       </div>
       <div class="login-border">
         <div class="login-main">
-          <div class="login-title">用户Login</div>
+          <div class="login-title">Login</div>
           <el-form
             ref="loginForm"
             :model="loginForm"
@@ -45,7 +45,7 @@
               <el-input
                 ref="username"
                 v-model="loginForm.username"
-                placeholder="用户名"
+                placeholder="使用者名稱"
                 name="username"
                 type="text"
                 tabindex="1"
@@ -92,7 +92,7 @@
               <el-input
                 ref="username"
                 v-model="loginForm.code"
-                placeholder="验证碼"
+                placeholder="驗證碼"
                 name="username"
                 type="text"
                 tabindex="3"
@@ -130,8 +130,8 @@
               style="width: 100%; padding: 12px 20px; margin-bottom: 30px"
               @click.native.prevent="handleLogin"
             >
-              <span v-if="!loading">登 录</span>
-              <span v-else>登 录 中...</span>
+              <span v-if="!loading">登 入</span>
+              <span v-else>登入中...</span>
             </el-button>
           </el-form>
         </div>
@@ -146,37 +146,37 @@
       <br>
       <social-sign />
     </el-dialog>
-    <div
-      id="bottom_layer"
-      class="s-bottom-layer s-isindex-wrap"
-      style="visibility: visible; width: 100%"
-    >
-      <div class="s-bottom-layer-content">
+<!--    <div-->
+<!--      id="bottom_layer"-->
+<!--      class="s-bottom-layer s-isindex-wrap"-->
+<!--      style="visibility: visible; width: 100%"-->
+<!--    >-->
+<!--      <div class="s-bottom-layer-content">-->
 
-        <div class="lh">
-          <a class="text-color" href="https://beian.miit.gov.cn" target="_blank">
-            沪ICP备XXXXXXXXX号-1
-          </a>
-        </div>
-        <div class="open-content-info">
-          <div class="tip-hover-panel" style="top: -18px; right: -12px">
-            <div class="rest_info_tip">
-              <div class="tip-wrapper">
-                <div class="lh tip-item" style="display: none">
-                  <a
-                    class="text-color"
-                    href="https://beian.miit.gov.cn"
-                    target="_blank"
-                  >
-                    沪ICP备XXXXXXXXX号-1
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--        <div class="lh">-->
+<!--          <a class="text-color" href="https://beian.miit.gov.cn" target="_blank">-->
+<!--            沪ICP备XXXXXXXXX号-1-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="open-content-info">-->
+<!--          <div class="tip-hover-panel" style="top: -18px; right: -12px">-->
+<!--            <div class="rest_info_tip">-->
+<!--              <div class="tip-wrapper">-->
+<!--                <div class="lh tip-item" style="display: none">-->
+<!--                  <a-->
+<!--                    class="text-color"-->
+<!--                    href="https://beian.miit.gov.cn"-->
+<!--                    target="_blank"-->
+<!--                  >-->
+<!--                    沪ICP备XXXXXXXXX号-1-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -208,7 +208,7 @@ export default {
           { required: true, trigger: 'blur', message: '密碼不能為空' }
         ],
         code: [
-          { required: true, trigger: 'change', message: '验证碼不能為空' }
+          { required: true, trigger: 'change', message: '驗證碼不能為空' }
         ]
       },
       passwordType: 'password',

@@ -14,7 +14,7 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">查詢</el-button>
             <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
           </el-form-item>
         </el-form>
@@ -219,7 +219,7 @@ export default {
     },
     // 关系
     // 文件
-    /** 搜索按钮操作 */
+    /** 查詢按钮操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()

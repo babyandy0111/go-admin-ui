@@ -53,7 +53,7 @@
               <el-form-item label="狀態" prop="status">
                 <el-select
                   v-model="queryParams.status"
-                  placeholder="用户狀態"
+                  placeholder="狀態"
                   clearable
                   size="small"
                   style="width: 160px"
@@ -67,7 +67,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜尋</el-button>
                 <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
               </el-form-item>
             </el-form>
@@ -113,10 +113,10 @@
             >
               <el-table-column type="selection" width="45" align="center" />
               <el-table-column label="編號" width="75" prop="userId" sortable="custom" />
-              <el-table-column label="Login名" width="105" prop="username" sortable="custom" :show-overflow-tooltip="true" />
-              <el-table-column label="昵称" prop="nickName" :show-overflow-tooltip="true" />
+              <el-table-column label="登入帳號" width="105" prop="username" sortable="custom" :show-overflow-tooltip="true" />
+              <el-table-column label="暱稱" prop="nickName" :show-overflow-tooltip="true" />
               <el-table-column label="部門" prop="dept.deptName" :show-overflow-tooltip="true" />
-              <el-table-column label="手机号" prop="phone" width="108" />
+              <el-table-column label="手機" prop="phone" width="108" />
               <el-table-column label="狀態" width="80" sortable="custom">
                 <template slot-scope="scope">
                   <el-switch
@@ -128,7 +128,7 @@
                 </template>
               </el-table-column>
               <el-table-column
-                label="創建時間"
+                label="建立時間"
                 prop="createdAt"
                 sortable="custom"
                 width="155"
@@ -159,7 +159,7 @@
                     type="text"
                     icon="el-icon-delete"
                     @click="handleDelete(scope.row)"
-                  >删除</el-button>
+                  >刪除</el-button>
                   <el-button
                     v-permisaction="['admin:sysUser:resetPassword']"
                     size="mini"
@@ -191,11 +191,11 @@
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="归属部門" prop="deptId">
+              <el-form-item label="隸屬部門" prop="deptId">
                 <treeselect
                   v-model="form.deptId"
                   :options="deptOptions"
-                  placeholder="請選擇归属部門"
+                  placeholder="請選擇隸屬部門"
                 />
               </el-form-item>
             </el-col>
@@ -215,12 +215,12 @@
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item v-if="form.userId == undefined" label="用户密碼" prop="password">
-                <el-input v-model="form.password" placeholder="請輸入用户密碼" type="password" />
+              <el-form-item v-if="form.userId == undefined" label="密碼" prop="password">
+                <el-input v-model="form.password" placeholder="請輸入密碼" type="password" />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="用户性别">
+              <el-form-item label="性别">
                 <el-select v-model="form.sex" placeholder="請選擇">
                   <el-option
                     v-for="dict in sexOptions"
@@ -297,14 +297,14 @@
         >
           <i class="el-icon-upload" />
           <div class="el-upload__text">
-            将文件拖到此处，或
-            <em>点击上傳</em>
+            將文件拖到此處，或
+            <em>點擊上傳</em>
           </div>
           <div slot="tip" class="el-upload__tip">
-            <el-checkbox v-model="upload.updateSupport" />是否更新已经存在的用户資料
-            <el-link type="info" style="font-size:12px" @click="importTemplate">下载模板</el-link>
+            <el-checkbox v-model="upload.updateSupport" />是否更新已經存在的user資料
+            <el-link type="info" style="font-size:12px" @click="importTemplate">下載模板</el-link>
           </div>
-          <div slot="tip" class="el-upload__tip" style="color:red">提示：僅允许導入“xls”或“xlsx”格式文件！</div>
+          <div slot="tip" class="el-upload__tip" style="color:red">提示：僅允許匯入“xls”或“xlsx”格式文件！</div>
         </el-upload>
         <div slot="footer" class="dialog-footer">
           <el-button type="primary" @click="submitFileForm">確 定</el-button>
@@ -397,11 +397,11 @@ export default {
       rules: {
         username: [{ required: true, message: '帳號不能為空', trigger: 'blur' }],
         nickName: [{ required: true, message: '暱稱不能為空', trigger: 'blur' }],
-        deptId: [{ required: true, message: '归属部門不能為空', trigger: 'blur' }],
-        password: [{ required: true, message: '用户密碼不能為空', trigger: 'blur' }],
+        deptId: [{ required: true, message: '隸屬部門不能為空', trigger: 'blur' }],
+        password: [{ required: true, message: '密碼不能為空', trigger: 'blur' }],
         email: [
           { required: true, message: 'E-mail地址不能為空', trigger: 'blur' },
-          { type: 'email', message: "'請輸入正確的E-mail地址", trigger: ['blur', 'change'] }
+          { type: 'email', message: '請輸入正確的E-mail地址', trigger: ['blur', 'change'] }
         ],
         phone: [
           { required: true, message: '手機號碼不能為空', trigger: 'blur' },
@@ -523,7 +523,7 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 搜索按钮操作 */
+    /** 查詢按钮操作 */
     handleQuery() {
       this.queryParams.page = 1
       this.getList()

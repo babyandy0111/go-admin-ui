@@ -23,7 +23,7 @@
             </el-select>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">查詢</el-button>
             <el-button
               v-permisaction="['admin:sysMenu:add']"
               type="primary"
@@ -156,7 +156,7 @@
                 <el-col :span="24">
                   <el-form-item prop="parentId">
                     <span slot="label">
-                      上级選單
+                      上級選單
                       <el-tooltip content="指当前選單停靠的選單归属" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
@@ -166,7 +166,7 @@
                       :options="menuOptions"
                       :normalizer="normalizer"
                       :show-count="true"
-                      placeholder="選擇上级選單"
+                      placeholder="選擇上級選單"
                     />
                   </el-form-item>
                 </el-col>
@@ -246,7 +246,7 @@
                   <el-form-item prop="component">
                     <span slot="label">
                       组件路径
-                      <el-tooltip content="選單对应的具体vue頁面文件路径views的下级路径/admin/sys-api/index；目录類型：填写Layout，如何有二级目录請参照日志目录填写；" placement="top">
+                      <el-tooltip content="選單对应的具体vue頁面文件路径views的下級路径/admin/sys-api/index；目录類型：填写Layout，如何有二級目录請参照日志目录填写；" placement="top">
                         <i class="el-icon-question" />
                       </el-tooltip>
                     </span>
@@ -522,7 +522,7 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 搜索按钮操作 */
+    /** 查詢按钮操作 */
     handleQuery() {
       this.getList()
     },

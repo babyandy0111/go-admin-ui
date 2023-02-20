@@ -4,30 +4,6 @@
     <template #wrapper>
       <el-card class="box-card">
         <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
-          <el-form-item label="标题" prop="title"><el-input
-            v-model="queryParams.title"
-            placeholder="請輸入标题"
-            clearable
-            size="small"
-            @keyup.enter.native="handleQuery"
-          />
-          </el-form-item>
-          <el-form-item label="作者" prop="author"><el-input
-            v-model="queryParams.author"
-            placeholder="請輸入作者"
-            clearable
-            size="small"
-            @keyup.enter.native="handleQuery"
-          />
-          </el-form-item>
-          <el-form-item label="内容" prop="content"><el-input
-            v-model="queryParams.content"
-            placeholder="請輸入内容"
-            clearable
-            size="small"
-            @keyup.enter.native="handleQuery"
-          />
-          </el-form-item>
           <el-form-item label="狀態" prop="status"><el-input
             v-model="queryParams.status"
             placeholder="請輸入狀態"
@@ -36,17 +12,9 @@
             @keyup.enter.native="handleQuery"
           />
           </el-form-item>
-          <el-form-item label="发布時间" prop="publishAt"><el-input
-            v-model="queryParams.publishAt"
-            placeholder="請輸入发布時间"
-            clearable
-            size="small"
-            @keyup.enter.native="handleQuery"
-          />
-          </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">查詢</el-button>
             <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
           </el-form-item>
         </el-form>
@@ -70,7 +38,7 @@
               size="mini"
               :disabled="single"
               @click="handleUpdate"
-            >修改
+            >更新
             </el-button>
           </el-col>
           <el-col :span="1.5">
@@ -81,14 +49,14 @@
               size="mini"
               :disabled="multiple"
               @click="handleDelete"
-            >删除
+            >刪除
             </el-button>
           </el-col>
         </el-row>
 
         <el-table v-loading="loading" :data="articleList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="55" align="center" /><el-table-column
-            label="标题"
+            label="標題"
             align="center"
             prop="title"
             :show-overflow-tooltip="true"
@@ -108,7 +76,7 @@
             prop="status"
             :show-overflow-tooltip="true"
           /><el-table-column
-            label="发布時间"
+            label="發佈時間"
             align="center"
             prop="publishAt"
             :show-overflow-tooltip="true"
@@ -121,8 +89,8 @@
             <template slot-scope="scope">
               <el-popconfirm
                 class="delete-popconfirm"
-                title="確認要修改吗?"
-                confirm-button-text="修改"
+                title="確認要更新吗?"
+                confirm-button-text="更新"
                 @onConfirm="handleUpdate(scope.row)"
               >
                 <el-button
@@ -131,13 +99,13 @@
                   size="mini"
                   type="text"
                   icon="el-icon-edit"
-                >修改
+                >更新
                 </el-button>
               </el-popconfirm>
               <el-popconfirm
                 class="delete-popconfirm"
-                title="確認要删除吗?"
-                confirm-button-text="删除"
+                title="確定刪除?"
+                confirm-button-text="刪除"
                 @onConfirm="handleDelete(scope.row)"
               >
                 <el-button
@@ -146,7 +114,7 @@
                   size="mini"
                   type="text"
                   icon="el-icon-delete"
-                >删除
+                >刪除
                 </el-button>
               </el-popconfirm>
             </template>
@@ -161,14 +129,14 @@
           @pagination="getList"
         />
 
-        <!-- 新增或修改对话框 -->
+        <!-- 新增或更新的popup -->
         <el-dialog :title="title" :visible.sync="open" width="500px">
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
 
-            <el-form-item label="标题" prop="title">
+            <el-form-item label="標題" prop="title">
               <el-input
                 v-model="form.title"
-                placeholder="标题"
+                placeholder="標題"
               />
             </el-form-item>
             <el-form-item label="作者" prop="author">
@@ -189,7 +157,7 @@
                 placeholder="狀態"
               />
             </el-form-item>
-            <el-form-item label="发布時间" prop="publishAt">
+            <el-form-item label="發佈時間" prop="publishAt">
               <el-date-picker
                 v-model="form.publishAt"
                 type="datetime"
@@ -216,47 +184,39 @@ export default {
   },
   data() {
     return {
-      // 遮罩层
+      // 遮罩
       loading: true,
-      // 選中数组
+      // 選中資料
       ids: [],
-      // 非單个禁用
+      // 非單個禁用
       single: true,
-      // 非多个禁用
+      // 非多個禁用
       multiple: true,
-      // 总条数
+      // 總筆數
       total: 0,
-      // 弹出层标题
+      // popup標題
       title: '',
-      // 是否顯示弹出层
+      // 是否顯示popup
       open: false,
       isEdit: false,
       // 類型資料字典
       typeOptions: [],
       articleList: [],
 
-      // 关系表類型
+      // 關係表類型
 
-      // 查询参数
+      // 查詢參數
       queryParams: {
         pageIndex: 1,
         pageSize: 10,
-        title: undefined,
-        author: undefined,
-        content: undefined,
-        status: undefined,
-        publishAt: undefined
+        status: undefined
 
       },
-      // 表單参数
+      // 表單參數
       form: {
       },
-      // 表單校验
-      rules: { title: [{ required: true, message: '标题不能為空', trigger: 'blur' }],
-        author: [{ required: true, message: '作者不能為空', trigger: 'blur' }],
-        content: [{ required: true, message: '内容不能為空', trigger: 'blur' }],
-        status: [{ required: true, message: '狀態不能為空', trigger: 'blur' }],
-        publishAt: [{ required: true, message: '发布時间不能為空', trigger: 'blur' }]
+      // 表單驗證
+      rules: { status: [{ required: true, message: '狀態不能為空', trigger: 'blur' }]
       }
     }
   },
@@ -264,7 +224,7 @@ export default {
     this.getList()
   },
   methods: {
-    /** 查询参数列表 */
+    /** 查詢參數列表 */
     getList() {
       this.loading = true
       listArticle(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
@@ -274,7 +234,7 @@ export default {
       }
       )
     },
-    // 取消按钮
+    // 取消按鈕
     cancel() {
       this.open = false
       this.reset()
@@ -298,33 +258,33 @@ export default {
     fileClose: function() {
       this.fileOpen = false
     },
-    // 关系
+    // 關係
     // 文件
-    /** 搜索按钮操作 */
+    /** 查詢按鈕操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()
     },
-    /** 重置按钮操作 */
+    /** 重置按鈕操作 */
     resetQuery() {
       this.dateRange = []
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    /** 新增按鈕操作 */
     handleAdd() {
       this.reset()
       this.open = true
-      this.title = '新增文章'
+      this.title = '添加內容'
       this.isEdit = false
     },
-    // 多選框選中資料
+    // 多選選中資料
     handleSelectionChange(selection) {
       this.ids = selection.map(item => item.id)
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
+    /** 更新按鈕操作 */
     handleUpdate(row) {
       this.reset()
       const id =
@@ -332,11 +292,11 @@ export default {
       getArticle(id).then(response => {
         this.form = response.data
         this.open = true
-        this.title = '修改文章'
+        this.title = '更新內容'
         this.isEdit = true
       })
     },
-    /** 提交按钮 */
+    /** 送出按鈕 */
     submitForm: function() {
       this.$refs['form'].validate(valid => {
         if (valid) {
@@ -364,11 +324,11 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    /** 刪除按鈕操作 */
     handleDelete(row) {
       var Ids = (row.id && [row.id]) || this.ids
 
-      this.$confirm('是否確認删除編號為"' + Ids + '"的資料项?', '警告', {
+      this.$confirm('是否確認刪除流水號為"' + Ids + '"的資料?', '警告', {
         confirmButtonText: '確定',
         cancelButtonText: '取消',
         type: 'warning'

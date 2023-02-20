@@ -131,7 +131,7 @@ export const selectComponents = [
     document: 'https://element.eleme.cn/#/zh-CN/component/select'
   },
   {
-    label: '级联選擇',
+    label: '級联選擇',
     tag: 'el-cascader',
     tagIcon: 'cascader',
     placeholder: '請選擇',

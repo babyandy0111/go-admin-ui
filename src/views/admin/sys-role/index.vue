@@ -52,7 +52,7 @@
             />
           </el-form-item> -->
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">查詢</el-button>
             <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
           </el-form-item>
         </el-form>
@@ -399,7 +399,7 @@ export default {
     /** 根据角色ID查询選單树结构 */
     getRoleMenuTreeselect(row, checkedKeys) {
       if (row.roleKey === 'admin') {
-        this.menuOptionsAlert = '系统超级管理員無需此操作'
+        this.menuOptionsAlert = '系统超級管理員無需此操作'
         this.menuOptions = []
       } else {
         this.$nextTick(() => {
@@ -461,7 +461,7 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 搜索按钮操作 */
+    /** 查詢按钮操作 */
     handleQuery() {
       this.queryParams.pageIndex = 1
       this.getList()

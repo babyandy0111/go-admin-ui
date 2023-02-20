@@ -305,7 +305,7 @@ function attrBuilder(el) {
   }
 }
 
-// el-buttin 子级
+// el-buttin 子級
 function buildElButtonChild(scheme) {
   const children = []
   const slot = scheme.__slot__ || {}
@@ -315,7 +315,7 @@ function buildElButtonChild(scheme) {
   return children.join('\n')
 }
 
-// el-input 子级
+// el-input 子級
 function buildElInputChild(scheme) {
   const children = []
   const slot = scheme.__slot__
@@ -328,7 +328,7 @@ function buildElInputChild(scheme) {
   return children.join('\n')
 }
 
-// el-select 子级
+// el-select 子級
 function buildElSelectChild(scheme) {
   const children = []
   const slot = scheme.__slot__
@@ -338,7 +338,7 @@ function buildElSelectChild(scheme) {
   return children.join('\n')
 }
 
-// el-radio-group 子级
+// el-radio-group 子級
 function buildElRadioGroupChild(scheme) {
   const children = []
   const slot = scheme.__slot__
@@ -351,7 +351,7 @@ function buildElRadioGroupChild(scheme) {
   return children.join('\n')
 }
 
-// el-checkbox-group 子级
+// el-checkbox-group 子級
 function buildElCheckboxGroupChild(scheme) {
   const children = []
   const slot = scheme.__slot__
@@ -364,7 +364,7 @@ function buildElCheckboxGroupChild(scheme) {
   return children.join('\n')
 }
 
-// el-upload 子级
+// el-upload 子級
 function buildElUploadChild(scheme) {
   const list = []
   const config = scheme.__config__

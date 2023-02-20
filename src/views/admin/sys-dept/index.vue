@@ -29,7 +29,7 @@
               icon="el-icon-search"
               size="mini"
               @click="handleQuery"
-            >搜索</el-button>
+            >查詢</el-button>
             <el-button
               v-permisaction="['admin:sysDept:add']"
               class="filter-item"
@@ -59,7 +59,7 @@
               >{{ statusFormat(scope.row) }}</el-tag>
             </template>
           </el-table-column>
-          <el-table-column label="創建時間" align="center" prop="createdAt" width="200">
+          <el-table-column label="建立時間" align="center" prop="createdAt" width="200">
             <template slot-scope="scope">
               <span>{{ parseTime(scope.row.createdAt) }}</span>
             </template>
@@ -97,13 +97,13 @@
           <el-form ref="form" :model="form" :rules="rules" label-width="80px">
             <el-row>
               <el-col :span="24">
-                <el-form-item label="上级部門" prop="parentId">
+                <el-form-item label="上級部門" prop="parentId">
                   <treeselect
                     v-model="form.parentId"
                     :options="deptOptions"
                     :normalizer="normalizer"
                     :show-count="true"
-                    placeholder="選擇上级部門"
+                    placeholder="選擇上級部門"
                     :is-disabled="isEdit"
                   />
                 </el-form-item>
@@ -119,13 +119,13 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="负责人" prop="leader">
-                  <el-input v-model="form.leader" placeholder="請輸入负责人" maxlength="20" />
+                <el-form-item label="負責人" prop="leader">
+                  <el-input v-model="form.leader" placeholder="請輸入負責人" maxlength="20" />
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="联系电话" prop="phone">
-                  <el-input v-model="form.phone" placeholder="請輸入联系电话" maxlength="11" />
+                <el-form-item label="聯繫電話" prop="phone">
+                  <el-input v-model="form.phone" placeholder="請輸入聯繫電話" maxlength="11" />
                 </el-form-item>
               </el-col>
               <el-col :span="12">
@@ -190,7 +190,7 @@ export default {
       // 表單校验
       rules: {
         parentId: [
-          { required: true, message: '上级部門不能為空', trigger: 'blur' }
+          { required: true, message: '上級部門不能為空', trigger: 'blur' }
         ],
         deptName: [
           { required: true, message: '部門名稱不能為空', trigger: 'blur' }
@@ -199,7 +199,7 @@ export default {
           { required: true, message: '選單顺序不能為空', trigger: 'blur' }
         ],
         leader: [
-          { required: true, message: '负责人不能為空', trigger: 'blur' }
+          { required: true, message: '負責人不能為空', trigger: 'blur' }
         ],
         email: [
           {
@@ -210,7 +210,7 @@ export default {
         ],
         phone: [
           {
-            pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
+            pattern: /^09[0-9]{8}$/,
             message: '請輸入正確的手機號碼',
             trigger: 'blur'
           }
@@ -282,7 +282,7 @@ export default {
         status: '2'
       }
     },
-    /** 搜索按钮操作 */
+    /** 查詢按钮操作 */
     handleQuery() {
       this.getList()
     },
