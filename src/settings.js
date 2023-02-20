@@ -3,7 +3,7 @@ module.exports = {
   showSettings: false,
   topNav: false,
   tagsView: false,
-  fixedHeader: true,
+  fixedHeader: false,
   sidebarLogo: true,
   errorLog: 'production',
   themeStyle: 'dark'
