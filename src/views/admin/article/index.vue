@@ -91,7 +91,7 @@
                 class="delete-popconfirm"
                 title="確認要更新吗?"
                 confirm-button-text="更新"
-                @onConfirm="handleUpdate(scope.row)"
+                @confirm="handleUpdate(scope.row)"
               >
                 <el-button
                   slot="reference"
@@ -106,7 +106,7 @@
                 class="delete-popconfirm"
                 title="確定刪除?"
                 confirm-button-text="刪除"
-                @onConfirm="handleDelete(scope.row)"
+                @confirm="handleDelete(scope.row)"
               >
                 <el-button
                   slot="reference"
@@ -287,9 +287,10 @@ export default {
     /** 更新按鈕操作 */
     handleUpdate(row) {
       this.reset()
-      const id =
-                row.id || this.ids
+      const id = row.id || this.ids
+      console.log(123)
       getArticle(id).then(response => {
+        console.log(123)
         this.form = response.data
         this.open = true
         this.title = '更新內容'

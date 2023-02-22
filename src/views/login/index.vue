@@ -146,37 +146,6 @@
       <br>
       <social-sign />
     </el-dialog>
-<!--    <div-->
-<!--      id="bottom_layer"-->
-<!--      class="s-bottom-layer s-isindex-wrap"-->
-<!--      style="visibility: visible; width: 100%"-->
-<!--    >-->
-<!--      <div class="s-bottom-layer-content">-->
-
-<!--        <div class="lh">-->
-<!--          <a class="text-color" href="https://beian.miit.gov.cn" target="_blank">-->
-<!--            沪ICP备XXXXXXXXX号-1-->
-<!--          </a>-->
-<!--        </div>-->
-<!--        <div class="open-content-info">-->
-<!--          <div class="tip-hover-panel" style="top: -18px; right: -12px">-->
-<!--            <div class="rest_info_tip">-->
-<!--              <div class="tip-wrapper">-->
-<!--                <div class="lh tip-item" style="display: none">-->
-<!--                  <a-->
-<!--                    class="text-color"-->
-<!--                    href="https://beian.miit.gov.cn"-->
-<!--                    target="_blank"-->
-<!--                  >-->
-<!--                    沪ICP备XXXXXXXXX号-1-->
-<!--                  </a>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
 </template>
 

@@ -4,7 +4,7 @@
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '12px' }">
         <chart-card title="總業績" total="$126,560">
           <el-tooltip slot="action" class="item" effect="dark" content="指標說明" placement="top-start">
-            <i class="el-icon-warning-outline"/>
+            <i class="el-icon-warning-outline" />
           </el-tooltip>
           <div>
             <trend flag="top" style="margin-right: 16px;" rate="12">
@@ -20,10 +20,10 @@
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '12px' }">
         <chart-card title="客戶數" :total="8846">
           <el-tooltip slot="action" class="item" effect="dark" content="指標說明" placement="top-start">
-            <i class="el-icon-warning-outline"/>
+            <i class="el-icon-warning-outline" />
           </el-tooltip>
           <div>
-            <mini-area/>
+            <mini-area />
           </div>
           <template slot="footer">日增客戶<span> {{ '1234' }}</span></template>
         </chart-card>
@@ -31,10 +31,10 @@
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '12px' }">
         <chart-card title="已勾稽總額" :total="6560000">
           <el-tooltip slot="action" class="item" effect="dark" content="指標說明" placement="top-start">
-            <i class="el-icon-warning-outline"/>
+            <i class="el-icon-warning-outline" />
           </el-tooltip>
           <div>
-            <mini-bar/>
+            <mini-bar />
           </div>
           <template slot="footer">轉化率 <span>60%</span></template>
         </chart-card>
@@ -42,10 +42,10 @@
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '12px' }">
         <chart-card title="業績比較" total="78%">
           <el-tooltip slot="action" class="item" effect="dark" content="指標說明" placement="top-start">
-            <i class="el-icon-warning-outline"/>
+            <i class="el-icon-warning-outline" />
           </el-tooltip>
           <div>
-            <mini-progress color="rgb(19, 194, 194)" :target="80" :percentage="78" height="8px"/>
+            <mini-progress color="rgb(19, 194, 194)" :target="80" :percentage="78" height="8px" />
           </div>
           <template slot="footer">
             <trend flag="top" style="margin-right: 16px;" rate="12">
@@ -65,20 +65,20 @@
           <el-tab-pane label="本月業績額">
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :list="barData" title="業績額排行"/>
+                <bar :list="barData" title="業績額排行" />
               </el-col>
               <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="排行榜" :list="rankList"/>
+                <rank-list title="排行榜" :list="rankList" />
               </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane label="上月業績額">
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :list="barData2" title="業績額排行"/>
+                <bar :list="barData2" title="業績額排行" />
               </el-col>
               <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="排行榜" :list="rankList"/>
+                <rank-list title="排行榜" :list="rankList" />
               </el-col>
             </el-row>
           </el-tab-pane>
