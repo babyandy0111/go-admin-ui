@@ -339,7 +339,7 @@ export default {
       single: true,
       // 非多个禁用
       multiple: true,
-      // 总条数
+      // 總筆数
       total: 0,
       // 用户表格資料
       userList: null,

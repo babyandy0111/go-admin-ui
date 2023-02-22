@@ -225,7 +225,7 @@ export default {
       single: true,
       // 非多个禁用
       multiple: true,
-      // 总条数
+      // 總筆数
       total: 0,
       // 表資料
       tableList: [],

@@ -275,7 +275,7 @@ export default {
           'el-popover',
           { props: { placement: 'top-start', width: '270', trigger: 'hover' }},
           [
-            h('p', '是都当做查詢条件，打√表示做為查詢条件', { class: 'text-align: center; margin: 0' }),
+            h('p', '是都当做查詢筆件，打√表示做為查詢筆件', { class: 'text-align: center; margin: 0' }),
             h('i', { class: 'el-icon-question', style: 'color:#ccc,padding-top:5px', slot: 'reference' })
           ]
         )

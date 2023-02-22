@@ -304,7 +304,7 @@ export default {
     }
   },
   computed: {
-    // 進度条样式
+    // 進度筆样式
     progressStyle() {
       const { progress } = this
       return {

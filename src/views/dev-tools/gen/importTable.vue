@@ -58,7 +58,7 @@ export default {
       visible: false,
       // 選中数组值
       tables: [],
-      // 总条数
+      // 總筆数
       total: 0,
       // 表資料
       dbTableList: [],

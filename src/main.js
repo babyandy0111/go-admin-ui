@@ -6,12 +6,14 @@ import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 
 import Element from 'element-ui'
 import './styles/element-variables.scss'
+import locale from 'element-ui/lib/locale/lang/zh-TW'
 
 import '@/styles/index.scss' // global css
 import '@/styles/admin.scss'
 
 import VueCodemirror from 'vue-codemirror'
 import 'codemirror/lib/codemirror.css'
+
 Vue.use(VueCodemirror)
 
 import App from './App'
@@ -19,16 +21,17 @@ import store from './store'
 import router from './router'
 import permission from './directive/permission'
 
-import { getDicts } from '@/api/admin/dict/data'
-import { getItems, setItems } from '@/api/table'
-import { getConfigKey } from '@/api/admin/sys-config'
-import { parseTime, resetForm, addDateRange, selectDictLabel, /* download,*/ selectItemsLabel } from '@/utils/costum'
+import {getDicts} from '@/api/admin/dict/data'
+import {getItems, setItems} from '@/api/table'
+import {getConfigKey} from '@/api/admin/sys-config'
+import {parseTime, resetForm, addDateRange, selectDictLabel, /* download,*/ selectItemsLabel} from '@/utils/costum'
 
 import './icons' // icon
 import './permission' // permission control
 import './utils/error-log' // error log
 
 import Viser from 'viser-vue'
+
 Vue.use(Viser)
 
 import * as filters from './filters' // global filters
@@ -37,6 +40,7 @@ import Pagination from '@/components/Pagination'
 import BasicLayout from '@/layout/BasicLayout'
 
 import VueParticles from 'vue-particles'
+
 Vue.use(VueParticles)
 
 import '@/utils/dialog'
@@ -57,25 +61,27 @@ Vue.prototype.selectItemsLabel = selectItemsLabel
 Vue.component('Pagination', Pagination)
 Vue.component('BasicLayout', BasicLayout)
 
-Vue.prototype.msgSuccess = function(msg) {
-  this.$message({ showClose: true, message: msg, type: 'success' })
+Vue.prototype.msgSuccess = function (msg) {
+  this.$message({showClose: true, message: msg, type: 'success'})
 }
 
-Vue.prototype.msgError = function(msg) {
-  this.$message({ showClose: true, message: msg, type: 'error' })
+Vue.prototype.msgError = function (msg) {
+  this.$message({showClose: true, message: msg, type: 'error'})
 }
 
-Vue.prototype.msgInfo = function(msg) {
+Vue.prototype.msgInfo = function (msg) {
   this.$message.info(msg)
 }
 
 Vue.use(permission)
 
 Vue.use(Element, {
+  locale,
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })
 
 import VueDND from 'awe-dnd'
+
 Vue.use(VueDND)
 
 import 'remixicon/fonts/remixicon.css'
