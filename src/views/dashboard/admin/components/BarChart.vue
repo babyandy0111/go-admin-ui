@@ -65,6 +65,9 @@ export default {
           data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
           axisTick: {
             alignWithLabel: true
+          },
+          axisLabel: {
+            interval: 0
           }
         }],
         yAxis: [{

@@ -32,13 +32,6 @@
     "admin-template",
     "management-system"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/go-admin-team/go-admin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/go-admin-team/go-admin/issues"
-  },
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",
     "awe-dnd": "^0.3.4",
@@ -48,7 +41,6 @@
     "core-js": "^3.6.5",
     "driver.js": "0.9.8",
     "dropzone": "5.7.2",
-    "echarts": "4.8.0",
     "element-ui": "2.15.6",
     "file-saver": "2.0.2",
     "fuse.js": "6.4.1",

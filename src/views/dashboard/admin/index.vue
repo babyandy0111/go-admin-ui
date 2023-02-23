@@ -1,4 +1,5 @@
 <template>
+
   <div class="dashboard-editor-container">
     <el-row :gutter="12">
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '12px' }">
@@ -61,21 +62,31 @@
 
     <el-card :bordered="false" :body-style="{padding: '0'}">
       <div class="salesCard">
-        <el-tabs>
-          <el-tab-pane label="本月業績額">
+        <el-tabs lazy="true">
+          <el-tab-pane label="本年度業績(TWD)">
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :list="barData" title="業績額排行" />
+                <bar :list="Data1" title="業績額排行" />
               </el-col>
               <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
                 <rank-list title="排行榜" :list="rankList" />
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="上月業績額">
+          <el-tab-pane label="本年度業績(USD)">
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :list="barData2" title="業績額排行" />
+                <bar :list="Data2" title="業績額排行" />
+              </el-col>
+              <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
+                <rank-list title="排行榜" :list="rankList" />
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="本年度業績(CNY)">
+            <el-row>
+              <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
+                <bar :list="Data3" title="業績額排行" />
               </el-col>
               <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
                 <rank-list title="排行榜" :list="rankList" />
@@ -97,19 +108,11 @@ import MiniBar from '@/components/MiniBar'
 import MiniProgress from '@/components/MiniProgress'
 import RankList from '@/components/RankList/index'
 import Bar from '@/components/Bar.vue'
+import { getSalesByM } from '@/api/dashboard'
 
-const barData = []
-const barData2 = []
-for (let i = 0; i < 12; i += 1) {
-  barData.push({
-    x: `${i + 1}月`,
-    y: Math.floor(Math.random() * 1000) + 200
-  })
-  barData2.push({
-    x: `${i + 1}月`,
-    y: Math.floor(Math.random() * 1000) + 200
-  })
-}
+const Data1 = []
+const Data2 = []
+const Data3 = []
 
 const rankList = []
 for (let i = 0; i < 7; i++) {
@@ -132,12 +135,57 @@ export default {
   },
   data() {
     return {
-      barData,
-      barData2,
-      rankList
+      Data1,
+      Data2,
+      Data3,
+      rankList,
+      myChart: null
     }
   },
-  methods: {}
+  mounted() {
+  },
+  created() {
+    this.getSalesByM()
+  },
+  methods: {
+    getSalesByM() {
+      getSalesByM({
+        currency: 'TWD',
+        year: '2022'
+      }).then(response => {
+        response.data.list.map((value, index, item) => {
+          Data1.push({
+            x: `${item[index].sales_data}`,
+            y: Math.floor(parseInt(item[index].sales_sum, 10))
+          })
+        })
+      })
+
+      getSalesByM({
+        currency: 'USD',
+        year: '2022'
+      }).then(response => {
+        response.data.list.map((value, index, item) => {
+          Data2.push({
+            x: `${item[index].sales_data}`,
+            y: Math.floor(parseInt(item[index].sales_sum, 10))
+          })
+        })
+      })
+
+      getSalesByM({
+        currency: 'CNY',
+        year: '2022'
+      }).then(response => {
+        response.data.list.map((value, index, item) => {
+          Data3.push({
+            x: `${item[index].sales_data}`,
+            y: Math.floor(parseInt(item[index].sales_sum, 10))
+          })
+        })
+      })
+    }
+  }
 }
 </script>
 
@@ -171,5 +219,10 @@ export default {
   .chart-wrapper {
     padding: 8px;
   }
+}
+
+#test {
+  width: 100%;
+  height: 600px;
 }
 </style>

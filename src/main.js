@@ -21,10 +21,10 @@ import store from './store'
 import router from './router'
 import permission from './directive/permission'
 
-import {getDicts} from '@/api/admin/dict/data'
-import {getItems, setItems} from '@/api/table'
-import {getConfigKey} from '@/api/admin/sys-config'
-import {parseTime, resetForm, addDateRange, selectDictLabel, /* download,*/ selectItemsLabel} from '@/utils/costum'
+import { getDicts } from '@/api/admin/dict/data'
+import { getItems, setItems } from '@/api/table'
+import { getConfigKey } from '@/api/admin/sys-config'
+import { parseTime, resetForm, addDateRange, selectDictLabel, /* download,*/ selectItemsLabel } from '@/utils/costum'
 
 import './icons' // icon
 import './permission' // permission control
@@ -38,7 +38,6 @@ import * as filters from './filters' // global filters
 
 import Pagination from '@/components/Pagination'
 import BasicLayout from '@/layout/BasicLayout'
-
 import VueParticles from 'vue-particles'
 
 Vue.use(VueParticles)
@@ -61,15 +60,15 @@ Vue.prototype.selectItemsLabel = selectItemsLabel
 Vue.component('Pagination', Pagination)
 Vue.component('BasicLayout', BasicLayout)
 
-Vue.prototype.msgSuccess = function (msg) {
-  this.$message({showClose: true, message: msg, type: 'success'})
+Vue.prototype.msgSuccess = function(msg) {
+  this.$message({ showClose: true, message: msg, type: 'success' })
 }
 
-Vue.prototype.msgError = function (msg) {
-  this.$message({showClose: true, message: msg, type: 'error'})
+Vue.prototype.msgError = function(msg) {
+  this.$message({ showClose: true, message: msg, type: 'error' })
 }
 
-Vue.prototype.msgInfo = function (msg) {
+Vue.prototype.msgInfo = function(msg) {
   this.$message.info(msg)
 }
 
