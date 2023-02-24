@@ -1,19 +1,26 @@
 import request from '@/utils/request'
 
-// 查詢Article列表
 export function getSalesByM(query) {
   return request({
-    url: '/api/v1/dashboard',
+    url: '/api/v1/dashboard/GetSalesByM',
     method: 'get',
     params: query
   })
 }
 
-// 查詢Article詳細
-export function getArticle(id) {
+export function getSalesTop20(query) {
   return request({
-    url: '/api/v1/article/' + id,
-    method: 'get'
+    url: '/api/v1/dashboard/GetSalesTop20',
+    method: 'get',
+    params: query
+  })
+}
+
+export function getSalesByMAccount(query) {
+  return request({
+    url: '/api/v1/dashboard/GetSalesByMAccount',
+    method: 'get',
+    params: query
   })
 }
 

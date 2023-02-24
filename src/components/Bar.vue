@@ -2,7 +2,7 @@
   <div :style="{ padding: '0 0 32px 32px' }">
     <h4 :style="{ marginBottom: '20px' }">{{ title }}</h4>
     <v-chart
-      height="254"
+      height="250"
       :data="arr"
       :force-fit="true"
       :padding="['auto', 'auto', '40', '50']"
@@ -11,8 +11,7 @@
       <v-interval
         position="x*y"
         opacity="1"
-      >
-      </v-interval>
+      />
 
       <v-tooltip
         :shared="true"
@@ -33,6 +32,8 @@
 </template>
 
 <script>
+import { kFormatter } from '@/utils'
+
 const label = {
   textStyle: {
     fill: '#aaaaaa'
@@ -48,10 +49,6 @@ const labelFormat = {
   }
 }
 
-function kFormatter(num) {
-  return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num)
-}
-
 const tickLine = {
   alignWithLabel: false,
   length: 0
@@ -59,11 +56,12 @@ const tickLine = {
 
 const defaultScale = [{
   dataKey: 'x',
-  min: 1
+  min: 1,
+  alias: '月份'
 }, {
   dataKey: 'y',
   min: 1,
-  max: 10000000,
+  // max: 10000000,
   alias: '總金額'
 }]
 

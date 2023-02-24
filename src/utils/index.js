@@ -365,3 +365,15 @@ export function formatJson(filterVal, jsonData) {
   }))
 }
 
+export function kFormatter(num) {
+  if (Math.abs(num) > 999 && Math.abs(num) <= 999999) {
+    return Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k'
+  }
+
+  if (Math.abs(num) > 999999) {
+    return Math.sign(num) * ((Math.abs(num) / 1000000).toFixed(1)) + 'M'
+  }
+
+  return Math.sign(num) * Math.abs(num)
+}
+
