@@ -97,6 +97,10 @@
             </el-row>
           </el-tab-pane>
         </el-tabs>
+
+        <el-row>
+          <vbar :list="Data4" title="產品年度排行" />
+        </el-row>
       </div>
     </el-card>
 
@@ -111,14 +115,16 @@ import MiniBar from '@/components/MiniBar'
 import MiniProgress from '@/components/MiniProgress'
 import RankList from '@/components/RankList/index'
 import Bar from '@/components/Bar.vue'
-import { getSalesByM, getSalesByMAccount, getSalesTop20 } from '@/api/dashboard'
-import {kFormatter} from "@/utils";
+import Vbar from '@/components/VBar.vue'
+import { getSalesByM, getSalesByMAccount, getSalesByProduct, getSalesTop20 } from '@/api/dashboard'
+import { kFormatter } from '@/utils'
 
 const Data1 = []
 const AccountData1 = []
 const Data2 = []
 const AccountData2 = []
 const Data3 = []
+const Data4 = []
 const AccountData3 = []
 const rankList1 = []
 const rankList2 = []
@@ -138,7 +144,8 @@ export default {
     MiniBar,
     MiniProgress,
     RankList,
-    Bar
+    Bar,
+    Vbar
   },
   data() {
     return {
@@ -148,6 +155,7 @@ export default {
       AccountData2,
       Data3,
       AccountData3,
+      Data4,
       rankList1,
       rankList2,
       rankList3,
@@ -164,6 +172,7 @@ export default {
     this.SalesByM()
     this.SalesTop20()
     this.SalesAccountNumber()
+    this.SalesProductTop10()
   },
   methods: {
     handleTabClick(tab) {
@@ -298,6 +307,19 @@ export default {
           AccountData3.push({
             x: item[index].sales_date,
             y: parseInt(item[index].account_number, 10)
+          })
+        })
+      })
+    },
+    SalesProductTop10() {
+      getSalesByProduct({
+        currency: 'TWD',
+        year: '2022'
+      }).then(response => {
+        response.data.list.map((value, index, item) => {
+          Data4.push({
+            x: item[index].product_name,
+            y: parseInt(item[index].sales_sum, 10)
           })
         })
       })

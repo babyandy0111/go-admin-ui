@@ -55,7 +55,8 @@
         </el-row>
 
         <el-table v-loading="loading" :data="articleList" @selection-change="handleSelectionChange">
-          <el-table-column type="selection" width="55" align="center" /><el-table-column
+          <el-table-column type="selection" width="55" align="center" />
+          <el-table-column
             label="標題"
             align="center"
             prop="title"
@@ -128,6 +129,85 @@
           :limit.sync="queryParams.pageSize"
           @pagination="getList"
         />
+        <br>
+        <br>
+        <br>
+        <el-row :gutter="10" class="mb8">
+          <el-table v-loading="loading" :data="articleList" @selection-change="handleSelectionChange">
+            <el-table-column type="selection" width="55" align="center" />
+            <el-table-column
+              label="標題"
+              align="center"
+              prop="title"
+              :show-overflow-tooltip="true"
+            /><el-table-column
+              label="作者"
+              align="center"
+              prop="author"
+              :show-overflow-tooltip="true"
+            /><el-table-column
+              label="内容"
+              align="center"
+              prop="content"
+              :show-overflow-tooltip="true"
+            /><el-table-column
+              label="狀態"
+              align="center"
+              prop="status"
+              :show-overflow-tooltip="true"
+            /><el-table-column
+              label="發佈時間"
+              align="center"
+              prop="publishAt"
+              :show-overflow-tooltip="true"
+            >
+              <template slot-scope="scope">
+                <span>{{ parseTime(scope.row.publishAt) }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+              <template slot-scope="scope">
+                <el-popconfirm
+                  class="delete-popconfirm"
+                  title="確認要更新吗?"
+                  confirm-button-text="更新"
+                  @confirm="handleUpdate(scope.row)"
+                >
+                  <el-button
+                    slot="reference"
+                    v-permisaction="['admin:article:edit']"
+                    size="mini"
+                    type="text"
+                    icon="el-icon-edit"
+                  >更新
+                  </el-button>
+                </el-popconfirm>
+                <el-popconfirm
+                  class="delete-popconfirm"
+                  title="確定刪除?"
+                  confirm-button-text="刪除"
+                  @confirm="handleDelete(scope.row)"
+                >
+                  <el-button
+                    slot="reference"
+                    v-permisaction="['admin:article:remove']"
+                    size="mini"
+                    type="text"
+                    icon="el-icon-delete"
+                  >刪除
+                  </el-button>
+                </el-popconfirm>
+              </template>
+            </el-table-column>
+          </el-table>
+          <pagination
+            v-show="total>0"
+            :total="total"
+            :page.sync="queryParams.pageIndex"
+            :limit.sync="queryParams.pageSize"
+            @pagination="getList"
+          />
+        </el-row>
 
         <!-- 新增或更新的popup -->
         <el-dialog :title="title" :visible.sync="open" width="500px">

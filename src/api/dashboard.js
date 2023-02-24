@@ -24,6 +24,14 @@ export function getSalesByMAccount(query) {
   })
 }
 
+export function getSalesByProduct(query) {
+  return request({
+    url: '/api/v1/dashboard/GetSalesByProduct',
+    method: 'get',
+    params: query
+  })
+}
+
 // 新增Article
 export function addArticle(data) {
   return request({
