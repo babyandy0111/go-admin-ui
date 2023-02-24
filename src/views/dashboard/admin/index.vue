@@ -99,7 +99,7 @@
         </el-tabs>
 
         <el-row>
-          <vbar :list="Data4" title="產品年度排行" />
+          <vbar :list="Data4" title="產品年度排行" lazy />
         </el-row>
       </div>
     </el-card>
@@ -172,26 +172,26 @@ export default {
     this.SalesByM()
     this.SalesTop20()
     this.SalesAccountNumber()
-    this.SalesProductTop10()
+    this.SalesProductTop10('TWD', '2022')
   },
   methods: {
     handleTabClick(tab) {
-      // console.log(tab.index)
       switch (tab.index) {
         case '0':
           console.log(this.total_twd)
           this.total = this.total_twd
           this.total_avg = this.total / 365
+          this.SalesProductTop10('TWD', '2022')
           break
         case '1':
-          console.log(this.total_usd)
           this.total = this.total_usd
           this.total_avg = this.total / 365
+          this.SalesProductTop10('USD', '2022')
           break
         case '2':
-          console.log(this.total_cny)
           this.total = this.total_cny
           this.total_avg = this.total / 365
+          this.SalesProductTop10('CNY', '2022')
           break
       }
     },
@@ -311,11 +311,12 @@ export default {
         })
       })
     },
-    SalesProductTop10() {
+    SalesProductTop10(currency, year) {
       getSalesByProduct({
-        currency: 'TWD',
-        year: '2022'
+        currency: currency,
+        year: year
       }).then(response => {
+        Data4.splice(0, Data4.length)
         response.data.list.map((value, index, item) => {
           Data4.push({
             x: item[index].product_name,

@@ -4,8 +4,8 @@
     <v-chart
       height="450"
       :data="arr"
-      :force-fit="true"
-      :padding="['auto', 'auto', '40', '50']"
+      :forceFit="true"
+      :padding="['20', '200', '50', '250']"
       :scale="defaultScale"
     >
       <v-interval
