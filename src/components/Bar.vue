@@ -62,7 +62,7 @@ const defaultScale = [{
   dataKey: 'y',
   min: 1,
   // max: 10000000,
-  alias: '總金額'
+  alias: '總數'
 }]
 
 export default {
@@ -86,7 +86,7 @@ export default {
           dataKey: 'y',
           min: 1,
           max: 10000000,
-          alias: '總金額'
+          alias: '總數'
         }]
       }
     },

@@ -134,7 +134,7 @@ const total_twd = 0
 const total_usd = 0
 const total_cny = 0
 const total_avg = 0
-
+const year = '2022'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -149,6 +149,7 @@ export default {
   },
   data() {
     return {
+      year,
       Data1,
       AccountData1,
       Data2,
@@ -169,10 +170,12 @@ export default {
   mounted() {
   },
   created() {
+    const objectDate = new Date()
+    this.year = objectDate.getFullYear()
     this.SalesByM()
     this.SalesTop20()
     this.SalesAccountNumber()
-    this.SalesProductTop10('TWD', '2022')
+    this.SalesProductTop10('TWD')
   },
   methods: {
     handleTabClick(tab) {
@@ -181,24 +184,24 @@ export default {
           console.log(this.total_twd)
           this.total = this.total_twd
           this.total_avg = this.total / 365
-          this.SalesProductTop10('TWD', '2022')
+          this.SalesProductTop10('TWD')
           break
         case '1':
           this.total = this.total_usd
           this.total_avg = this.total / 365
-          this.SalesProductTop10('USD', '2022')
+          this.SalesProductTop10('USD')
           break
         case '2':
           this.total = this.total_cny
           this.total_avg = this.total / 365
-          this.SalesProductTop10('CNY', '2022')
+          this.SalesProductTop10('CNY')
           break
       }
     },
     SalesByM() {
       getSalesByM({
         currency: 'TWD',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           Data1.push({
@@ -213,7 +216,7 @@ export default {
 
       getSalesByM({
         currency: 'USD',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           Data2.push({
@@ -226,7 +229,7 @@ export default {
 
       getSalesByM({
         currency: 'CNY',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           Data3.push({
@@ -240,7 +243,7 @@ export default {
     SalesTop20() {
       getSalesTop20({
         currency: 'TWD',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           rankList1.push({
@@ -252,7 +255,7 @@ export default {
 
       getSalesTop20({
         currency: 'USD',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           rankList2.push({
@@ -264,7 +267,7 @@ export default {
 
       getSalesTop20({
         currency: 'CNY',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           rankList3.push({
@@ -277,7 +280,7 @@ export default {
     SalesAccountNumber() {
       getSalesByMAccount({
         currency: 'TWD',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           AccountData1.push({
@@ -289,7 +292,7 @@ export default {
 
       getSalesByMAccount({
         currency: 'USD',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           AccountData2.push({
@@ -301,7 +304,7 @@ export default {
 
       getSalesByMAccount({
         currency: 'CNY',
-        year: '2022'
+        year: this.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           AccountData3.push({
@@ -311,10 +314,10 @@ export default {
         })
       })
     },
-    SalesProductTop10(currency, year) {
+    SalesProductTop10(currency) {
       getSalesByProduct({
         currency: currency,
-        year: year
+        year: this.year
       }).then(response => {
         Data4.splice(0, Data4.length)
         response.data.list.map((value, index, item) => {
