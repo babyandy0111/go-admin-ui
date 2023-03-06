@@ -19,14 +19,14 @@
         </chart-card>
       </el-col>
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '10px' }">
-        <chart-card title="客戶數" :total="8846">
+        <chart-card title="客戶數" :total="account">
           <el-tooltip slot="action" class="item" effect="dark" content="指標說明" placement="top-start">
             <i class="el-icon-warning-outline" />
           </el-tooltip>
           <div>
             <mini-area />
           </div>
-          <template slot="footer">日增客戶<span> {{ '1234' }}</span></template>
+          <template slot="footer">均日增客戶<span> {{ account_avg }}</span></template>
         </chart-card>
       </el-col>
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '10px' }">
@@ -134,6 +134,11 @@ const total_twd = 0
 const total_usd = 0
 const total_cny = 0
 const total_avg = 0
+const account = 0
+const account_twd = 0
+const account_usd = 0
+const account_cny = 0
+const account_avg = 0
 const year = '2022'
 export default {
   name: 'DashboardAdmin',
@@ -164,14 +169,19 @@ export default {
       total_twd,
       total_usd,
       total_cny,
-      total_avg
+      total_avg,
+      account,
+      account_avg,
+      account_twd,
+      account_usd,
+      account_cny
     }
   },
   mounted() {
   },
   created() {
     const objectDate = new Date()
-    this.year = objectDate.getFullYear()
+    this.year = objectDate.getFullYear() - 1
     this.SalesByM()
     this.SalesTop20()
     this.SalesAccountNumber()
@@ -183,17 +193,23 @@ export default {
         case '0':
           console.log(this.total_twd)
           this.total = this.total_twd
-          this.total_avg = this.total / 365
+          this.total_avg = kFormatter(this.total / 365)
+          this.account = this.account_twd
+          this.account_avg = kFormatter(this.account / 365)
           this.SalesProductTop10('TWD')
           break
         case '1':
           this.total = this.total_usd
-          this.total_avg = this.total / 365
+          this.total_avg = kFormatter(this.total / 365)
+          this.account = this.account_usd
+          this.account_avg = kFormatter(this.account / 365)
           this.SalesProductTop10('USD')
           break
         case '2':
           this.total = this.total_cny
-          this.total_avg = this.total / 365
+          this.total_avg = kFormatter(this.total / 365)
+          this.account = this.account_cny
+          this.account_avg = kFormatter(this.account / 365)
           this.SalesProductTop10('CNY')
           break
       }
@@ -287,7 +303,10 @@ export default {
             x: item[index].sales_date,
             y: parseInt(item[index].account_number, 10)
           })
+          this.account_twd += parseInt(item[index].account_number, 10)
         })
+        this.account = this.account_twd
+        this.account_avg = this.account_twd / 365
       })
 
       getSalesByMAccount({
@@ -299,6 +318,7 @@ export default {
             x: item[index].sales_date,
             y: parseInt(item[index].account_number, 10)
           })
+          this.account_usd += parseInt(item[index].account_number, 10)
         })
       })
 
@@ -311,6 +331,7 @@ export default {
             x: item[index].sales_date,
             y: parseInt(item[index].account_number, 10)
           })
+          this.account_cny += parseInt(item[index].account_number, 10)
         })
       })
     },
