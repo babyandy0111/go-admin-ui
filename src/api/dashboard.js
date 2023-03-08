@@ -8,9 +8,9 @@ export function getSalesByM(query) {
   })
 }
 
-export function getSalesTop20(query) {
+export function getSalesTop15(query) {
   return request({
-    url: '/api/v1/dashboard/GetSalesTop20',
+    url: '/api/v1/dashboard/GetSalesTop15',
     method: 'get',
     params: query
   })
