@@ -1,6 +1,17 @@
 <template>
 
   <div class="dashboard-editor-container">
+    <el-card class="box-card">
+      <el-form ref="queryForm" :model="queryParams" :inline="true" label-width="68px">
+        <el-form-item label="年份" prop="status">
+          <el-select v-model="queryParams.year" placeholder="選擇年度" @change="selectGet">
+            <el-option label="2023" value="2023" />
+            <el-option label="2022" value="2022" />
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </el-card>
+    <hr>
     <el-row :gutter="12">
       <el-col :sm="24" :xs="24" :md="6" :xl="6" :lg="6" :style="{ marginBottom: '10px' }">
         <chart-card title="總業績" :total="total">
@@ -60,10 +71,10 @@
       </el-col>
     </el-row>
 
-    <el-card :bordered="false" :body-style="{padding: '0'}">
+    <el-card :bordered="false" :body-style="{padding: '10'}">
       <div class="salesCard">
-        <el-tabs @tab-click="handleTabClick">
-          <el-tab-pane label="本年度業績(TWD)" lazy>
+        <el-tabs v-model="activeTab" @tab-click="handleTabClick">
+          <el-tab-pane label="TWD" name="TWD" lazy>
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
                 <bar :list="Data1" title="業績額" />
@@ -74,7 +85,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="本年度業績(USD)" lazy>
+          <el-tab-pane label="USD" name="USD" lazy>
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
                 <bar :list="Data2" title="業績額" />
@@ -85,7 +96,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="本年度業績(CNY)" lazy>
+          <el-tab-pane label="CNY" name="CNY" lazy>
             <el-row>
               <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
                 <bar :list="Data3" title="業績額" />
@@ -97,11 +108,20 @@
             </el-row>
           </el-tab-pane>
         </el-tabs>
-
+        <hr>
         <el-row>
-          <vbar :list="Data4" title="產品年度排行" lazy />
+          <el-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
+            <vbar :list="Data4" title="產品年度排行" lazy />
+          </el-col>
+          <el-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
+            <gauge />
+          </el-col>
         </el-row>
       </div>
+    </el-card>
+
+    <el-card :bordered="false" :body-style="{padding: '10'}">
+      <test />
     </el-card>
 
   </div>
@@ -116,8 +136,10 @@ import MiniProgress from '@/components/MiniProgress'
 import RankList from '@/components/RankList/index'
 import Bar from '@/components/Bar.vue'
 import Vbar from '@/components/VBar.vue'
-import { getSalesByM, getSalesByMAccount, getSalesByProduct, getSalesTop20 } from '@/api/dashboard'
+import Test from '@/components/Test.vue'
+import { getSalesByM, getSalesByMAccount, getSalesByProduct, getSalesTop15 } from '@/api/dashboard'
 import { kFormatter } from '@/utils'
+import Gauge from '@/components/Gauge'
 
 const Data1 = []
 const AccountData1 = []
@@ -139,10 +161,11 @@ const account_twd = 0
 const account_usd = 0
 const account_cny = 0
 const account_avg = 0
-const year = '2022'
+const activeTab = 'TWD'
 export default {
   name: 'DashboardAdmin',
   components: {
+    Gauge,
     ChartCard,
     Trend,
     MiniArea,
@@ -150,11 +173,11 @@ export default {
     MiniProgress,
     RankList,
     Bar,
-    Vbar
+    Vbar,
+    Test
   },
   data() {
     return {
-      year,
       Data1,
       AccountData1,
       Data2,
@@ -174,21 +197,59 @@ export default {
       account_avg,
       account_twd,
       account_usd,
-      account_cny
+      account_cny,
+      activeTab,
+      queryParams: {
+        year: '2023',
+        currency: 'TWD'
+      }
     }
   },
   mounted() {
   },
   created() {
     const objectDate = new Date()
-    this.year = objectDate.getFullYear() - 1
+    this.queryParams.year = objectDate.getFullYear() - 1
     this.SalesByM()
-    this.SalesTop20()
+    this.SalesTop15()
     this.SalesAccountNumber()
     this.SalesProductTop10('TWD')
   },
   methods: {
+    selectGet(value) {
+      this.resetData()
+      this.queryParams.year = value
+      this.queryParams.currency = 'TWD'
+      this.activeTab = this.queryParams.currency
+      this.SalesByM()
+      this.SalesTop15()
+      this.SalesAccountNumber()
+      this.SalesProductTop10(this.queryParams.currency)
+    },
+    resetData() {
+      Data1.length = 0
+      Data2.length = 0
+      Data3.length = 0
+      Data4.length = 0
+      rankList1.length = 0
+      rankList2.length = 0
+      rankList3.length = 0
+      AccountData1.length = 0
+      AccountData2.length = 0
+      AccountData3.length = 0
+      this.total = 0
+      this.total_twd = 0
+      this.total_usd = 0
+      this.total_cny = 0
+      this.total_avg = 0
+      this.account = 0
+      this.account_twd = 0
+      this.account_usd = 0
+      this.account_cny = 0
+      this.account_avg = 0
+    },
     handleTabClick(tab) {
+      Data4.length = 0
       switch (tab.index) {
         case '0':
           console.log(this.total_twd)
@@ -196,28 +257,28 @@ export default {
           this.total_avg = kFormatter(this.total / 365)
           this.account = this.account_twd
           this.account_avg = kFormatter(this.account / 365)
-          this.SalesProductTop10('TWD')
+          this.SalesProductTop10(tab.label)
           break
         case '1':
           this.total = this.total_usd
           this.total_avg = kFormatter(this.total / 365)
           this.account = this.account_usd
           this.account_avg = kFormatter(this.account / 365)
-          this.SalesProductTop10('USD')
+          this.SalesProductTop10(tab.label)
           break
         case '2':
           this.total = this.total_cny
           this.total_avg = kFormatter(this.total / 365)
           this.account = this.account_cny
           this.account_avg = kFormatter(this.account / 365)
-          this.SalesProductTop10('CNY')
+          this.SalesProductTop10(tab.label)
           break
       }
     },
     SalesByM() {
       getSalesByM({
         currency: 'TWD',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           Data1.push({
@@ -232,7 +293,7 @@ export default {
 
       getSalesByM({
         currency: 'USD',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           Data2.push({
@@ -245,7 +306,7 @@ export default {
 
       getSalesByM({
         currency: 'CNY',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           Data3.push({
@@ -256,10 +317,10 @@ export default {
         })
       })
     },
-    SalesTop20() {
-      getSalesTop20({
+    SalesTop15() {
+      getSalesTop15({
         currency: 'TWD',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           rankList1.push({
@@ -269,9 +330,9 @@ export default {
         })
       })
 
-      getSalesTop20({
+      getSalesTop15({
         currency: 'USD',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           rankList2.push({
@@ -281,9 +342,9 @@ export default {
         })
       })
 
-      getSalesTop20({
+      getSalesTop15({
         currency: 'CNY',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           rankList3.push({
@@ -296,7 +357,7 @@ export default {
     SalesAccountNumber() {
       getSalesByMAccount({
         currency: 'TWD',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           AccountData1.push({
@@ -311,7 +372,7 @@ export default {
 
       getSalesByMAccount({
         currency: 'USD',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           AccountData2.push({
@@ -324,7 +385,7 @@ export default {
 
       getSalesByMAccount({
         currency: 'CNY',
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
         response.data.list.map((value, index, item) => {
           AccountData3.push({
@@ -338,9 +399,8 @@ export default {
     SalesProductTop10(currency) {
       getSalesByProduct({
         currency: currency,
-        year: this.year
+        year: this.queryParams.year
       }).then(response => {
-        Data4.splice(0, Data4.length)
         response.data.list.map((value, index, item) => {
           Data4.push({
             x: item[index].product_name,
